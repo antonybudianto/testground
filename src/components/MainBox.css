@@ -1,0 +1,13 @@
+.main-box {
+  width: 300px;
+  background-color: white;
+  padding: 2px;
+  border: 1px solid lightgray;
+  box-shadow: 1px 1px 1px lightgray;
+  font-size: 10pt;
+  text-align: left;
+}
+
+.main-box-title {
+  border-bottom: 1px solid lightgray;
+}
