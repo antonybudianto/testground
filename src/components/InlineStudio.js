@@ -2,13 +2,18 @@ import React, { Component } from 'react'
 import elementPicker from 'element-picker'
 import MainBox from './MainBox'
 
+import fontawesome from '@fortawesome/fontawesome'
+import solid from '@fortawesome/fontawesome-free-solid'
+
+fontawesome.library.add(solid)
+
 class InlineStudio extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      showBox: false,
-      element: null
+      showBox: true,
+      element: document.createElement('div')
     }
 
     this.onSelect = this.onSelect.bind(this)
@@ -22,8 +27,8 @@ class InlineStudio extends Component {
   }
   onSelect() {
     this.setState({
-      showBox: false,
-      element: null
+      // showBox: false
+      // element: null
     }, () => {
       elementPicker.init({ onClick: this.onClick })
     })
