@@ -11,7 +11,7 @@ class MainBox extends Component {
       return null
     }
     return (
-      <Draggable>
+      <Draggable handle=".main-box-title">
         <div className="main-box">
           <div className="main-box-title">{ element.className }</div>
           <div>

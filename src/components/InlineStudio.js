@@ -12,8 +12,8 @@ class InlineStudio extends Component {
     super(props)
 
     this.state = {
-      showBox: true,
-      element: document.createElement('div')
+      showBox: false,
+      element: null
     }
 
     this.onSelect = this.onSelect.bind(this)
@@ -27,8 +27,8 @@ class InlineStudio extends Component {
   }
   onSelect() {
     this.setState({
-      // showBox: false
-      // element: null
+      showBox: false,
+      element: null
     }, () => {
       elementPicker.init({ onClick: this.onClick })
     })

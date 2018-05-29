@@ -5,3 +5,8 @@
   background-color: white;
   border: 1px solid lightgray;
 }
+
+.general-panel-input {
+  border: none;
+  border-bottom: 1px solid lightgray;
+}

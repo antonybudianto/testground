@@ -1,7 +1,6 @@
 .main-box {
   width: 300px;
   background-color: white;
-  padding: 2px;
   border: 1px solid lightgray;
   box-shadow: 1px 1px 1px lightgray;
   font-size: 10pt;
@@ -10,4 +9,9 @@
 
 .main-box-title {
   border-bottom: 1px solid lightgray;
+  padding: 3px;
+}
+
+.main-box-title:hover {
+  background-color: lightskyblue;
 }

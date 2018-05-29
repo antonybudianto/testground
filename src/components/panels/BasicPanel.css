@@ -4,5 +4,12 @@
 }
 
 .basic-panel-title {
-  color: lightgray;
+  color: gray;
+}
+
+.basic-box {
+  padding: 8px;
+  display: inline-block;
+  background-color: white;
+  border: 1px solid lightgray;
 }
