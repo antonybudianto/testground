@@ -11,9 +11,9 @@ class MainBox extends Component {
       return null
     }
     return (
-      <Draggable handle=".main-box-title">
+      <Draggable handle=".main-box__title">
         <div className="main-box">
-          <div className="main-box-title">{ element.className }</div>
+          <div className="main-box__title">{ element.className }</div>
           <div>
             <GeneralPanel element={element} />
           </div>

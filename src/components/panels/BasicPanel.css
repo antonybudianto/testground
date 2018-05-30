@@ -3,13 +3,13 @@
   margin: 5px;
 }
 
-.basic-panel--title {
+.basic-panel__title {
   color: gray;
   margin-top: 5px;
   margin-bottom: 5px;
 }
 
-.basic-panel--subtitle {
+.basic-panel__subtitle {
   color: gray;
   font-size: 10pt;
 }

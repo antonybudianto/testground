@@ -7,12 +7,12 @@
   text-align: left;
 }
 
-.main-box-title {
+.main-box__title {
   border-bottom: 1px solid lightgray;
   padding: 3px;
 }
 
-.main-box-title:hover {
+.main-box__title:hover {
   cursor: move;
   background-color: lightskyblue;
 }
