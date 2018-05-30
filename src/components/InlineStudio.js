@@ -12,6 +12,7 @@ class InlineStudio extends Component {
     super(props)
 
     this.state = {
+      selecting: false,
       element: null
     }
 
@@ -20,11 +21,13 @@ class InlineStudio extends Component {
   }
   onClick(el){
     this.setState({
-      element: el
+      element: el,
+      selecting: false
     })
   }
   onSelect() {
     this.setState({
+      selecting: true,
       element: null
     }, () => {
       elementPicker.init({ onClick: this.onClick })
@@ -34,6 +37,7 @@ class InlineStudio extends Component {
     return (
       <div>
         <MainBox onSelect={this.onSelect}
+          selecting={this.state.selecting}
           element={this.state.element} />
       </div>
     )

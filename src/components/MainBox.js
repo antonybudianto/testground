@@ -7,10 +7,8 @@ import GeneralPanel from './panels/GeneralPanel'
 class MainBox extends Component {
   render () {
     const { element } = this.props
-    // if (element === null) {
-    //   return null
-    // }
-    const elementTitle = element ? element.className : 'React Inline Studio'
+    const elementTitle = element ?
+      `<${element.localName}> ${element.className}` : 'React Inline Studio'
 
     return (
       <Draggable handle=".main-box__title">
@@ -32,7 +30,8 @@ class MainBox extends Component {
           <div style={{
             padding: '5px'
           }}>
-            <button onClick={this.props.onSelect}>Select</button>
+            <button onClick={this.props.onSelect}>
+              {this.props.selecting ? 'Selecting...' : 'Select'}</button>
           </div>
         </div>
       </Draggable>
