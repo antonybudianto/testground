@@ -5,7 +5,7 @@ class BasicPanel extends Component {
   render () {
     return (
       <div className="basic-panel">
-        <div className="basic-panel-title">{this.props.title}</div>
+        <div className="basic-panel--title">{this.props.title}</div>
         {this.props.children}
       </div>
     )

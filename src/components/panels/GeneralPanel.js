@@ -36,6 +36,7 @@ class GeneralPanel extends Component {
   render () {
     return (
       <BasicPanel title="GENERAL">
+        <strong className="basic-panel--subtitle">Text</strong>
         <div>
           <button onClick={() => this.setAlign('left')} className="general-panel-icon">
             <i className="fas fa-align-left"></i>

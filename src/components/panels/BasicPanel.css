@@ -3,8 +3,15 @@
   margin: 5px;
 }
 
-.basic-panel-title {
+.basic-panel--title {
   color: gray;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.basic-panel--subtitle {
+  color: gray;
+  font-size: 10pt;
 }
 
 .basic-box {

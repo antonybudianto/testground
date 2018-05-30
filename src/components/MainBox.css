@@ -13,5 +13,6 @@
 }
 
 .main-box-title:hover {
+  cursor: move;
   background-color: lightskyblue;
 }
