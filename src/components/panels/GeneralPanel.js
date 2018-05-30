@@ -9,11 +9,15 @@ class GeneralPanel extends Component {
     super(props)
 
     this.state = {
-      fontSize: props.element.style.fontSize
+      style: {
+        fontSize: props.element.style.fontSize,
+        fontWeight: props.element.style.fontWeight
+      }
     }
 
     this.setAlign = this.setAlign.bind(this)
     this.handleFontSizeChange = this.handleFontSizeChange.bind(this)
+    this.handleFontWeight = this.handleFontWeight.bind(this)
   }
 
   componentDidMount () {
@@ -29,8 +33,25 @@ class GeneralPanel extends Component {
     let val = e.target.value
     this.props.element.style.fontSize = val
     this.setState({
-      fontSize: val
+      style: {
+        ...this.state.style,
+        fontSize: val
+      }
     })
+  }
+
+  handleFontWeight (val) {
+    let finalVal = val
+    if (this.state.style.fontWeight === val) {
+      finalVal = 'initial'
+    }
+    this.setState({
+      style: {
+        ...this.state.style,
+        fontWeight: finalVal
+      }
+    })
+    this.props.element.style.fontWeight = finalVal
   }
 
   render () {
@@ -38,7 +59,7 @@ class GeneralPanel extends Component {
       <BasicPanel title="GENERAL">
         <strong className="basic-panel__subtitle">Text</strong>
         <div>
-          <button onClick={() => this.setAlign('left')} className="general-panel-icon">
+          <button onClick={() => this.handleFontWeight('bold')} className="general-panel-icon">
             <i className="fas fa-bold"></i>
           </button>
           <button onClick={() => this.setAlign('left')} className="general-panel-icon">
@@ -56,7 +77,7 @@ class GeneralPanel extends Component {
         </div>
         <div>
           <div className="basic-box">Font size: &nbsp;
-            <input type="text" value={this.state.fontSize}
+            <input type="text" value={this.state.style.fontSize}
               onChange={this.handleFontSizeChange}
               style={{width: 40}} className="general-panel-input" /></div>
         </div>
