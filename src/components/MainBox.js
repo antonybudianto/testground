@@ -11,7 +11,8 @@ class MainBox extends Component {
       `<${element.localName}> ${element.className}` : 'React Inline Studio'
 
     return (
-      <Draggable handle=".main-box__title">
+      <Draggable handle=".main-box__title"
+        defaultPosition={{x: 50, y: 25}}>
         <div className="main-box">
           <div className="main-box__title">{ elementTitle }</div>
           {
