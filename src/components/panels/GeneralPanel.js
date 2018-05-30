@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Classnames from 'classnames'
 import BasicPanel from './BasicPanel'
 
 import 'font-awesome/css/font-awesome.css'
@@ -55,11 +56,15 @@ class GeneralPanel extends Component {
   }
 
   render () {
+    const { style } = this.state
     return (
       <BasicPanel title="GENERAL">
         <strong className="basic-panel__subtitle">Text</strong>
         <div>
-          <button onClick={() => this.handleFontWeight('bold')} className="general-panel-icon">
+          <button onClick={() => this.handleFontWeight('bold')}
+            className={Classnames("general-panel-icon", {
+              'general-panel-icon--active': style.fontWeight === 'bold'
+            })}>
             <i className="fas fa-bold"></i>
           </button>
           <button onClick={() => this.setAlign('left')} className="general-panel-icon">
@@ -77,7 +82,7 @@ class GeneralPanel extends Component {
         </div>
         <div>
           <div className="basic-box">Font size: &nbsp;
-            <input type="text" value={this.state.style.fontSize}
+            <input type="text" value={style.fontSize}
               onChange={this.handleFontSizeChange}
               style={{width: 40}} className="general-panel-input" /></div>
         </div>

@@ -6,6 +6,12 @@
   border: 1px solid lightgray;
 }
 
+.general-panel-icon:focus {outline:0;}
+
+.general-panel-icon--active {
+  background-color: lightblue;
+}
+
 .general-panel-input {
   border: none;
   border-bottom: 1px solid lightgray;
