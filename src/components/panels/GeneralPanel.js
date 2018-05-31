@@ -13,7 +13,8 @@ class GeneralPanel extends Component {
       style: {
         fontSize: props.element.style.fontSize,
         fontWeight: props.element.style.fontWeight,
-        fontStyle: props.element.style.fontStyle
+        fontStyle: props.element.style.fontStyle,
+        textAlign: props.element.style.textAlign
       }
     }
 
@@ -74,16 +75,28 @@ class GeneralPanel extends Component {
             })}>
             <i className="fas fa-italic"></i>
           </button>
-          <button onClick={() => this.setAlign('left')} className="general-panel-icon">
+          <button onClick={() => this.handleChangeStyle('textAlign', 'left')}
+            className={Classnames("general-panel-icon", {
+              'general-panel-icon--active': style.textAlign === 'left'
+            })}>
             <i className="fas fa-align-left"></i>
           </button>
-          <button onClick={() => this.setAlign('center')} className="general-panel-icon">
+          <button onClick={() => this.handleChangeStyle('textAlign', 'center')}
+            className={Classnames("general-panel-icon", {
+              'general-panel-icon--active': style.textAlign === 'center'
+            })}>
             <i className="fas fa-align-center"></i>
           </button>
-          <button onClick={() => this.setAlign('right')} className="general-panel-icon">
+          <button onClick={() => this.handleChangeStyle('textAlign', 'right')}
+            className={Classnames("general-panel-icon", {
+              'general-panel-icon--active': style.textAlign === 'right'
+            })}>
             <i className="fas fa-align-right"></i>
           </button>
-          <button onClick={() => this.setAlign('justify')} className="general-panel-icon">
+          <button onClick={() => this.handleChangeStyle('textAlign', 'justify')}
+            className={Classnames("general-panel-icon", {
+              'general-panel-icon--active': style.textAlign === 'justify'
+            })}>
             <i className="fas fa-align-justify"></i>
           </button>
         </div>
