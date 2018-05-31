@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-
 import { string as styleToString } from 'to-style'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
+
+import Button from '../components/controls/Button'
 
 class SourceView extends Component {
   render () {
@@ -22,19 +23,17 @@ class SourceView extends Component {
       }}>
         <strong className="basic-panel__subtitle">OBJECT</strong> &nbsp;
         <CopyToClipboard text={display}>
-          <button style={{
+          <Button style={{
             float: 'right'
-          }}
-            className="general-panel-icon"><i className="fas fa-clipboard"></i></button>
+          }}><i className="fas fa-clipboard"></i></Button>
         </CopyToClipboard>
         <pre>{display}</pre>
 
         <strong className="basic-panel__subtitle">CSS</strong> &nbsp;
         <CopyToClipboard text={displayCss}>
-          <button style={{
+          <Button style={{
             float: 'right'
-          }}
-            className="general-panel-icon"><i className="fas fa-clipboard"></i></button>
+          }}><i className="fas fa-clipboard"></i></Button>
         </CopyToClipboard>
         <pre>{displayCss}</pre>
       </div>

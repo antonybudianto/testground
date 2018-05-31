@@ -3,8 +3,8 @@ import Classnames from 'classnames'
 
 const Button = (props) => (
   <button {...props}
-    className={Classnames("general-panel-icon", {
-      'general-panel-icon--active': props.active
+    className={Classnames("main-box__btn main-box__btn--icon", {
+      'main-box__btn--active': props.active
     })}>
     {props.children}
   </button>
