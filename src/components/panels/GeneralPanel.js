@@ -24,7 +24,7 @@ class GeneralPanel extends Component {
   }
 
   componentDidMount () {
-    console.log(this.props.element)
+    // console.log(this.props.element)
   }
 
   setAlign (align) {
