@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import BasicPanel from './BasicPanel'
 
-import Button from '../controls/Button'
-import 'font-awesome/css/font-awesome.css'
+import BasicPanel from '../BasicPanel'
+import Button from '../../controls/Button'
 import './GeneralPanel.css'
 
 class GeneralPanel extends Component {
