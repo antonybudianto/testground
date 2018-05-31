@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import { string as styleToString } from 'to-style'
+
 class SourceView extends Component {
   render () {
     const { element } = this.props
@@ -12,12 +14,17 @@ class SourceView extends Component {
         }
       }, {})
     const display = JSON.stringify(style, null, 2)
+    let displayCss = styleToString(style).replace(/; /g, '; \n')
+    displayCss = displayCss ? displayCss + ';' : ''
     return (
       <div style={{
         padding: '5px'
       }}>
-        <strong className="basic-panel__subtitle">SOURCE</strong>
+        <strong className="basic-panel__subtitle">OBJECT</strong>
         <pre>{display}</pre>
+
+        <strong className="basic-panel__subtitle">CSS</strong>
+        <pre>{displayCss}</pre>
       </div>
     )
   }
