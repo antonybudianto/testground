@@ -70,11 +70,11 @@ class MainBox extends Component {
           <div style={{
             padding: '5px'
           }}>
-            <button onClick={this.handleSelect}>
+            <button className="main-box__btn" onClick={this.handleSelect}>
               {this.props.selecting ? 'Selecting...' : 'Select'}</button>
             {
               element && (
-                <button onClick={this.toggleView}>
+                <button className="main-box__btn" onClick={this.toggleView}>
                   {this.state.view === 1 ? 'View source' : 'View tools'}
                 </button>
               )

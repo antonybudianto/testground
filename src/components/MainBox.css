@@ -16,3 +16,27 @@
   cursor: move;
   background-color: lightskyblue;
 }
+
+.main-box__btn {
+  font-size: 12pt;
+  padding: 6px;
+  margin: 2px;
+  display: inline-block;
+  background-color: white;
+  border: 1px solid lightgray;
+}
+
+.main-box__btn--icon {
+  padding: 8px;
+  margin: 0;
+}
+
+.main-box__btn:focus {outline:0;}
+
+.main-box__btn:active {
+  background-color: lightgray;
+}
+
+.main-box__btn--active {
+  background-color: lightblue;
+}
