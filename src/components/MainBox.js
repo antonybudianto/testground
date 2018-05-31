@@ -16,6 +16,12 @@ class MainBox extends Component {
     this.changeView = this.changeView.bind(this)
     this.renderView = this.renderView.bind(this)
     this.toggleView = this.toggleView.bind(this)
+    this.handleSelect = this.handleSelect.bind(this)
+  }
+
+  handleSelect () {
+    this.setState({ view: 1 })
+    this.props.onSelect()
   }
 
   changeView (view) {
@@ -46,7 +52,7 @@ class MainBox extends Component {
           </div>
       )
     } else {
-      return <SourceView />
+      return <SourceView element={element} />
     }
   }
 
@@ -64,11 +70,15 @@ class MainBox extends Component {
           <div style={{
             padding: '5px'
           }}>
-            <button onClick={this.props.onSelect}>
+            <button onClick={this.handleSelect}>
               {this.props.selecting ? 'Selecting...' : 'Select'}</button>
-            <button onClick={this.toggleView}>
-              {this.state.view === 1 ? 'View source' : 'View tools'}
-            </button>
+            {
+              element && (
+                <button onClick={this.toggleView}>
+                  {this.state.view === 1 ? 'View source' : 'View tools'}
+                </button>
+              )
+            }
           </div>
         </div>
       </Draggable>
