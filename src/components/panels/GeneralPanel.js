@@ -14,7 +14,8 @@ class GeneralPanel extends Component {
         fontSize: props.element.style.fontSize,
         fontWeight: props.element.style.fontWeight,
         fontStyle: props.element.style.fontStyle,
-        textAlign: props.element.style.textAlign
+        textAlign: props.element.style.textAlign,
+        textDecoration: props.element.style.textDecoration
       }
     }
 
@@ -70,6 +71,14 @@ class GeneralPanel extends Component {
           <Button onClick={() => this.handleChangeStyle('fontStyle', 'italic')}
               active={style.fontStyle === 'italic'}>
             <i className="fas fa-italic"></i>
+          </Button>
+          <Button onClick={() => this.handleChangeStyle('textDecoration', 'underline')}
+              active={style.textDecoration === 'underline'}>
+            <i className="fas fa-underline"></i>
+          </Button>
+          <Button onClick={() => this.handleChangeStyle('textDecoration', 'line-through')}
+              active={style.textDecoration === 'line-through'}>
+            <i className="fas fa-strikethrough"></i>
           </Button>
           <Button onClick={() => this.handleChangeStyle('textAlign', 'left')}
               active={style.textAlign === 'left'}>

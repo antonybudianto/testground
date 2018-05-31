@@ -1,5 +1,5 @@
 .main-box {
-  width: 300px;
+  display: inline-block;
   background-color: white;
   border: 1px solid lightgray;
   box-shadow: 1px 1px 1px lightgray;
