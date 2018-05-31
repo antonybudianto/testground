@@ -9,6 +9,7 @@
     "element-picker": "^1.0.1",
     "font-awesome": "^4.7.0",
     "react": "^16.4.0",
+    "react-clipboard.js": "^2.0.0",
     "react-dom": "^16.4.0",
     "react-draggable": "^3.0.5",
     "react-scripts": "1.1.4",
