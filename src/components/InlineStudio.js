@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import elementPicker from 'element-picker'
 import MainBox from './MainBox'
 
+import 'basscss/css/basscss.css'
 import fontawesome from '@fortawesome/fontawesome'
 import solid from '@fortawesome/fontawesome-free-solid'
 
