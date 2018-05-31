@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Classnames from 'classnames'
 import BasicPanel from './BasicPanel'
 
+import Button from '../controls/Button'
 import 'font-awesome/css/font-awesome.css'
 import './GeneralPanel.css'
 
@@ -63,42 +63,30 @@ class GeneralPanel extends Component {
       <BasicPanel title="GENERAL">
         <strong className="basic-panel__subtitle">Text</strong>
         <div>
-          <button onClick={() => this.handleChangeStyle('fontWeight', 'bold')}
-            className={Classnames("general-panel-icon", {
-              'general-panel-icon--active': style.fontWeight === 'bold'
-            })}>
+          <Button onClick={() => this.handleChangeStyle('fontWeight', 'bold')}
+              active={style.fontWeight === 'bold'}>
             <i className="fas fa-bold"></i>
-          </button>
-          <button onClick={() => this.handleChangeStyle('fontStyle', 'italic')}
-            className={Classnames("general-panel-icon", {
-              'general-panel-icon--active': style.fontStyle === 'italic'
-            })}>
+          </Button>
+          <Button onClick={() => this.handleChangeStyle('fontStyle', 'italic')}
+              active={style.fontStyle === 'italic'}>
             <i className="fas fa-italic"></i>
-          </button>
-          <button onClick={() => this.handleChangeStyle('textAlign', 'left')}
-            className={Classnames("general-panel-icon", {
-              'general-panel-icon--active': style.textAlign === 'left'
-            })}>
+          </Button>
+          <Button onClick={() => this.handleChangeStyle('textAlign', 'left')}
+              active={style.textAlign === 'left'}>
             <i className="fas fa-align-left"></i>
-          </button>
-          <button onClick={() => this.handleChangeStyle('textAlign', 'center')}
-            className={Classnames("general-panel-icon", {
-              'general-panel-icon--active': style.textAlign === 'center'
-            })}>
+          </Button>
+          <Button onClick={() => this.handleChangeStyle('textAlign', 'center')}
+              active={style.textAlign === 'center'}>
             <i className="fas fa-align-center"></i>
-          </button>
-          <button onClick={() => this.handleChangeStyle('textAlign', 'right')}
-            className={Classnames("general-panel-icon", {
-              'general-panel-icon--active': style.textAlign === 'right'
-            })}>
+          </Button>
+          <Button onClick={() => this.handleChangeStyle('textAlign', 'right')}
+              active={style.textAlign === 'right'}>
             <i className="fas fa-align-right"></i>
-          </button>
-          <button onClick={() => this.handleChangeStyle('textAlign', 'justify')}
-            className={Classnames("general-panel-icon", {
-              'general-panel-icon--active': style.textAlign === 'justify'
-            })}>
+          </Button>
+          <Button onClick={() => this.handleChangeStyle('textAlign', 'justify')}
+              active={style.textAlign === 'justify'}>
             <i className="fas fa-align-justify"></i>
-          </button>
+          </Button>
         </div>
         <div>
           <div className="basic-box">Font size: &nbsp;
