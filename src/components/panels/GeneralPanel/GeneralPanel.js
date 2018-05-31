@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import BasicPanel from '../BasicPanel'
 import Button from '../../controls/Button'
 import './GeneralPanel.css'
+import BoxSubpanel from './components/BoxSubpanel'
 
 class GeneralPanel extends Component {
   constructor(props) {
@@ -102,6 +103,7 @@ class GeneralPanel extends Component {
               onChange={this.handleFontSizeChange}
               style={{width: 40}} className="general-panel-input" /></div>
         </div>
+        <BoxSubpanel />
       </BasicPanel>
     )
   }
