@@ -60,6 +60,7 @@ class GeneralPanel extends Component {
 
   render () {
     const { style } = this.state
+    const { element } = this.props
     return (
       <BasicPanel title="GENERAL">
         <strong className="basic-panel__subtitle">Text</strong>
@@ -103,7 +104,7 @@ class GeneralPanel extends Component {
               onChange={this.handleFontSizeChange}
               style={{width: 40}} className="general-panel-input" /></div>
         </div>
-        <BoxSubpanel />
+        <BoxSubpanel element={element} />
       </BasicPanel>
     )
   }
