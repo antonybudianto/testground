@@ -12,13 +12,14 @@ class GeneralPanel extends Component {
     this.state = {
       style: {
         fontSize: props.element.style.fontSize,
-        fontWeight: props.element.style.fontWeight
+        fontWeight: props.element.style.fontWeight,
+        fontStyle: props.element.style.fontStyle
       }
     }
 
     this.setAlign = this.setAlign.bind(this)
     this.handleFontSizeChange = this.handleFontSizeChange.bind(this)
-    this.handleFontWeight = this.handleFontWeight.bind(this)
+    this.handleChangeStyle = this.handleChangeStyle.bind(this)
   }
 
   componentDidMount () {
@@ -41,18 +42,18 @@ class GeneralPanel extends Component {
     })
   }
 
-  handleFontWeight (val) {
+  handleChangeStyle (field, val) {
     let finalVal = val
-    if (this.state.style.fontWeight === val) {
-      finalVal = 'initial'
+    if (this.state.style[field] === val) {
+      finalVal = null
     }
     this.setState({
       style: {
         ...this.state.style,
-        fontWeight: finalVal
+      [field]: finalVal
       }
     })
-    this.props.element.style.fontWeight = finalVal
+    this.props.element.style[field] = finalVal
   }
 
   render () {
@@ -61,11 +62,17 @@ class GeneralPanel extends Component {
       <BasicPanel title="GENERAL">
         <strong className="basic-panel__subtitle">Text</strong>
         <div>
-          <button onClick={() => this.handleFontWeight('bold')}
+          <button onClick={() => this.handleChangeStyle('fontWeight', 'bold')}
             className={Classnames("general-panel-icon", {
               'general-panel-icon--active': style.fontWeight === 'bold'
             })}>
             <i className="fas fa-bold"></i>
+          </button>
+          <button onClick={() => this.handleChangeStyle('fontStyle', 'italic')}
+            className={Classnames("general-panel-icon", {
+              'general-panel-icon--active': style.fontStyle === 'italic'
+            })}>
+            <i className="fas fa-italic"></i>
           </button>
           <button onClick={() => this.setAlign('left')} className="general-panel-icon">
             <i className="fas fa-align-left"></i>
