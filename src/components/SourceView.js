@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import { string as styleToString } from 'to-style'
-import Clipboard from 'react-clipboard.js'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 class SourceView extends Component {
   render () {
@@ -21,15 +21,21 @@ class SourceView extends Component {
         padding: '5px'
       }}>
         <strong className="basic-panel__subtitle">OBJECT</strong> &nbsp;
-        <Clipboard data-clipboard-text={display}>
-          <i className="fas fa-clipboard"></i>
-        </Clipboard>
+        <CopyToClipboard text={display}>
+          <button style={{
+            float: 'right'
+          }}
+            className="general-panel-icon"><i className="fas fa-clipboard"></i></button>
+        </CopyToClipboard>
         <pre>{display}</pre>
 
         <strong className="basic-panel__subtitle">CSS</strong> &nbsp;
-        <Clipboard data-clipboard-text={displayCss}>
-          <i className="fas fa-clipboard"></i>
-        </Clipboard>
+        <CopyToClipboard text={displayCss}>
+          <button style={{
+            float: 'right'
+          }}
+            className="general-panel-icon"><i className="fas fa-clipboard"></i></button>
+        </CopyToClipboard>
         <pre>{displayCss}</pre>
       </div>
     )

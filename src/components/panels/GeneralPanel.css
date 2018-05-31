@@ -8,6 +8,10 @@
 
 .general-panel-icon:focus {outline:0;}
 
+.general-panel-icon:active {
+  background-color: lightgray;
+}
+
 .general-panel-icon--active {
   background-color: lightblue;
 }
