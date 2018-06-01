@@ -41,13 +41,11 @@ class InlineStudio extends Component {
   }
   render() {
     return (
-      <div>
-        <MainBox
-          onSelect={this.onSelect}
-          selecting={this.state.selecting}
-          element={this.state.element}
-        />
-      </div>
+      <MainBox
+        onSelect={this.onSelect}
+        selecting={this.state.selecting}
+        element={this.state.element}
+      />
     );
   }
 }
