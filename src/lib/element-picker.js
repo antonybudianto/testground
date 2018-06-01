@@ -4,6 +4,9 @@
  * @author  James Bechet <jamesbechet@gmail.com>
  * @license MIT
  */
+
+// Originally forked from https://github.com/jamesbechet/element-picker
+
 var define = undefined;
 
 (function elementPickerModule(factory) {
