@@ -25,6 +25,10 @@ class ColorPicker extends Component {
     let val = data.hex;
     if (data.source === 'rgb') {
       val = `rgba(${data.rgb.r},${data.rgb.g},${data.rgb.b},${data.rgb.a})`;
+    } else if (data.source === 'hsl') {
+      val = `hsla(${data.hsl.h},${data.hsl.s * 100}%,${data.hsl.l * 100}%,${
+        data.hsl.a
+      })`;
     }
     this.props.onColorChange(val);
   }
