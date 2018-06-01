@@ -12,12 +12,21 @@ class ColorPicker extends Component {
     };
 
     this.handleClick = this.handleClick.bind(this);
+    this.handleColorChange = this.handleColorChange.bind(this);
   }
 
   handleClick() {
     this.setState({
       showPicker: !this.state.showPicker,
     });
+  }
+
+  handleColorChange(data) {
+    let val = data.hex;
+    if (data.source === 'rgb') {
+      val = `rgba(${data.rgb.r},${data.rgb.g},${data.rgb.b},${data.rgb.a})`;
+    }
+    this.props.onColorChange(val);
   }
 
   render() {
@@ -31,10 +40,12 @@ class ColorPicker extends Component {
           }}
         />
         {this.state.showPicker && (
-          <ChromePicker
-            color={this.props.color}
-            onChangeComplete={this.props.onChangeComplete}
-          />
+          <div style={{ position: 'absolute' }}>
+            <ChromePicker
+              color={this.props.color}
+              onChangeComplete={this.handleColorChange}
+            />
+          </div>
         )}
       </div>
     );

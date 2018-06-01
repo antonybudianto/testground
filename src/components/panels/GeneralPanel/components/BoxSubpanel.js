@@ -14,14 +14,14 @@ class BoxSubpanel extends Component {
     this.handleColorChange = this.handleColorChange.bind(this);
   }
 
-  handleColorChange(data) {
+  handleColorChange(val) {
     this.setState({
       style: {
         ...this.state.style,
-        backgroundColor: data.hex,
+        backgroundColor: val,
       },
     });
-    this.props.element.style.backgroundColor = data.hex;
+    this.props.element.style.backgroundColor = val;
   }
 
   render() {
@@ -31,7 +31,7 @@ class BoxSubpanel extends Component {
         <strong className="basic-panel__subtitle">Element</strong>
         <div>
           <ColorPicker
-            onChangeComplete={this.handleColorChange}
+            onColorChange={this.handleColorChange}
             color={this.state.style.backgroundColor}
           />
         </div>
