@@ -26,7 +26,7 @@ class InlineStudio extends Component {
         element: el,
         selecting: false
       })
-    }, 50)
+    }, 1)
   }
   onSelect() {
     this.setState({
