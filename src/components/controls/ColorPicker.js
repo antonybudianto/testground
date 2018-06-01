@@ -1,42 +1,44 @@
-import React, { Component } from 'react'
-import { ChromePicker } from 'react-color'
+import React, { Component } from 'react';
+import { ChromePicker } from 'react-color';
 
-import './ColorPicker.css'
+import './ColorPicker.css';
 
 class ColorPicker extends Component {
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
 
     this.state = {
-      showPicker: false
-    }
+      showPicker: false,
+    };
 
-    this.handleClick = this.handleClick.bind(this)
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick () {
+  handleClick() {
     this.setState({
-      showPicker: !this.state.showPicker
-    })
+      showPicker: !this.state.showPicker,
+    });
   }
 
-  render () {
+  render() {
     return (
       <div>
-        <div onClick={this.handleClick}
+        <div
+          onClick={this.handleClick}
           className="color-picker"
           style={{
-            backgroundColor: this.props.color
-        }}></div>
-        {
-          this.state.showPicker && (
-            <ChromePicker color={this.props.color}
-              onChangeComplete={this.props.onChangeComplete} />
-          )
-        }
+            backgroundColor: this.props.color,
+          }}
+        />
+        {this.state.showPicker && (
+          <ChromePicker
+            color={this.props.color}
+            onChangeComplete={this.props.onChangeComplete}
+          />
+        )}
       </div>
-    )
+    );
   }
 }
 
-export default ColorPicker
+export default ColorPicker;

@@ -1,3 +1,3 @@
-import GeneralPanel from './GeneralPanel'
+import GeneralPanel from './GeneralPanel';
 
-export default GeneralPanel
+export default GeneralPanel;

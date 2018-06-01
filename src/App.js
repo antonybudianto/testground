@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import InlineStudio from './components/InlineStudio'
+import InlineStudio from './components/InlineStudio';
 
 class App extends Component {
   render() {
