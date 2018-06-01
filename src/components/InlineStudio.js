@@ -21,10 +21,12 @@ class InlineStudio extends Component {
     this.onClick = this.onClick.bind(this)
   }
   onClick(el){
-    this.setState({
-      element: el,
-      selecting: false
-    })
+    setTimeout(() => {
+      this.setState({
+        element: el,
+        selecting: false
+      })
+    }, 50)
   }
   onSelect() {
     this.setState({
