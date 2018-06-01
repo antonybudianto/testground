@@ -37,11 +37,7 @@ class SourceView extends Component {
         <div className="flex justify-between items-center">
           <strong className="basic-panel__subtitle">CSS</strong> &nbsp;
           <CopyToClipboard text={displayCss}>
-            <Button
-              style={{
-                float: 'right',
-              }}
-            >
+            <Button>
               <i className="fas fa-clipboard" />
             </Button>
           </CopyToClipboard>
