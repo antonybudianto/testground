@@ -1,0 +1,4 @@
+.source-view__content {
+  max-height: 100px;
+  overflow-y: auto;
+}
