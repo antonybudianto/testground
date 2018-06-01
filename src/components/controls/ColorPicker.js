@@ -27,7 +27,7 @@ class ColorPicker extends Component {
           className="color-picker"
           style={{
             backgroundColor: this.props.color
-        }}>{this.props.color}</div>
+        }}></div>
         {
           this.state.showPicker && (
             <ChromePicker color={this.props.color}
