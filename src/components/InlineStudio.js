@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 // import elementPicker from 'element-picker';
 import MainBox from './MainBox';
 
-import elementPicker from '../lib/element-picker';
+// import elementPicker from '../lib/element-picker';
+import { startPick } from '../lib/element-inspector';
 import 'basscss/css/basscss.css';
 import fontawesome from '@fortawesome/fontawesome';
 import solid from '@fortawesome/fontawesome-free-solid';
@@ -36,7 +37,7 @@ class InlineStudio extends Component {
         element: null,
       },
       () => {
-        elementPicker.init({
+        startPick({
           onClick: this.onClick,
           excludedTarget: '.main-box',
         });
