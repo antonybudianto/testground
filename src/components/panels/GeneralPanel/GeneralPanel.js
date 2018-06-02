@@ -4,6 +4,7 @@ import BasicPanel from '../BasicPanel';
 import Button from '../../controls/Button';
 import './GeneralPanel.css';
 import BoxSubpanel from './components/BoxSubpanel';
+import { handleChangeStyle } from '../../../util/change-style';
 
 class GeneralPanel extends Component {
   constructor(props) {
@@ -18,44 +19,6 @@ class GeneralPanel extends Component {
         textDecoration: props.element.style.textDecoration,
       },
     };
-
-    this.setAlign = this.setAlign.bind(this);
-    this.handleFontSizeChange = this.handleFontSizeChange.bind(this);
-    this.handleChangeStyle = this.handleChangeStyle.bind(this);
-  }
-
-  componentDidMount() {
-    // console.log(this.props.element)
-  }
-
-  setAlign(align) {
-    this.props.element.style.textAlign = align;
-  }
-
-  handleFontSizeChange(e) {
-    e.preventDefault();
-    let val = e.target.value;
-    this.props.element.style.fontSize = val;
-    this.setState({
-      style: {
-        ...this.state.style,
-        fontSize: val,
-      },
-    });
-  }
-
-  handleChangeStyle(field, val) {
-    let finalVal = val;
-    if (this.state.style[field] === val) {
-      finalVal = null;
-    }
-    this.setState({
-      style: {
-        ...this.state.style,
-        [field]: finalVal,
-      },
-    });
-    this.props.element.style[field] = finalVal;
   }
 
   render() {
@@ -67,14 +30,18 @@ class GeneralPanel extends Component {
         <div>
           <Button
             icon
-            onClick={() => this.handleChangeStyle('fontWeight', 'bold')}
+            onClick={() =>
+              this.setState(handleChangeStyle('fontWeight', 'bold'))
+            }
             active={style.fontWeight === 'bold'}
           >
             <i className="fas fa-bold" />
           </Button>
           <Button
             icon
-            onClick={() => this.handleChangeStyle('fontStyle', 'italic')}
+            onClick={() =>
+              this.setState(handleChangeStyle('fontStyle', 'italic'))
+            }
             active={style.fontStyle === 'italic'}
           >
             <i className="fas fa-italic" />
@@ -82,7 +49,7 @@ class GeneralPanel extends Component {
           <Button
             icon
             onClick={() =>
-              this.handleChangeStyle('textDecoration', 'underline')
+              this.setState(handleChangeStyle('textDecoration', 'underline'))
             }
             active={style.textDecoration === 'underline'}
           >
@@ -91,7 +58,7 @@ class GeneralPanel extends Component {
           <Button
             icon
             onClick={() =>
-              this.handleChangeStyle('textDecoration', 'line-through')
+              this.setState(handleChangeStyle('textDecoration', 'line-through'))
             }
             active={style.textDecoration === 'line-through'}
           >
@@ -99,28 +66,36 @@ class GeneralPanel extends Component {
           </Button>
           <Button
             icon
-            onClick={() => this.handleChangeStyle('textAlign', 'left')}
+            onClick={() =>
+              this.setState(handleChangeStyle('textAlign', 'left'))
+            }
             active={style.textAlign === 'left'}
           >
             <i className="fas fa-align-left" />
           </Button>
           <Button
             icon
-            onClick={() => this.handleChangeStyle('textAlign', 'center')}
+            onClick={() =>
+              this.setState(handleChangeStyle('textAlign', 'center'))
+            }
             active={style.textAlign === 'center'}
           >
             <i className="fas fa-align-center" />
           </Button>
           <Button
             icon
-            onClick={() => this.handleChangeStyle('textAlign', 'right')}
+            onClick={() =>
+              this.setState(handleChangeStyle('textAlign', 'right'))
+            }
             active={style.textAlign === 'right'}
           >
             <i className="fas fa-align-right" />
           </Button>
           <Button
             icon
-            onClick={() => this.handleChangeStyle('textAlign', 'justify')}
+            onClick={() =>
+              this.setState(handleChangeStyle('textAlign', 'justify'))
+            }
             active={style.textAlign === 'justify'}
           >
             <i className="fas fa-align-justify" />
@@ -132,7 +107,9 @@ class GeneralPanel extends Component {
             <input
               type="text"
               value={style.fontSize}
-              onChange={this.handleFontSizeChange}
+              onChange={e =>
+                this.setState(handleChangeStyle('fontSize', e.target.value))
+              }
               style={{ width: 40 }}
               className="general-panel__input"
             />
