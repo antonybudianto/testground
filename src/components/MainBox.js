@@ -5,6 +5,7 @@ import './MainBox.css';
 import GeneralPanel from './panels/GeneralPanel';
 import SourceView from './SourceView';
 import Button from './controls/Button';
+import MenuPanel from './panels/MenuPanel';
 
 class MainBox extends Component {
   constructor(props) {
@@ -36,30 +37,36 @@ class MainBox extends Component {
     });
   }
 
-  handleMenuClick() {}
+  handleMenuClick() {
+    this.setState({
+      view: 0,
+    });
+  }
 
   renderView() {
     const { element } = this.props;
-    if (this.state.view === 1) {
-      if (element) {
-        return (
-          <div>
-            <GeneralPanel element={element} />
-          </div>
-        );
+    switch (this.state.view) {
+      case 0:
+        return <MenuPanel element={element} />;
+      case 1: {
+        if (element) {
+          return <GeneralPanel element={element} />;
+        } else {
+          return (
+            <div
+              style={{
+                padding: '5px',
+              }}
+            >
+              Let's start by selecting element!
+            </div>
+          );
+        }
       }
-      return (
-        <div
-          style={{
-            padding: '5px',
-          }}
-        >
-          Let's start by selecting element!
-        </div>
-      );
-    } else {
-      return <SourceView element={element} />;
+      case 2:
+        return <SourceView element={element} />;
     }
+    return null;
   }
 
   render() {
