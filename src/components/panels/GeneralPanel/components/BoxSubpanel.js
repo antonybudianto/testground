@@ -14,18 +14,6 @@ class BoxSubpanel extends Component {
         backgroundColor: props.element.style.backgroundColor,
       },
     };
-
-    this.handleColorChange = this.handleColorChange.bind(this);
-  }
-
-  handleColorChange(val) {
-    this.setState({
-      style: {
-        ...this.state.style,
-        backgroundColor: val,
-      },
-    });
-    this.props.element.style.backgroundColor = val;
   }
 
   render() {
@@ -59,7 +47,9 @@ class BoxSubpanel extends Component {
           </div>
           <div className="basic-box p1">
             <ColorPicker
-              onColorChange={this.handleColorChange}
+              onColorChange={val =>
+                this.setState(handleChangeStyle('backgroundColor', val))
+              }
               color={this.state.style.backgroundColor}
             />
           </div>
