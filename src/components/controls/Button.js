@@ -3,9 +3,11 @@ import Classnames from 'classnames';
 
 const Button = props => (
   <button
+    title={props.title}
     onClick={props.onClick}
     style={props.style}
-    className={Classnames('main-box__btn', {
+    disabled={props.disabled}
+    className={Classnames('main-box__btn', props.className, {
       'main-box__btn--icon': props.icon,
       'main-box__btn--active': props.active,
     })}

@@ -17,7 +17,6 @@ class MainBox extends Component {
 
     this.changeView = this.changeView.bind(this);
     this.renderView = this.renderView.bind(this);
-    this.toggleView = this.toggleView.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
     this.handleMenuClick = this.handleMenuClick.bind(this);
   }
@@ -31,12 +30,6 @@ class MainBox extends Component {
     this.setState({ view });
   }
 
-  toggleView() {
-    this.setState({
-      view: this.state.view === 1 ? 2 : 1,
-    });
-  }
-
   handleMenuClick() {
     this.setState({
       view: 0,
@@ -47,7 +40,7 @@ class MainBox extends Component {
     const { element } = this.props;
     switch (this.state.view) {
       case 0:
-        return <MenuPanel element={element} />;
+        return <MenuPanel changeView={this.changeView} element={element} />;
       case 1: {
         if (element) {
           return <GeneralPanel element={element} />;
@@ -94,11 +87,6 @@ class MainBox extends Component {
             <Button active={this.props.selecting} onClick={this.handleSelect}>
               Select
             </Button>
-            {element && (
-              <button className="main-box__btn" onClick={this.toggleView}>
-                {this.state.view === 1 ? 'View source' : 'View tools'}
-              </button>
-            )}
           </div>
         </div>
       </Draggable>
