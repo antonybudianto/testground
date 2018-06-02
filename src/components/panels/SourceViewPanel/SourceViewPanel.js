@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { string as styleToString } from 'to-style';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
-import Button from '../components/controls/Button';
-import './SourceView.css';
+import Button from '../../../components/controls/Button';
+import './SourceViewPanel.css';
 
-class SourceView extends Component {
+class SourceViewPanel extends Component {
   render() {
     const { element } = this.props;
     const style = Object.entries(element.style)
@@ -48,4 +48,4 @@ class SourceView extends Component {
   }
 }
 
-export default SourceView;
+export default SourceViewPanel;

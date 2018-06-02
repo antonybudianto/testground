@@ -3,7 +3,7 @@ import Draggable from 'react-draggable';
 import './MainBox.css';
 
 import GeneralPanel from './panels/GeneralPanel';
-import SourceView from './SourceView';
+import SourceView from './panels/SourceViewPanel';
 import Button from './controls/Button';
 import MenuPanel from './panels/MenuPanel';
 
