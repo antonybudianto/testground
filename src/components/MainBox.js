@@ -65,8 +65,9 @@ class MainBox extends Component {
       }
       case 2:
         return <SourceView element={element} />;
+      default:
+        return null;
     }
-    return null;
   }
 
   render() {
