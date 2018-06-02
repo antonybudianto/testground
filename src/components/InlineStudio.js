@@ -45,6 +45,7 @@ class InlineStudio extends Component {
   render() {
     return (
       <MainBox
+        plugins={this.props.plugins || []}
         onSelect={this.onSelect}
         selecting={this.state.selecting}
         element={this.state.element}

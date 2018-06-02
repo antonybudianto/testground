@@ -2,25 +2,9 @@ import React, { Component } from 'react';
 import Draggable from 'react-draggable';
 import './MainBox.css';
 
-import GeneralPanel from './panels/GeneralPanel';
-import SourceView from './panels/SourceViewPanel';
 import Button from './controls/Button';
-import MenuPanel from './panels/MenuPanel';
 
-const internalPanels = [
-  {
-    id: 'menu',
-    component: MenuPanel,
-  },
-  {
-    id: 'general',
-    component: GeneralPanel,
-  },
-  {
-    id: 'source',
-    component: SourceView,
-  },
-];
+import { internalPlugins } from './internal-plugins';
 
 class MainBox extends Component {
   constructor(props) {
@@ -52,7 +36,7 @@ class MainBox extends Component {
   }
 
   renderView() {
-    const { element } = this.props;
+    const { element, plugins } = this.props;
 
     if (!element) {
       return (
@@ -66,10 +50,21 @@ class MainBox extends Component {
       );
     }
 
-    const panel = internalPanels.find(p => p.id === this.state.view);
+    // const customPanels = plugins.map(p => ({
+    //   id: p.id,
+    //   ...p.panel,
+    // }));
+    const allPlugins = [...internalPlugins, ...plugins];
+    const plugin = allPlugins.find(p => p.id === this.state.view);
 
-    if (panel) {
-      return <panel.component changeView={this.changeView} element={element} />;
+    if (plugin) {
+      return (
+        <plugin.panel.component
+          plugins={plugins}
+          changeView={this.changeView}
+          element={element}
+        />
+      );
     } else {
       return null;
     }

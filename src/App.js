@@ -24,7 +24,20 @@ class App extends Component {
         >
           Hello
         </div>
-        <InlineStudio />
+        <InlineStudio
+          plugins={[
+            {
+              id: 'my-custom',
+              menu: {
+                menuName: 'Custom',
+                menuIcon: 'fa-book',
+              },
+              panel: {
+                component: () => <div>Custom!</div>,
+              },
+            },
+          ]}
+        />
       </div>
     );
   }
