@@ -50,7 +50,7 @@ class BoxSubpanel extends Component {
               onColorChange={val => {
                 this.setState(handleChangeStyle('backgroundColor', val, false));
               }}
-              color={this.state.style.backgroundColor || {}}
+              color={this.state.style.backgroundColor || ''}
             />
           </div>
         </div>
