@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import ColorPicker from '../../../controls/ColorPicker';
 
+import { handleChangeStyle } from '../../../../util/change-style';
+
 class BoxSubpanel extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       style: {
+        width: props.element.style.width,
+        height: props.element.style.height,
         backgroundColor: props.element.style.backgroundColor,
       },
     };
@@ -36,24 +40,30 @@ class BoxSubpanel extends Component {
             <input
               type="text"
               placeholder="W"
-              value={style.fontSize}
-              onChange={this.handleFontSizeChange}
-              style={{ width: 20 }}
+              value={this.state.style.width}
+              onChange={e =>
+                this.setState(handleChangeStyle('width', e.target.value))
+              }
+              style={{ width: 35 }}
               className="general-panel__input"
             />
             <input
               type="text"
               placeholder="H"
-              value={style.fontSize}
-              onChange={this.handleFontSizeChange}
-              style={{ width: 20 }}
+              value={this.state.style.height}
+              onChange={e =>
+                this.setState(handleChangeStyle('height', e.target.value))
+              }
+              style={{ width: 35 }}
               className="general-panel__input"
             />
           </div>
-          <ColorPicker
-            onColorChange={this.handleColorChange}
-            color={this.state.style.backgroundColor}
-          />
+          <div className="basic-box p1">
+            <ColorPicker
+              onColorChange={this.handleColorChange}
+              color={this.state.style.backgroundColor}
+            />
+          </div>
         </div>
       </div>
     );
