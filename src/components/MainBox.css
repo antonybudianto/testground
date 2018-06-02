@@ -31,7 +31,9 @@
   margin: 0;
 }
 
-.main-box__btn:focus {outline:0;}
+.main-box__btn:focus {
+  outline: 0;
+}
 
 .main-box__btn:hover {
   background-color: lightgray;

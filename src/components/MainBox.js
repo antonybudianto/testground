@@ -4,6 +4,7 @@ import './MainBox.css';
 
 import GeneralPanel from './panels/GeneralPanel';
 import SourceView from './SourceView';
+import Button from './controls/Button';
 
 class MainBox extends Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class MainBox extends Component {
     this.renderView = this.renderView.bind(this);
     this.toggleView = this.toggleView.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
+    this.handleMenuClick = this.handleMenuClick.bind(this);
   }
 
   handleSelect() {
@@ -33,6 +35,8 @@ class MainBox extends Component {
       view: this.state.view === 1 ? 2 : 1,
     });
   }
+
+  handleMenuClick() {}
 
   renderView() {
     const { element } = this.props;
@@ -76,9 +80,12 @@ class MainBox extends Component {
               padding: '5px',
             }}
           >
-            <button className="main-box__btn" onClick={this.handleSelect}>
-              {this.props.selecting ? 'Selecting...' : 'Select'}
-            </button>
+            <Button onClick={this.handleMenuClick}>
+              <i className="fas fa-th" />
+            </Button>
+            <Button active={this.props.selecting} onClick={this.handleSelect}>
+              Select
+            </Button>
             {element && (
               <button className="main-box__btn" onClick={this.toggleView}>
                 {this.state.view === 1 ? 'View source' : 'View tools'}

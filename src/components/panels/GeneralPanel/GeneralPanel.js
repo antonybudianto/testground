@@ -66,18 +66,21 @@ class GeneralPanel extends Component {
         <strong className="basic-panel__subtitle">Text</strong>
         <div>
           <Button
+            icon
             onClick={() => this.handleChangeStyle('fontWeight', 'bold')}
             active={style.fontWeight === 'bold'}
           >
             <i className="fas fa-bold" />
           </Button>
           <Button
+            icon
             onClick={() => this.handleChangeStyle('fontStyle', 'italic')}
             active={style.fontStyle === 'italic'}
           >
             <i className="fas fa-italic" />
           </Button>
           <Button
+            icon
             onClick={() =>
               this.handleChangeStyle('textDecoration', 'underline')
             }
@@ -86,6 +89,7 @@ class GeneralPanel extends Component {
             <i className="fas fa-underline" />
           </Button>
           <Button
+            icon
             onClick={() =>
               this.handleChangeStyle('textDecoration', 'line-through')
             }
@@ -94,24 +98,28 @@ class GeneralPanel extends Component {
             <i className="fas fa-strikethrough" />
           </Button>
           <Button
+            icon
             onClick={() => this.handleChangeStyle('textAlign', 'left')}
             active={style.textAlign === 'left'}
           >
             <i className="fas fa-align-left" />
           </Button>
           <Button
+            icon
             onClick={() => this.handleChangeStyle('textAlign', 'center')}
             active={style.textAlign === 'center'}
           >
             <i className="fas fa-align-center" />
           </Button>
           <Button
+            icon
             onClick={() => this.handleChangeStyle('textAlign', 'right')}
             active={style.textAlign === 'right'}
           >
             <i className="fas fa-align-right" />
           </Button>
           <Button
+            icon
             onClick={() => this.handleChangeStyle('textAlign', 'justify')}
             active={style.textAlign === 'justify'}
           >

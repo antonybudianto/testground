@@ -5,7 +5,8 @@ const Button = props => (
   <button
     onClick={props.onClick}
     style={props.style}
-    className={Classnames('main-box__btn main-box__btn--icon', {
+    className={Classnames('main-box__btn', {
+      'main-box__btn--icon': props.icon,
       'main-box__btn--active': props.active,
     })}
   >
