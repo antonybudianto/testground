@@ -50,10 +50,6 @@ class MainBox extends Component {
       );
     }
 
-    // const customPanels = plugins.map(p => ({
-    //   id: p.id,
-    //   ...p.panel,
-    // }));
     const allPlugins = [...internalPlugins, ...plugins];
     const plugin = allPlugins.find(p => p.id === this.state.view);
 
