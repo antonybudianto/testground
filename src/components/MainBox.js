@@ -7,12 +7,27 @@ import SourceView from './panels/SourceViewPanel';
 import Button from './controls/Button';
 import MenuPanel from './panels/MenuPanel';
 
+const internalPanels = [
+  {
+    id: 'menu',
+    component: MenuPanel,
+  },
+  {
+    id: 'general',
+    component: GeneralPanel,
+  },
+  {
+    id: 'source',
+    component: SourceView,
+  },
+];
+
 class MainBox extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      view: 1,
+      view: 'general',
     };
 
     this.changeView = this.changeView.bind(this);
@@ -22,7 +37,7 @@ class MainBox extends Component {
   }
 
   handleSelect() {
-    this.setState({ view: 1 });
+    this.setState({ view: 'general' });
     this.props.onSelect();
   }
 
@@ -32,34 +47,31 @@ class MainBox extends Component {
 
   handleMenuClick() {
     this.setState({
-      view: 0,
+      view: 'menu',
     });
   }
 
   renderView() {
     const { element } = this.props;
-    switch (this.state.view) {
-      case 0:
-        return <MenuPanel changeView={this.changeView} element={element} />;
-      case 1: {
-        if (element) {
-          return <GeneralPanel element={element} />;
-        } else {
-          return (
-            <div
-              style={{
-                padding: '5px',
-              }}
-            >
-              Let's start by selecting element!
-            </div>
-          );
-        }
-      }
-      case 2:
-        return <SourceView element={element} />;
-      default:
-        return null;
+
+    if (!element) {
+      return (
+        <div
+          style={{
+            padding: '5px',
+          }}
+        >
+          Let's start by selecting element!
+        </div>
+      );
+    }
+
+    const panel = internalPanels.find(p => p.id === this.state.view);
+
+    if (panel) {
+      return <panel.component changeView={this.changeView} element={element} />;
+    } else {
+      return null;
     }
   }
 
@@ -82,7 +94,7 @@ class MainBox extends Component {
             }}
           >
             <Button
-              active={this.state.view === 0}
+              active={this.state.view === 'menu'}
               onClick={this.handleMenuClick}
             >
               <i className="fas fa-th" />

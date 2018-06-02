@@ -34,13 +34,13 @@ class MenuPanel extends Component {
               menuText="General"
               menuIcon="fa-home"
               title="General"
-              onClick={() => changeView(1)}
+              onClick={() => changeView('general')}
             />
             <MenuButton
               menuText="Source"
               menuIcon="fa-code"
               title="View source"
-              onClick={() => changeView(2)}
+              onClick={() => changeView('source')}
             />
           </MenuGroup>
         </BasicPanel>

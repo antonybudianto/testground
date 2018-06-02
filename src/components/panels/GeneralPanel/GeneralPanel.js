@@ -24,6 +24,7 @@ class GeneralPanel extends Component {
   render() {
     const { style } = this.state;
     const { element } = this.props;
+
     return (
       <BasicPanel title="GENERAL">
         <strong className="basic-panel__subtitle">Text</strong>
