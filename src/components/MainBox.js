@@ -81,7 +81,10 @@ class MainBox extends Component {
               padding: '5px',
             }}
           >
-            <Button onClick={this.handleMenuClick}>
+            <Button
+              active={this.state.view === 0}
+              onClick={this.handleMenuClick}
+            >
               <i className="fas fa-th" />
             </Button>
             <Button active={this.props.selecting} onClick={this.handleSelect}>

@@ -29,8 +29,7 @@ class BoxSubpanel extends Component {
   }
 
   render() {
-    const { element } = this.props;
-    const style = element.style;
+    // const { element } = this.props;
     return (
       <div className="mt1 flex flex-column">
         <strong className="basic-panel__subtitle">Element</strong>
