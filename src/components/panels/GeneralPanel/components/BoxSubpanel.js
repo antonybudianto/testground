@@ -25,11 +25,31 @@ class BoxSubpanel extends Component {
   }
 
   render() {
-    // const { element } = this.props
+    const { element } = this.props;
+    const style = element.style;
     return (
-      <div className="mt1">
+      <div className="mt1 flex flex-column">
         <strong className="basic-panel__subtitle">Element</strong>
-        <div>
+        <div className="flex items-center">
+          <div className="basic-box">
+            Size: &nbsp;
+            <input
+              type="text"
+              placeholder="W"
+              value={style.fontSize}
+              onChange={this.handleFontSizeChange}
+              style={{ width: 20 }}
+              className="general-panel__input"
+            />
+            <input
+              type="text"
+              placeholder="H"
+              value={style.fontSize}
+              onChange={this.handleFontSizeChange}
+              style={{ width: 20 }}
+              className="general-panel__input"
+            />
+          </div>
           <ColorPicker
             onColorChange={this.handleColorChange}
             color={this.state.style.backgroundColor}

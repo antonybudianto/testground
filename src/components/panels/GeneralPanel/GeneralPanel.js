@@ -134,7 +134,7 @@ class GeneralPanel extends Component {
               value={style.fontSize}
               onChange={this.handleFontSizeChange}
               style={{ width: 40 }}
-              className="general-panel-input"
+              className="general-panel__input"
             />
           </div>
         </div>
