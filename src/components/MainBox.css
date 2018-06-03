@@ -46,3 +46,8 @@
 .main-box__btn--active {
   background-color: lightblue;
 }
+
+.main-box__btn--sm {
+  padding: 4px;
+  font-size: 10pt;
+}

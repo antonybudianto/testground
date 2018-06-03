@@ -5,3 +5,19 @@
 .border-panel__input {
   width: 50px;
 }
+
+.border-panel__style-menu {
+  font-size: 10pt;
+  text-align: center;
+  width: 50px;
+  border-width: 2px;
+}
+
+.border-panel__style-menu--active {
+  background-color: lightblue;
+}
+
+.border-panel__style-menu:hover {
+  cursor: pointer;
+  background-color: lightgray;
+}

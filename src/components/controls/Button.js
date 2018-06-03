@@ -10,6 +10,7 @@ const Button = props => (
     className={Classnames('main-box__btn', props.className, {
       'main-box__btn--icon': props.icon,
       'main-box__btn--active': props.active,
+      'main-box__btn--sm': props.sm,
     })}
   >
     {props.children}
