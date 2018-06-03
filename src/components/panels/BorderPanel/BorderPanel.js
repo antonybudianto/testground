@@ -12,6 +12,7 @@ class BorderPanel extends Component {
 
     this.state = {
       style: {
+        borderWidth: style.borderWidth,
         borderTopWidth: style.borderTopWidth,
         borderBottomWidth: style.borderBottomWidth,
         borderLeftWidth: style.borderLeftWidth,
@@ -62,6 +63,12 @@ class BorderPanel extends Component {
                     type="text"
                     className="border-panel__input"
                     placeholder="all"
+                    value={this.state.style.borderWidth}
+                    onChange={e =>
+                      this.setState(
+                        handleChangeStyle('borderWidth', e.target.value)
+                      )
+                    }
                   />
                 </td>
                 <td className="border border-panel__border">
