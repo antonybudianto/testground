@@ -1,6 +1,7 @@
 import GeneralPanel from './panels/GeneralPanel';
 import SourceView from './panels/SourceViewPanel';
 import MenuPanel from './panels/MenuPanel';
+import BorderPanel from './panels/BorderPanel';
 
 export const internalPlugins = [
   {
@@ -21,6 +22,16 @@ export const internalPlugins = [
     },
     panel: {
       component: GeneralPanel,
+    },
+  },
+  {
+    id: 'border',
+    menu: {
+      menuName: 'Border',
+      menuIcon: 'fa-square',
+    },
+    panel: {
+      component: BorderPanel,
     },
   },
   {

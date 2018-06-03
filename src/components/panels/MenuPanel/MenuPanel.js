@@ -16,7 +16,7 @@ const MenuButton = props => {
       )}
     >
       <i className={ClassNames('fas', props.menuIcon)} />
-      <span className="menu-panel__btn-text">{props.menuName}</span>
+      <span className="menu-panel__btn-text mt1">{props.menuName}</span>
     </Button>
   );
 };
