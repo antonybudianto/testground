@@ -44,7 +44,7 @@ class ColorPicker extends Component {
           }}
         />
         {this.state.showPicker && (
-          <div style={{ position: 'absolute' }}>
+          <div style={{ position: 'absolute', zIndex: 1 }}>
             <ChromePicker
               color={this.props.color}
               onChangeComplete={this.handleColorChange}
