@@ -27,7 +27,7 @@ class App extends Component {
         <InlineStudio
           plugins={[
             {
-              id: 'my-custom',
+              id: 'custom',
               menu: {
                 menuName: 'Custom',
                 menuIcon: 'fa-book',

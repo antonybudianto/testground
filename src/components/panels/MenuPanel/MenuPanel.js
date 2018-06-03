@@ -33,7 +33,6 @@ const MenuGroup = props => {
 class MenuPanel extends Component {
   render() {
     const { element, changeView, plugins } = this.props;
-    console.log(plugins);
     if (element) {
       return (
         <BasicPanel title="MENU">
