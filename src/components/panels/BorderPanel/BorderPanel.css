@@ -1,0 +1,7 @@
+.border-panel__border {
+  border-color: lightgray;
+}
+
+.border-panel__input {
+  width: 50px;
+}

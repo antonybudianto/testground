@@ -24,6 +24,9 @@ class App extends Component {
         >
           Hello
         </div>
+        <div>
+          <input type="text" placeholder="Please input your name" />
+        </div>
         <InlineStudio
           plugins={[
             {
