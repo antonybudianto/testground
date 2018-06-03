@@ -9,7 +9,7 @@ class SourceViewPanel extends Component {
   render() {
     const { element } = this.props;
     const style = Object.entries(element.style)
-      .filter(a => a[1] && isNaN(a[0]))
+      .filter(a => a[1] && isNaN(a[0]) && a[1] !== 'initial')
       .reduce((prev, curr) => {
         return {
           ...prev,
