@@ -8,6 +8,7 @@ layer.style.pointerEvents = 'none';
 function getPosition(el) {
   var xPos = 0;
   var yPos = 0;
+  console.log(el)
 
   while (el) {
     if (el.tagName === 'BODY') {
@@ -19,8 +20,11 @@ function getPosition(el) {
       yPos += el.offsetTop - yScroll + el.clientTop;
     } else {
       // for all other non-BODY elements
-      xPos += el.offsetLeft - el.scrollLeft + el.clientLeft;
-      yPos += el.offsetTop - el.scrollTop + el.clientTop;
+      // xPos += el.offsetLeft - el.scrollLeft + el.clientLeft;
+      // yPos += el.offsetTop - el.scrollTop + el.clientTop;
+      xPos += el.offsetLeft - el.scrollLeft;
+      yPos += el.offsetTop - el.scrollTop;
+
     }
 
     el = el.offsetParent;
