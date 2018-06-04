@@ -8,7 +8,6 @@ layer.style.pointerEvents = 'none';
 function getPosition(el) {
   var xPos = 0;
   var yPos = 0;
-  console.log(el)
 
   while (el) {
     if (el.tagName === 'BODY') {
