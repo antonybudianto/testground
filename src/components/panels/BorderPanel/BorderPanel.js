@@ -13,6 +13,11 @@ class BorderPanel extends Component {
 
     this.state = {
       style: {
+        borderRadius: style.borderRadius,
+        borderTopLeftRadius: style.borderTopLeftRadius,
+        borderTopRightRadius: style.borderTopRightRadius,
+        borderBottomLeftRadius: style.borderBottomLeftRadius,
+        borderBottomRightRadius: style.borderBottomRightRadius,
         borderColor: style.borderColor,
         borderWidth: style.borderWidth,
         borderTopWidth: style.borderTopWidth,
@@ -39,7 +44,24 @@ class BorderPanel extends Component {
           <table>
             <tbody>
               <tr>
-                <td className="border border-panel__border">&nbsp;</td>
+                <td className="border border-panel__border">
+                  <div className="flex items-center justify-center">
+                    <input
+                      type="text"
+                      className="border-panel__input"
+                      placeholder="TL radius"
+                      value={this.state.style.borderTopLeftRadius}
+                      onChange={e =>
+                        this.setState(
+                          handleChangeStyle(
+                            'borderTopLeftRadius',
+                            e.target.value
+                          )
+                        )
+                      }
+                    />
+                  </div>
+                </td>
                 <td className="border border-panel__border">
                   <BorderGroup
                     color={this.state.style.borderTopColor}
@@ -57,7 +79,24 @@ class BorderPanel extends Component {
                     }
                   />
                 </td>
-                <td className="border border-panel__border">&nbsp;</td>
+                <td className="border border-panel__border">
+                  <div className="flex items-center justify-center">
+                    <input
+                      type="text"
+                      className="border-panel__input"
+                      placeholder="TR radius"
+                      value={this.state.style.borderTopRightRadius}
+                      onChange={e =>
+                        this.setState(
+                          handleChangeStyle(
+                            'borderTopRightRadius',
+                            e.target.value
+                          )
+                        )
+                      }
+                    />
+                  </div>
+                </td>
               </tr>
               <tr>
                 <td className="border border-panel__border">
@@ -78,21 +117,34 @@ class BorderPanel extends Component {
                   />
                 </td>
                 <td className="border border-panel__border">
-                  <BorderGroup
-                    color={this.state.style.borderColor}
-                    width={this.state.style.borderWidth}
-                    style={this.state.style.borderStyle}
-                    widthPlaceholder="All"
-                    onColorChange={val =>
-                      this.setState(handleChangeStyle('borderColor', val))
-                    }
-                    onWidthChange={val =>
-                      this.setState(handleChangeStyle('borderWidth', val))
-                    }
-                    onStyleChange={val =>
-                      this.setState(handleChangeStyle('borderStyle', val))
-                    }
-                  />
+                  <div className="flex items-center justify-center">
+                    <BorderGroup
+                      color={this.state.style.borderColor}
+                      width={this.state.style.borderWidth}
+                      style={this.state.style.borderStyle}
+                      widthPlaceholder="All"
+                      onColorChange={val =>
+                        this.setState(handleChangeStyle('borderColor', val))
+                      }
+                      onWidthChange={val =>
+                        this.setState(handleChangeStyle('borderWidth', val))
+                      }
+                      onStyleChange={val =>
+                        this.setState(handleChangeStyle('borderStyle', val))
+                      }
+                    />
+                    <input
+                      type="text"
+                      className="border-panel__input mr1"
+                      placeholder="all radius"
+                      value={this.state.style.borderRadius}
+                      onChange={e =>
+                        this.setState(
+                          handleChangeStyle('borderRadius', e.target.value)
+                        )
+                      }
+                    />
+                  </div>
                 </td>
                 <td className="border border-panel__border">
                   <BorderGroup
@@ -113,7 +165,24 @@ class BorderPanel extends Component {
                 </td>
               </tr>
               <tr>
-                <td className="border border-panel__border">&nbsp;</td>
+                <td className="border border-panel__border">
+                  <div className="flex items-center justify-center">
+                    <input
+                      type="text"
+                      className="border-panel__input"
+                      placeholder="BL radius"
+                      value={this.state.style.borderBottomLeftRadius}
+                      onChange={e =>
+                        this.setState(
+                          handleChangeStyle(
+                            'borderBottomLeftRadius',
+                            e.target.value
+                          )
+                        )
+                      }
+                    />
+                  </div>
+                </td>
                 <td className="border border-panel__border">
                   <BorderGroup
                     color={this.state.style.borderBottomColor}
@@ -131,7 +200,24 @@ class BorderPanel extends Component {
                     }
                   />
                 </td>
-                <td className="border border-panel__border">&nbsp;</td>
+                <td className="border border-panel__border">
+                  <div className="flex items-center justify-center">
+                    <input
+                      type="text"
+                      className="border-panel__input"
+                      placeholder="BR radius"
+                      value={this.state.style.borderBottomRightRadius}
+                      onChange={e =>
+                        this.setState(
+                          handleChangeStyle(
+                            'borderBottomRightRadius',
+                            e.target.value
+                          )
+                        )
+                      }
+                    />
+                  </div>
+                </td>
               </tr>
             </tbody>
           </table>
