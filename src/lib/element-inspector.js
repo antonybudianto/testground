@@ -23,7 +23,6 @@ function getPosition(el) {
       // yPos += el.offsetTop - el.scrollTop + el.clientTop;
       xPos += el.offsetLeft - el.scrollLeft;
       yPos += el.offsetTop - el.scrollTop;
-
     }
 
     el = el.offsetParent;
@@ -41,7 +40,7 @@ function onMouseMove(event) {
   if (!oldTarget) {
     document.body.style.cursor = 'pointer';
   }
-  if (target.closest(excludedTarget)) {
+  if (target.closest(excludedTarget) || target.tagName === 'HTML') {
     return;
   }
   oldTarget = target;
@@ -63,7 +62,7 @@ function onMouseClick(event) {
   var target = event.target || event.srcElement;
   if (event.preventDefault) event.preventDefault();
   if (event.stopPropagation) event.stopPropagation();
-  if (target.closest(excludedTarget)) {
+  if (target.closest(excludedTarget) || target.tagName === 'HTML') {
     return;
   }
   onClick(target);
