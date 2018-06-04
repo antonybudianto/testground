@@ -11,7 +11,7 @@ class MainBox extends Component {
     super(props);
 
     this.state = {
-      view: 'general',
+      view: 'border',
     };
 
     this.changeView = this.changeView.bind(this);
@@ -21,7 +21,7 @@ class MainBox extends Component {
   }
 
   handleSelect() {
-    this.setState({ view: 'border' });
+    this.setState({ view: this.state.view });
     this.props.onSelect();
   }
 
