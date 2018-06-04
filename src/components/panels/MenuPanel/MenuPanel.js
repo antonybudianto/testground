@@ -23,7 +23,7 @@ const MenuButton = props => {
 
 const MenuGroup = props => {
   return (
-    <div className="flex flex-column mt1">
+    <div className={ClassNames('flex flex-column', props.className)}>
       <strong className="basic-panel__subtitle">{props.title}</strong>
       <div className="menu-panel flex">{props.children}</div>
     </div>
@@ -50,7 +50,7 @@ class MenuPanel extends Component {
           </MenuGroup>
 
           {plugins.length > 0 && (
-            <MenuGroup title="Plugins">
+            <MenuGroup title="Plugins" className="mt1">
               {plugins.map(p => (
                 <MenuButton
                   key={p.id}
