@@ -17,7 +17,8 @@ class SourceViewPanel extends Component {
     // }, {});
     // const display = JSON.stringify(style, null, 2);
     const styleStr = element.getAttribute('style')
-    let displayCss = styleStr.replace(/; /g, '; \n');
+    console.log(styleStr)
+    let displayCss = styleStr.replace(/;\s*/g, '; \n');
     return (
       <div className="p1">
         {/* <div className="flex justify-between items-center">
