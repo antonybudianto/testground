@@ -35,6 +35,16 @@ export const internalPlugins = [
     },
   },
   {
+    id: 'shadow',
+    menu: {
+      menuName: 'Shadow',
+      menuIcon: 'fa-shower',
+    },
+    panel: {
+      component: BorderPanel,
+    },
+  },
+  {
     id: 'source',
     menu: {
       menuName: 'Source',
