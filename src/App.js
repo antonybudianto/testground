@@ -19,7 +19,7 @@ class App extends Component {
           style={{
             margin: '10px',
             padding: '20px',
-            boxShadow: '1px 2px',
+            boxShadow: '1px 2px 5px',
             backgroundColor: 'orange',
           }}
         >
