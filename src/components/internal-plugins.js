@@ -2,6 +2,7 @@ import GeneralPanel from './panels/GeneralPanel';
 import SourceView from './panels/SourceViewPanel';
 import MenuPanel from './panels/MenuPanel';
 import BorderPanel from './panels/BorderPanel';
+import { ShadowPanel } from './panels/ShadowPanel';
 
 export const internalPlugins = [
   {
@@ -41,7 +42,7 @@ export const internalPlugins = [
       menuIcon: 'fa-shower',
     },
     panel: {
-      component: BorderPanel,
+      component: ShadowPanel,
     },
   },
   {
