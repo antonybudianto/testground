@@ -11,7 +11,7 @@ const MenuButton = props => {
     <Button
       {...props}
       className={ClassNames(
-        'flex flex-column items-center justify-center',
+        'flex flex-column items-center justify-center col-3',
         props.className
       )}
     >
@@ -25,7 +25,7 @@ const MenuGroup = props => {
   return (
     <div className={ClassNames('flex flex-column', props.className)}>
       <strong className="basic-panel__subtitle">{props.title}</strong>
-      <div className="menu-panel flex">{props.children}</div>
+      <div className="menu-panel flex flex-wrap col-12">{props.children}</div>
     </div>
   );
 };
