@@ -4,20 +4,36 @@ import ColorPicker from '../../controls/ColorPicker';
 import BasicPanel from '../BasicPanel';
 import './ShadowPanel.css';
 
+const parseShadowStr = str => {
+  console.log(str);
+  let shadowProp = {
+    hOffset: '',
+    vOffset: '',
+    blur: '',
+    spread: '',
+    color: '',
+  };
+  const map = ['hOffset', 'vOffset', 'blur', 'spread'];
+  const shadowSeg = str.split(' ');
+
+  // 4 is all numeric shadow fields
+  const start = shadowSeg.length - 4;
+  for (let i = start, count = 0; i < shadowSeg.length; i++, count++) {
+    shadowProp[map[count]] = shadowSeg[i];
+  }
+  shadowProp.color = shadowSeg.slice(0, 3).join('');
+  return shadowProp;
+};
+
 export class ShadowPanel extends Component {
   constructor(props) {
     super(props);
 
-    console.log(props.element.style);
+    const shadowStr = props.element.style.boxShadow || '';
+    const shadowProp = parseShadowStr(shadowStr);
 
     this.state = {
-      shadowProp: {
-        hOffset: '',
-        vOffset: '',
-        blur: '',
-        spread: '',
-        color: '',
-      },
+      shadowProp,
     };
 
     this.handleShadowProp = this.handleShadowProp.bind(this);
