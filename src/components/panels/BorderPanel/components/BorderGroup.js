@@ -64,6 +64,7 @@ const BorderGroup = ({
               style={{
                 borderColor: color,
                 borderStyle: b,
+                borderWidth: '3px',
               }}
               onClick={() => onStyleChange(b)}
               className={classNames('p1 m1 border-panel__style-menu', {
