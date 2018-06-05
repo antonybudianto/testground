@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { ChromePicker } from 'react-color';
+import Classnames from 'classnames';
 
 import './ColorPicker.css';
 
@@ -35,7 +36,9 @@ class ColorPicker extends Component {
 
   render() {
     return (
-      <div>
+      <div
+        className={Classnames('color-picker__wrapper', this.props.className)}
+      >
         <div
           onClick={this.handleClick}
           className="color-picker"

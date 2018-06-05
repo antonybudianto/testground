@@ -5,3 +5,7 @@
   border: 1px solid black;
   cursor: pointer;
 }
+
+.color-picker__wrapper {
+  display: inline-block;
+}
