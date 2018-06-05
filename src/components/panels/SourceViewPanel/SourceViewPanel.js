@@ -16,8 +16,7 @@ class SourceViewPanel extends Component {
     //   };
     // }, {});
     // const display = JSON.stringify(style, null, 2);
-    const styleStr = element.getAttribute('style')
-    console.log(styleStr)
+    const styleStr = element.getAttribute('style') || '';
     let displayCss = styleStr.replace(/;\s*/g, '; \n');
     return (
       <div className="p1">
