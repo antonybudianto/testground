@@ -28,7 +28,8 @@ class App extends Component {
         <div>
           <input type="text" placeholder="Please input your name" />
         </div>
-        <InlineStudio
+        <InlineStudio />
+        {/* <InlineStudio
           plugins={[
             {
               id: 'custom',
@@ -41,7 +42,7 @@ class App extends Component {
               },
             },
           ]}
-        />
+        /> */}
       </div>
     );
   }

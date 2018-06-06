@@ -51,9 +51,9 @@ class InlineStudio extends Component {
     );
   }
   render() {
-    const { plugins } = this.props;
+    const { plugins = [] } = this.props;
     const internalIds = internalPlugins.map(p => p.id);
-    const externalPlugins = (plugins || []).filter(
+    const externalPlugins = plugins.filter(
       p => internalIds.indexOf(p.id) === -1
     );
     const dupCount = plugins.length - externalPlugins.length;
