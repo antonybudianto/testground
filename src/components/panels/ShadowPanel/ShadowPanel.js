@@ -7,22 +7,32 @@ import './ShadowPanel.css';
 const reg = /\s+(?!.*\))/g
 
 const parseShadowStr = str => {
-  // console.log(str);
   let shadowProp = {
     hOffset: '',
     vOffset: '',
     blur: '',
     spread: '',
     color: '',
+    set: ''
   };
   const map = ['hOffset', 'vOffset', 'blur', 'spread'];
 
   const seg = str.split(reg)
   const numerics = seg.filter(s => /^[-+]?\d/.test(s))
-  // console.log(seg, numerics)
+  const restVal = seg.filter(s => !/^[-+]?\d/.test(s))
+  
   numerics.map((n, i) => {
     shadowProp[map[i]] = numerics[i]
     return n
+  })
+
+  restVal.map((r, i) => {
+    if (['inset', 'outset'].indexOf(r) !== -1) {
+      shadowProp.set = r
+    } else {
+      shadowProp.color = r
+    }
+    return r
   })
   return shadowProp;
 };
