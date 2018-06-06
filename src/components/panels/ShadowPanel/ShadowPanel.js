@@ -4,11 +4,10 @@ import ColorPicker from '../../controls/ColorPicker';
 import BasicPanel from '../BasicPanel';
 import './ShadowPanel.css';
 
-// const basicShadowRule = /^\w+\s\w+$/;
+const reg = /\s+(?!.*\))/g
 
 const parseShadowStr = str => {
-  console.log(str);
-  // let t1 = basicShadowRule.test(str);
+  // console.log(str);
   let shadowProp = {
     hOffset: '',
     vOffset: '',
@@ -16,15 +15,15 @@ const parseShadowStr = str => {
     spread: '',
     color: '',
   };
-  // const map = ['hOffset', 'vOffset', 'blur', 'spread'];
-  // const shadowSeg = str.split(' ');
+  const map = ['hOffset', 'vOffset', 'blur', 'spread'];
 
-  // 4 is all numeric shadow fields
-  // const start = shadowSeg.length - 4;
-  // for (let i = start, count = 0; i < shadowSeg.length; i++, count++) {
-  //   shadowProp[map[count]] = shadowSeg[i];
-  // }
-  // shadowProp.color = shadowSeg.slice(0, 3).join('');
+  const seg = str.split(reg)
+  console.log(seg)
+  const numerics = seg.filter(s => /^\d/.test(s))
+  numerics.map((n, i) => {
+    shadowProp[map[i]] = numerics[i]
+    return n
+  })
   return shadowProp;
 };
 
