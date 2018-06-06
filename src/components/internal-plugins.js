@@ -16,6 +16,16 @@ export const internalPlugins = [
     },
   },
   {
+    id: 'source',
+    menu: {
+      menuName: 'Source',
+      menuIcon: 'fa-code',
+    },
+    panel: {
+      component: SourceView,
+    },
+  },
+  {
     id: 'general',
     menu: {
       menuName: 'General',
@@ -43,16 +53,6 @@ export const internalPlugins = [
     },
     panel: {
       component: ShadowPanel,
-    },
-  },
-  {
-    id: 'source',
-    menu: {
-      menuName: 'Source',
-      menuIcon: 'fa-code',
-    },
-    panel: {
-      component: SourceView,
     },
   },
 ];
