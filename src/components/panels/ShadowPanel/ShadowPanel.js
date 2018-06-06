@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 
 import ColorPicker from '../../controls/ColorPicker';
 import BasicPanel from '../BasicPanel';
+import Button from '../../controls/Button';
 import './ShadowPanel.css';
 
-const reg = /\s+(?!.*\))/g
+const reg = /\s+(?!.*\))/g;
 
 const parseShadowStr = str => {
   let shadowProp = {
@@ -13,27 +14,27 @@ const parseShadowStr = str => {
     blur: '',
     spread: '',
     color: '',
-    set: ''
+    set: '',
   };
   const map = ['hOffset', 'vOffset', 'blur', 'spread'];
 
-  const seg = str.split(reg)
-  const numerics = seg.filter(s => /^[-+]?\d/.test(s))
-  const restVal = seg.filter(s => !/^[-+]?\d/.test(s))
-  
+  const seg = str.split(reg);
+  const numerics = seg.filter(s => /^[-+]?\d/.test(s));
+  const restVal = seg.filter(s => !/^[-+]?\d/.test(s));
+
   numerics.map((n, i) => {
-    shadowProp[map[i]] = numerics[i]
-    return n
-  })
+    shadowProp[map[i]] = numerics[i];
+    return n;
+  });
 
   restVal.map((r, i) => {
     if (['inset', 'outset'].indexOf(r) !== -1) {
-      shadowProp.set = r
+      shadowProp.set = r;
     } else {
-      shadowProp.color = r
+      shadowProp.color = r;
     }
-    return r
-  })
+    return r;
+  });
   return shadowProp;
 };
 
@@ -70,7 +71,7 @@ export class ShadowPanel extends Component {
     const shadowSeg = this.state.shadowProp;
     const shadowStr = `${shadowSeg.hOffset} ${shadowSeg.vOffset} ${
       shadowSeg.blur
-    } ${shadowSeg.spread} ${shadowSeg.color}`;
+    } ${shadowSeg.spread} ${shadowSeg.color} ${shadowSeg.set}`;
     this.props.element.style.boxShadow = shadowStr;
   }
 
@@ -119,14 +120,30 @@ export class ShadowPanel extends Component {
             />
           </div>
         </div>
-        <div className="flex items-center">
-          <div className="basic-box flex items-center flex-auto justify-center">
+        <div className="basic-box flex justify-between">
+          <div className="flex items-center justify-center">
             <label htmlFor="color">Color</label>
             <ColorPicker
               className="ml1"
               color={this.state.shadowProp.color}
               onColorChange={val => this.handleShadowProp('color', val)}
             />
+          </div>
+          <div className="flex items-center justify-center">
+            <Button
+              className="m0"
+              active={this.state.shadowProp.set === 'inset'}
+              onClick={() => this.handleShadowProp('set', 'inset')}
+            >
+              Inset
+            </Button>
+            <Button
+              className="m0"
+              active={this.state.shadowProp.set === ''}
+              onClick={() => this.handleShadowProp('set', '')}
+            >
+              Outset
+            </Button>
           </div>
         </div>
       </BasicPanel>
