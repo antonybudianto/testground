@@ -120,7 +120,7 @@ export class ShadowPanel extends Component {
           </div>
         </div>
         <div className="flex items-center">
-          <div className="basic-box flex items-center">
+          <div className="basic-box flex items-center flex-auto justify-center">
             <label htmlFor="color">Color</label>
             <ColorPicker
               className="ml1"
