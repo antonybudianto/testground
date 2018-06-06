@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Classnames from 'classnames';
 
 const KEY_CODE = {
   UP: 38,
