@@ -18,8 +18,8 @@ const parseShadowStr = str => {
   const map = ['hOffset', 'vOffset', 'blur', 'spread'];
 
   const seg = str.split(reg)
-  console.log(seg)
-  const numerics = seg.filter(s => /^\d/.test(s))
+  const numerics = seg.filter(s => /^[-+]?\d/.test(s))
+  // console.log(seg, numerics)
   numerics.map((n, i) => {
     shadowProp[map[i]] = numerics[i]
     return n
