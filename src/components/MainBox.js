@@ -21,7 +21,7 @@ class MainBox extends Component {
   }
 
   handleSelect() {
-    this.setState({ view: 'shadow' });
+    this.setState({ view: 'general' });
     this.props.onSelect();
   }
 

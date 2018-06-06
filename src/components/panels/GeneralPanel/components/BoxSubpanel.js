@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ColorPicker from '../../../controls/ColorPicker';
 
 import { handleChangeStyle } from '../../../../util/change-style';
+import { Input } from '../../../controls/Input';
 
 class BoxSubpanel extends Component {
   constructor(props) {
@@ -59,26 +60,20 @@ class BoxSubpanel extends Component {
         <div className="flex items-center">
           <div className="basic-box p1">
             Margin: &nbsp;
-            <input
-              type="text"
+            <Input
               placeholder="All"
               value={this.state.style.margin}
-              onChange={e =>
-                this.setState(handleChangeStyle('margin', e.target.value))
-              }
               style={{ width: 35 }}
+              onChange={val => this.setState(handleChangeStyle('margin', val))}
               className="general-panel__input"
             />
           </div>
           <div className="basic-box p1">
             Padding: &nbsp;
-            <input
-              type="text"
+            <Input
               placeholder="All"
               value={this.state.style.padding}
-              onChange={e =>
-                this.setState(handleChangeStyle('padding', e.target.value))
-              }
+              onChange={val => this.setState(handleChangeStyle('padding', val))}
               style={{ width: 35 }}
               className="general-panel__input"
             />
