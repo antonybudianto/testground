@@ -25,7 +25,7 @@ class BoxSubpanel extends Component {
       <div className="mt1 flex flex-column">
         <strong className="basic-panel__subtitle">Element</strong>
         <div className="flex items-stretch">
-          <div className="basic-box p1">
+          <div className="basic-box p1 flex-auto">
             Size: &nbsp;
             <input
               type="text"
