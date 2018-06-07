@@ -3,6 +3,7 @@ import ColorPicker from '../../../controls/ColorPicker';
 
 import { handleChangeStyle } from '../../../../util/change-style';
 import { Input } from '../../../controls/Input';
+import Button from '../../../controls/Button';
 
 class BoxSubpanel extends Component {
   constructor(props) {
@@ -25,28 +26,31 @@ class BoxSubpanel extends Component {
       <div className="mt1 flex flex-column">
         <strong className="basic-panel__subtitle">Element</strong>
         <div className="flex items-stretch">
-          <div className="basic-box p1 flex-auto">
-            Size: &nbsp;
-            <input
-              type="text"
-              placeholder="W"
-              value={this.state.style.width}
-              onChange={e =>
-                this.setState(handleChangeStyle('width', e.target.value))
-              }
-              style={{ width: 35 }}
-              className="general-panel__input"
-            />
-            <input
-              type="text"
-              placeholder="H"
-              value={this.state.style.height}
-              onChange={e =>
-                this.setState(handleChangeStyle('height', e.target.value))
-              }
-              style={{ width: 35 }}
-              className="general-panel__input"
-            />
+          <div className="basic-box p1 flex items-center flex-auto">
+            <div>Size: &nbsp;</div>
+            <div className="flex justify-center items-stretch" style={{ height: '30px' }}>
+              <input
+                type="text"
+                placeholder="W"
+                value={this.state.style.width}
+                onChange={e =>
+                  this.setState(handleChangeStyle('width', e.target.value))
+                }
+                style={{ width: 40 }}
+                className="general-panel__input"
+              />
+              <i className="fas fa-times mx1" style={{ height: 'auto' }} />
+              <input
+                type="text"
+                placeholder="H"
+                value={this.state.style.height}
+                onChange={e =>
+                  this.setState(handleChangeStyle('height', e.target.value))
+                }
+                style={{ width: 40 }}
+                className="general-panel__input"
+              />
+            </div>
           </div>
           <div className="basic-box p1">
             <ColorPicker
@@ -57,19 +61,23 @@ class BoxSubpanel extends Component {
             />
           </div>
         </div>
-        <div className="flex items-center">
-          <div className="basic-box p1">
-            Margin: &nbsp;
-            <Input
-              placeholder="All"
-              value={this.state.style.margin}
-              style={{ width: 35 }}
-              onChange={val => this.setState(handleChangeStyle('margin', val))}
-              className="general-panel__input"
-            />
+        <div className="flex">
+          <div className="basic-box p1 flex items-center">
+            <span>Margin: &nbsp;</span>
+            <div className="flex items-stretch">
+              <Input
+                placeholder="All"
+                value={this.state.style.margin}
+                style={{ width: 35 }}
+                onChange={val => this.setState(handleChangeStyle('margin', val))}
+                className="general-panel__input"
+              />
+              <Button className="m0"><i className="fas fa-ellipsis-h"></i></Button>
+            </div>
           </div>
-          <div className="basic-box p1">
-            Padding: &nbsp;
+          <div className="basic-box p1 flex items-center">
+            <span>Padding: &nbsp;</span>
+            <div className="flex items-stretch">
             <Input
               placeholder="All"
               value={this.state.style.padding}
@@ -77,6 +85,8 @@ class BoxSubpanel extends Component {
               style={{ width: 35 }}
               className="general-panel__input"
             />
+            <Button className="m0"><i className="fas fa-ellipsis-h"></i></Button>
+            </div>
           </div>
         </div>
       </div>
