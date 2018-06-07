@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import ColorPicker from '../../controls/ColorPicker';
 import BasicPanel from '../BasicPanel';
 import Button from '../../controls/Button';
+import Input from '../../controls/Input';
 import './ShadowPanel.css';
 
 const reg = /\s+(?!.*\))/g;
@@ -82,19 +83,18 @@ export class ShadowPanel extends Component {
         <div className="flex items-center">
           <div className="basic-box">
             <label htmlFor="hOffset">Horizontal</label>
-            <input
-              type="text"
+            <Input
               value={this.state.shadowProp.hOffset}
-              onChange={e => this.handleShadowProp('hOffset', e.target.value)}
+              onChange={val => this.handleShadowProp('hOffset', val)}
               className="ml1 shadow-panel__input"
             />
           </div>
           <div className="basic-box">
             <label htmlFor="vOffset">Vertical</label>
-            <input
+            <Input
               type="text"
               value={this.state.shadowProp.vOffset}
-              onChange={e => this.handleShadowProp('vOffset', e.target.value)}
+              onChange={val => this.handleShadowProp('vOffset', val)}
               className="ml1 shadow-panel__input"
             />
           </div>
@@ -103,19 +103,19 @@ export class ShadowPanel extends Component {
         <div className="flex items-center">
           <div className="basic-box flex-auto">
             <label htmlFor="blur">Blur</label>
-            <input
+            <Input
               type="text"
               value={this.state.shadowProp.blur}
-              onChange={e => this.handleShadowProp('blur', e.target.value)}
+              onChange={val => this.handleShadowProp('blur', val)}
               className="ml1 shadow-panel__input"
             />
           </div>
           <div className="basic-box">
             <label htmlFor="spread">Spread</label>
-            <input
+            <Input
               type="text"
               value={this.state.shadowProp.spread}
-              onChange={e => this.handleShadowProp('spread', e.target.value)}
+              onChange={val => this.handleShadowProp('spread', val)}
               className="ml1 shadow-panel__input"
             />
           </div>
