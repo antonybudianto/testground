@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 import Button from '../../../controls/Button';
+import Input from '../../../controls/Input';
 import ColorPicker from '../../../controls/ColorPicker';
 import { SimplePopup } from '../../../controls/SimplePopup/SimplePopup';
 
@@ -29,12 +30,11 @@ const BorderGroup = ({
   return (
     <div className="flex items-center p1">
       <ColorPicker color={color || ''} onColorChange={onColorChange} />
-      <input
-        type="text"
+      <Input
         className="border-panel__input ml1"
         placeholder={widthPlaceholder}
         value={width}
-        onChange={e => onWidthChange(e.target.value)}
+        onChange={val => onWidthChange(val)}
       />
       <SimplePopup
         trigger={

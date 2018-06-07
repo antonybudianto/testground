@@ -3,6 +3,7 @@ import BasicPanel from '../BasicPanel';
 import './BorderPanel.css';
 import { handleChangeStyle } from '../../../util/change-style';
 import BorderGroup from './components/BorderGroup';
+import { Input } from '../../controls/Input';
 
 class BorderPanel extends Component {
   constructor(props) {
@@ -46,17 +47,13 @@ class BorderPanel extends Component {
               <tr>
                 <td className="border border-panel__border">
                   <div className="flex items-center justify-center">
-                    <input
-                      type="text"
+                    <Input
                       className="border-panel__input"
                       placeholder="TL radius"
                       value={this.state.style.borderTopLeftRadius}
-                      onChange={e =>
+                      onChange={val =>
                         this.setState(
-                          handleChangeStyle(
-                            'borderTopLeftRadius',
-                            e.target.value
-                          )
+                          handleChangeStyle('borderTopLeftRadius', val)
                         )
                       }
                     />
@@ -81,17 +78,13 @@ class BorderPanel extends Component {
                 </td>
                 <td className="border border-panel__border">
                   <div className="flex items-center justify-center">
-                    <input
-                      type="text"
+                    <Input
                       className="border-panel__input"
                       placeholder="TR radius"
                       value={this.state.style.borderTopRightRadius}
-                      onChange={e =>
+                      onChange={val =>
                         this.setState(
-                          handleChangeStyle(
-                            'borderTopRightRadius',
-                            e.target.value
-                          )
+                          handleChangeStyle('borderTopRightRadius', val)
                         )
                       }
                     />
@@ -133,15 +126,12 @@ class BorderPanel extends Component {
                         this.setState(handleChangeStyle('borderStyle', val))
                       }
                     />
-                    <input
-                      type="text"
+                    <Input
                       className="border-panel__input mr1"
                       placeholder="all radius"
                       value={this.state.style.borderRadius}
-                      onChange={e =>
-                        this.setState(
-                          handleChangeStyle('borderRadius', e.target.value)
-                        )
+                      onChange={val =>
+                        this.setState(handleChangeStyle('borderRadius', val))
                       }
                     />
                   </div>
@@ -167,17 +157,13 @@ class BorderPanel extends Component {
               <tr>
                 <td className="border border-panel__border">
                   <div className="flex items-center justify-center">
-                    <input
-                      type="text"
+                    <Input
                       className="border-panel__input"
                       placeholder="BL radius"
                       value={this.state.style.borderBottomLeftRadius}
-                      onChange={e =>
+                      onChange={val =>
                         this.setState(
-                          handleChangeStyle(
-                            'borderBottomLeftRadius',
-                            e.target.value
-                          )
+                          handleChangeStyle('borderBottomLeftRadius', val)
                         )
                       }
                     />
@@ -202,17 +188,13 @@ class BorderPanel extends Component {
                 </td>
                 <td className="border border-panel__border">
                   <div className="flex items-center justify-center">
-                    <input
-                      type="text"
+                    <Input
                       className="border-panel__input"
                       placeholder="BR radius"
                       value={this.state.style.borderBottomRightRadius}
-                      onChange={e =>
+                      onChange={val =>
                         this.setState(
-                          handleChangeStyle(
-                            'borderBottomRightRadius',
-                            e.target.value
-                          )
+                          handleChangeStyle('borderBottomRightRadius', val)
                         )
                       }
                     />
