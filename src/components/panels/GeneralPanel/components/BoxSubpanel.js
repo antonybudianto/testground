@@ -18,6 +18,10 @@ class BoxSubpanel extends Component {
         marginRight: style.marginRight,
         marginTop: style.marginTop,
         marginBottom: style.marginBottom,
+        paddingLeft: style.paddingLeft,
+        paddingRight: style.paddingRight,
+        paddingTop: style.paddingTop,
+        paddingBottom: style.paddingBottom,
         margin: style.margin,
         padding: style.padding,
         width: style.width,
@@ -176,9 +180,87 @@ class BoxSubpanel extends Component {
                 style={{ width: 35 }}
                 className="general-panel__input"
               />
-              <Button className="m0">
-                <i className="fas fa-ellipsis-h" />
-              </Button>
+              <SimplePopup
+                trigger={
+                  <Button className="m0">
+                    <i className="fas fa-ellipsis-h" />
+                  </Button>
+                }
+              >
+                <div className="flex flex-wrap justify-center p1">
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                          <div className="basic-box">
+                            <Input
+                              style={{ width: '50px' }}
+                              placeholder="top"
+                              value={this.state.style.paddingTop}
+                              onChange={val =>
+                                this.setState(
+                                  handleChangeStyle('paddingTop', val)
+                                )
+                              }
+                            />
+                          </div>
+                        </td>
+                        <td>&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div className="basic-box">
+                            <Input
+                              style={{ width: '50px' }}
+                              placeholder="left"
+                              value={this.state.style.paddingLeft}
+                              onChange={val =>
+                                this.setState(
+                                  handleChangeStyle('paddingLeft', val)
+                                )
+                              }
+                            />
+                          </div>
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                          <div className="basic-box">
+                            <Input
+                              style={{ width: '50px' }}
+                              placeholder="right"
+                              value={this.state.style.paddingRight}
+                              onChange={val =>
+                                this.setState(
+                                  handleChangeStyle('paddingRight', val)
+                                )
+                              }
+                            />
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                          <div className="basic-box">
+                            <Input
+                              style={{ width: '50px' }}
+                              placeholder="bottom"
+                              value={this.state.style.paddingBottom}
+                              onChange={val =>
+                                this.setState(
+                                  handleChangeStyle('paddingBottom', val)
+                                )
+                              }
+                            />
+                          </div>
+                        </td>
+                        <td>&nbsp;</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </SimplePopup>
             </div>
           </div>
         </div>
