@@ -18,10 +18,13 @@ export class Input extends Component {
     }
 
     e.preventDefault();
-    const curVal = parseFloat(this.props.value || 0);
+    let val = this.props.value ? parseFloat(this.props.value) : 0;
+    if (isNaN(val)) {
+      return;
+    }
     const add = e.keyCode === KEY_CODE.UP ? 1 : -1;
-    const total = curVal + add;
-    const unit = this.props.value.replace(curVal, '') || 'px';
+    const total = val + add;
+    const unit = this.props.value.replace(val, '') || 'px';
 
     this.props.onChange(total + unit);
   }
