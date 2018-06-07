@@ -70,7 +70,7 @@ function onMouseClick(event) {
   return false;
 }
 
-function reset() {
+export function reset() {
   document.removeEventListener('click', onMouseClick, false);
   document.removeEventListener('mousemove', onMouseMove, false);
   document.body.style.cursor = 'auto';

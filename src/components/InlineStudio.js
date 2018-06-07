@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MainBox from './MainBox';
 
-import { startPick } from '../lib/element-inspector';
+import { startPick, reset } from '../lib/element-inspector';
 import 'basscss/css/basscss.css';
 import fontawesome from '@fortawesome/fontawesome';
 import solid from '@fortawesome/fontawesome-free-solid';
@@ -22,12 +22,15 @@ class InlineStudio extends Component {
 
     this.onSelect = this.onSelect.bind(this);
     this.onClick = this.onClick.bind(this);
+    this.onReset = this.onReset.bind(this);
   }
+
   componentDidMount() {
     this.setState({
       warn: true,
     });
   }
+
   onClick(el) {
     setTimeout(() => {
       this.setState({
@@ -36,6 +39,15 @@ class InlineStudio extends Component {
       });
     }, 1);
   }
+
+  onReset() {
+    reset();
+    this.setState({
+      element: null,
+      selecting: false,
+    });
+  }
+
   onSelect() {
     this.setState(
       {
@@ -50,6 +62,7 @@ class InlineStudio extends Component {
       }
     );
   }
+
   render() {
     const { plugins = [] } = this.props;
     const internalIds = internalPlugins.map(p => p.id);
@@ -69,6 +82,7 @@ class InlineStudio extends Component {
       <MainBox
         plugins={externalPlugins}
         onSelect={this.onSelect}
+        onReset={this.onReset}
         selecting={this.state.selecting}
         element={this.state.element}
       />

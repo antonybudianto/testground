@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Draggable from 'react-draggable';
+import classNames from 'classnames';
 import './MainBox.css';
 
 import Button from './controls/Button';
@@ -21,6 +22,10 @@ class MainBox extends Component {
   }
 
   handleSelect() {
+    if (this.props.selecting) {
+      this.props.onReset();
+      return;
+    }
     this.setState({ view: 'general' });
     this.props.onSelect();
   }
@@ -36,18 +41,10 @@ class MainBox extends Component {
   }
 
   renderView() {
-    const { element, plugins } = this.props;
+    const { element, plugins, selecting } = this.props;
 
     if (!element) {
-      return (
-        <div
-          style={{
-            padding: '5px',
-          }}
-        >
-          Let's start by selecting element!
-        </div>
-      );
+      return <h3 className="p1">Let's start by selecting element!</h3>;
     }
 
     const allPlugins = [...internalPlugins, ...plugins];
@@ -79,12 +76,11 @@ class MainBox extends Component {
         <div className="main-box">
           <div className="main-box__title">{elementTitle}</div>
           {this.renderView()}
-          <div
-            style={{
-              padding: '5px',
-            }}
-          >
+          <div className="p1">
             <Button
+              className={classNames({
+                hide: !element,
+              })}
               active={this.state.view === 'menu'}
               onClick={this.handleMenuClick}
             >
