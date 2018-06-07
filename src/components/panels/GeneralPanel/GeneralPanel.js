@@ -5,6 +5,7 @@ import Button from '../../controls/Button';
 import './GeneralPanel.css';
 import BoxSubpanel from './components/BoxSubpanel';
 import { handleChangeStyle } from '../../../util/change-style';
+import { Input } from '../../controls/Input';
 
 class GeneralPanel extends Component {
   constructor(props) {
@@ -105,12 +106,11 @@ class GeneralPanel extends Component {
         <div>
           <div className="basic-box">
             Font size: &nbsp;
-            <input
-              type="text"
+            <Input
               placeholder="1em"
               value={style.fontSize}
-              onChange={e =>
-                this.setState(handleChangeStyle('fontSize', e.target.value))
+              onChange={val =>
+                this.setState(handleChangeStyle('fontSize', val))
               }
               style={{ width: 45 }}
               className="general-panel__input"
