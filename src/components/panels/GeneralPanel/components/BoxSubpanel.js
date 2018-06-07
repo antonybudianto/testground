@@ -29,23 +29,22 @@ class BoxSubpanel extends Component {
           <div className="basic-box p1 flex items-center flex-auto">
             <div>Size: &nbsp;</div>
             <div className="flex justify-center items-stretch" style={{ height: '30px' }}>
-              <input
-                type="text"
+              <Input
                 placeholder="W"
                 value={this.state.style.width}
-                onChange={e =>
-                  this.setState(handleChangeStyle('width', e.target.value))
+                onChange={val =>
+                  this.setState(handleChangeStyle('width', val))
                 }
                 style={{ width: 40 }}
                 className="general-panel__input"
               />
               <i className="fas fa-times mx1" style={{ height: 'auto' }} />
-              <input
+              <Input
                 type="text"
                 placeholder="H"
                 value={this.state.style.height}
-                onChange={e =>
-                  this.setState(handleChangeStyle('height', e.target.value))
+                onChange={val =>
+                  this.setState(handleChangeStyle('height', val))
                 }
                 style={{ width: 40 }}
                 className="general-panel__input"
