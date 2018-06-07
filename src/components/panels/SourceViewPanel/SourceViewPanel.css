@@ -1,5 +1,5 @@
 .source-view__content {
-  max-height: 250px;
+  max-height: 200px;
   max-width: 300px;
   overflow: auto;
 }
