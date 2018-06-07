@@ -1,9 +1,9 @@
 import React from 'react';
-import Popup from 'reactjs-popup';
 import classNames from 'classnames';
 
 import Button from '../../../controls/Button';
 import ColorPicker from '../../../controls/ColorPicker';
+import { SimplePopup } from '../../../controls/SimplePopup/SimplePopup';
 
 const borderStyles = [
   'dashed',
@@ -36,7 +36,7 @@ const BorderGroup = ({
         value={width}
         onChange={e => onWidthChange(e.target.value)}
       />
-      <Popup
+      <SimplePopup
         trigger={
           <Button
             className="ml1"
@@ -49,13 +49,6 @@ const BorderGroup = ({
             {style || 'no style'}
           </Button>
         }
-        position="right top"
-        on="click"
-        closeOnDocumentClick
-        mouseLeaveDelay={300}
-        mouseEnterDelay={0}
-        contentStyle={{ padding: '0px', border: 'none', width: 'auto' }}
-        arrow={false}
       >
         <div className="flex flex-wrap justify-center">
           {borderStyles.map((b, i) => (
@@ -75,7 +68,7 @@ const BorderGroup = ({
             </div>
           ))}
         </div>
-      </Popup>
+      </SimplePopup>
     </div>
   );
 };
