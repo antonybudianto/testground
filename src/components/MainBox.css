@@ -34,6 +34,7 @@
 
 .main-box__btn:focus {
   outline: 0;
+  border: 1px solid lightskyblue;
 }
 
 .main-box__btn:hover {
