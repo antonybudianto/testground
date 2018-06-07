@@ -41,7 +41,7 @@ class MainBox extends Component {
   }
 
   renderView() {
-    const { element, plugins, selecting } = this.props;
+    const { element, plugins } = this.props;
 
     if (!element) {
       return <h3 className="p1">Let's start by selecting element!</h3>;
