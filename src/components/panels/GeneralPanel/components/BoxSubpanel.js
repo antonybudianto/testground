@@ -10,13 +10,19 @@ class BoxSubpanel extends Component {
   constructor(props) {
     super(props);
 
+    const style = this.props.element.style;
+
     this.state = {
       style: {
-        margin: props.element.style.margin,
-        padding: props.element.style.padding,
-        width: props.element.style.width,
-        height: props.element.style.height,
-        backgroundColor: props.element.style.backgroundColor,
+        marginLeft: style.marginLeft,
+        marginRight: style.marginRight,
+        marginTop: style.marginTop,
+        marginBottom: style.marginBottom,
+        margin: style.margin,
+        padding: style.padding,
+        width: style.width,
+        height: style.height,
+        backgroundColor: style.backgroundColor,
       },
     };
   }
@@ -82,7 +88,79 @@ class BoxSubpanel extends Component {
                   </Button>
                 }
               >
-                <div className="flex flex-wrap justify-center">Margin</div>
+                <div className="flex flex-wrap justify-center p1">
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                          <div className="basic-box">
+                            <Input
+                              style={{ width: '50px' }}
+                              placeholder="top"
+                              value={this.state.style.marginTop}
+                              onChange={val =>
+                                this.setState(
+                                  handleChangeStyle('marginTop', val)
+                                )
+                              }
+                            />
+                          </div>
+                        </td>
+                        <td>&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div className="basic-box">
+                            <Input
+                              style={{ width: '50px' }}
+                              placeholder="left"
+                              value={this.state.style.marginLeft}
+                              onChange={val =>
+                                this.setState(
+                                  handleChangeStyle('marginLeft', val)
+                                )
+                              }
+                            />
+                          </div>
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                          <div className="basic-box">
+                            <Input
+                              style={{ width: '50px' }}
+                              placeholder="right"
+                              value={this.state.style.marginRight}
+                              onChange={val =>
+                                this.setState(
+                                  handleChangeStyle('marginRight', val)
+                                )
+                              }
+                            />
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                          <div className="basic-box">
+                            <Input
+                              style={{ width: '50px' }}
+                              placeholder="bottom"
+                              value={this.state.style.marginBottom}
+                              onChange={val =>
+                                this.setState(
+                                  handleChangeStyle('marginBottom', val)
+                                )
+                              }
+                            />
+                          </div>
+                        </td>
+                        <td>&nbsp;</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </SimplePopup>
             </div>
           </div>
