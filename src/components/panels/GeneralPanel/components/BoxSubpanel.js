@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import ColorPicker from '../../../controls/ColorPicker';
 
+import ColorPicker from '../../../controls/ColorPicker';
 import { handleChangeStyle } from '../../../../util/change-style';
 import { Input } from '../../../controls/Input';
 import Button from '../../../controls/Button';
+import { SimplePopup } from '../../../controls/SimplePopup/SimplePopup';
 
 class BoxSubpanel extends Component {
   constructor(props) {
@@ -28,13 +29,14 @@ class BoxSubpanel extends Component {
         <div className="flex items-stretch">
           <div className="basic-box p1 flex items-center flex-auto">
             <div>Size: &nbsp;</div>
-            <div className="flex justify-center items-stretch" style={{ height: '30px' }}>
+            <div
+              className="flex justify-center items-stretch"
+              style={{ height: '30px' }}
+            >
               <Input
                 placeholder="W"
                 value={this.state.style.width}
-                onChange={val =>
-                  this.setState(handleChangeStyle('width', val))
-                }
+                onChange={val => this.setState(handleChangeStyle('width', val))}
                 style={{ width: 40 }}
                 className="general-panel__input"
               />
@@ -68,23 +70,37 @@ class BoxSubpanel extends Component {
                 placeholder="All"
                 value={this.state.style.margin}
                 style={{ width: 35 }}
-                onChange={val => this.setState(handleChangeStyle('margin', val))}
+                onChange={val =>
+                  this.setState(handleChangeStyle('margin', val))
+                }
                 className="general-panel__input"
               />
-              <Button className="m0"><i className="fas fa-ellipsis-h"></i></Button>
+              <SimplePopup
+                trigger={
+                  <Button className="m0">
+                    <i className="fas fa-ellipsis-h" />
+                  </Button>
+                }
+              >
+                <div className="flex flex-wrap justify-center">Margin</div>
+              </SimplePopup>
             </div>
           </div>
           <div className="basic-box p1 flex items-center">
             <span>Padding: &nbsp;</span>
             <div className="flex items-stretch">
-            <Input
-              placeholder="All"
-              value={this.state.style.padding}
-              onChange={val => this.setState(handleChangeStyle('padding', val))}
-              style={{ width: 35 }}
-              className="general-panel__input"
-            />
-            <Button className="m0"><i className="fas fa-ellipsis-h"></i></Button>
+              <Input
+                placeholder="All"
+                value={this.state.style.padding}
+                onChange={val =>
+                  this.setState(handleChangeStyle('padding', val))
+                }
+                style={{ width: 35 }}
+                className="general-panel__input"
+              />
+              <Button className="m0">
+                <i className="fas fa-ellipsis-h" />
+              </Button>
             </div>
           </div>
         </div>
