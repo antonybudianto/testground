@@ -1,9 +1,16 @@
 const webpack = require('webpack')
+const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+const devMode = process.env.NODE_ENV === 'development'
 
 const config = {
   mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
   entry: './src/index.js',
-  output: './lib/index.js',
+  output: {
+    filename: 'index.js',
+    path: path.resolve(__dirname, './lib')
+  },
   module: {
     rules: [
       {
@@ -26,14 +33,20 @@ const config = {
               url: true
             }
           },
-          {
-            loader: 'sass-loader',
-            options: {}
-          }
+          // {
+          //   loader: 'sass-loader',
+          //   options: {}
+          // }
         ]
       }
     ]
-  }
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: devMode ? '[name].css' : '[name].[hash].css',
+      chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
+    })
+  ],
 }
 
 module.exports = config;
