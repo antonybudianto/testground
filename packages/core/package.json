@@ -1,0 +1,27 @@
+{
+  "name": "@react-instudio/core",
+  "version": "0.0.1",
+  "description": "React Instudio Core",
+  "main": "lib/index.js",
+  "scripts": {
+    "start": "webpack --watch",
+    "build": "webpack --progress",
+    "test": "exit 0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.8",
+    "@fortawesome/fontawesome-free-solid": "^5.0.13",
+    "basscss": "^8.0.4",
+    "classnames": "^2.2.5",
+    "element-picker": "^1.0.1",
+    "react-color": "^2.14.1",
+    "react-copy-to-clipboard": "^5.0.1",
+    "react-draggable": "^3.0.5",
+    "reactjs-popup": "^1.1.1"
+  },
+  "author": "",
+  "license": "MIT"
+}

@@ -10,7 +10,7 @@ import { logWarning } from '../util/log';
 
 fontawesome.library.add(solid);
 
-class InlineStudio extends Component {
+export class InlineStudio extends Component {
   constructor(props) {
     super(props);
 
@@ -89,5 +89,3 @@ class InlineStudio extends Component {
     );
   }
 }
-
-export default InlineStudio;
