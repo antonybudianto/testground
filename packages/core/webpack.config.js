@@ -1,8 +1,9 @@
-const webpack = require('webpack')
-const path = require('path')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const webpack = require('webpack');
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const nodeExternals = require('webpack-node-externals');
 
-const devMode = process.env.NODE_ENV === 'development'
+const devMode = process.env.NODE_ENV === 'development';
 
 const config = {
   mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
@@ -10,8 +11,9 @@ const config = {
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, './lib'),
-    libraryTarget: 'commonjs2'
+    libraryTarget: 'commonjs2',
   },
+  // externals: [nodeExternals()],
   module: {
     rules: [
       {
@@ -20,8 +22,8 @@ const config = {
         loader: 'babel-loader',
         options: {
           babelrc: false,
-          extends: path.resolve(__dirname, '.babelrc')
-        }
+          extends: path.resolve(__dirname, '.babelrc'),
+        },
       },
       {
         test: /\.s?[ac]ss$/,
@@ -31,24 +33,18 @@ const config = {
             loader: 'css-loader',
             options: {
               minimize: true,
-              url: true
-            }
+              url: true,
+            },
           },
           // {
           //   loader: 'sass-loader',
           //   options: {}
           // }
-        ]
-      }
-    ]
+        ],
+      },
+    ],
   },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: devMode ? '[name].css' : '[name].[hash].css',
-      chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
-    })
-  ],
-}
+  plugins: [],
+};
 
 module.exports = config;
-

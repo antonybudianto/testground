@@ -4,11 +4,17 @@
   "description": "React Instudio Core",
   "main": "lib/index.js",
   "scripts": {
-    "start": "webpack --watch",
+    "start": "better-npm-run start",
     "build": "better-npm-run build",
     "test": "exit 0"
   },
   "betterScripts": {
+    "start": {
+      "command": "webpack --watch",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
     "build": {
       "command": "webpack --progress",
       "env": {
@@ -30,7 +36,8 @@
     "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "^16.4.0",
     "react-draggable": "^3.0.5",
-    "reactjs-popup": "^1.1.1"
+    "reactjs-popup": "^1.1.1",
+    "webpack-node-externals": "^1.7.2"
   },
   "author": "",
   "license": "MIT",
