@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const nodeExternals = require('webpack-node-externals');
 
 const devMode = process.env.NODE_ENV === 'development';
@@ -13,7 +12,7 @@ const config = {
     path: path.resolve(__dirname, './lib'),
     libraryTarget: 'commonjs2',
   },
-  // externals: [nodeExternals()],
+  externals: !devMode ? [nodeExternals()] : [],
   module: {
     rules: [
       {
