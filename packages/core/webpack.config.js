@@ -9,7 +9,8 @@ const config = {
   entry: './src/index.js',
   output: {
     filename: 'index.js',
-    path: path.resolve(__dirname, './lib')
+    path: path.resolve(__dirname, './lib'),
+    libraryTarget: 'commonjs2'
   },
   module: {
     rules: [
@@ -25,7 +26,7 @@ const config = {
       {
         test: /\.s?[ac]ss$/,
         use: [
-          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'style-loader',
           {
             loader: 'css-loader',
             options: {

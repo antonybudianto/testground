@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MainBox from './MainBox';
 
-import { startPick, reset } from '../lib/element-inspector';
+import { startPick, reset } from '../exlib/element-inspector';
 import 'basscss/css/basscss.css';
 import fontawesome from '@fortawesome/fontawesome';
 import solid from '@fortawesome/fontawesome-free-solid';
