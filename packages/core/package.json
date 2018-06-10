@@ -1,6 +1,6 @@
 {
   "name": "@react-instudio/core",
-  "version": "0.0.7-0",
+  "version": "0.0.7",
   "description": "React Instudio Core",
   "main": "lib/index.js",
   "files": [
@@ -47,8 +47,6 @@
   "author": "Antony Budianto <antonybudianto@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
     "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
@@ -56,6 +54,8 @@
     "babel-preset-react-app": "^3.1.1",
     "better-npm-run": "^0.1.0",
     "css-loader": "^0.28.11",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
     "style-loader": "^0.21.0",
     "webpack": "^4.12.0",
     "webpack-cli": "^3.0.3"
