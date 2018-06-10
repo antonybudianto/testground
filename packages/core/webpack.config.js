@@ -12,7 +12,13 @@ const config = {
     path: path.resolve(__dirname, './lib'),
     libraryTarget: 'commonjs2',
   },
-  externals: !devMode ? [nodeExternals()] : [],
+  externals: !devMode
+    ? [
+        nodeExternals({
+          whitelist: ['basscss'],
+        }),
+      ]
+    : [],
   module: {
     rules: [
       {
