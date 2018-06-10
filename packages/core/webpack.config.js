@@ -35,10 +35,6 @@ const config = {
               url: true,
             },
           },
-          // {
-          //   loader: 'sass-loader',
-          //   options: {}
-          // }
         ],
       },
     ],
