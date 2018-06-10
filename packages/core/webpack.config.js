@@ -15,7 +15,7 @@ const config = {
   externals: !devMode
     ? [
         nodeExternals({
-          whitelist: [/^basscss/],
+          whitelist: [/^basscss/, /^prop-types/],
         }),
       ]
     : [],
