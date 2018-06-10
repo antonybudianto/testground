@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import MainBox from './MainBox';
 
 import { startPick, reset } from '../exlib/element-inspector';
-import 'basscss/css/basscss.css';
 import fontawesome from '@fortawesome/fontawesome';
 import solid from '@fortawesome/fontawesome-free-solid';
 import { internalPlugins } from './internal-plugins';
 import { logWarning } from '../util/log';
+import './InlineStudio.css';
 
 fontawesome.library.add(solid);
 
