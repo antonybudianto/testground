@@ -33,7 +33,7 @@ const config = {
       {
         test: /\.s?[ac]ss$/,
         use: [
-          'style-loader',
+          'iso-morphic-style-loader',
           {
             loader: 'css-loader',
             options: {

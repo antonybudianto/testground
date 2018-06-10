@@ -2,8 +2,7 @@ let mainOptions = {
   backgroundColor: 'rgba(0, 185, 212, 0.51)',
 };
 let oldTarget;
-let layer = document.createElement('div');
-layer.style.pointerEvents = 'none';
+let layer;
 
 function getPosition(el) {
   var xPos = 0;
@@ -92,6 +91,8 @@ export function startPick(options = {}) {
     console.error('onClick must be defined');
   }
 
+  layer = document.createElement('div');
+  layer.style.pointerEvents = 'none';
   document.addEventListener('click', onMouseClick, false);
   document.addEventListener('mousemove', onMouseMove, false);
   document.body.appendChild(layer);
