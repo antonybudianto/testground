@@ -47,6 +47,8 @@
   "author": "Antony Budianto <antonybudianto@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
     "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
