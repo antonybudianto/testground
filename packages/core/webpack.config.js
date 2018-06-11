@@ -5,20 +5,26 @@ const nodeExternals = require('webpack-node-externals');
 const devMode = process.env.NODE_ENV === 'development';
 
 const config = {
-  mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
+  mode: 'production',
+  // mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
   entry: './src/index.js',
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, './lib'),
     libraryTarget: 'commonjs2',
   },
-  externals: !devMode
-    ? [
-        nodeExternals({
-          whitelist: [],
-        }),
-      ]
-    : [],
+  externals: [
+    nodeExternals({
+      whitelist: [],
+    }),
+  ],
+  // externals: !devMode
+  //   ? [
+  //       nodeExternals({
+  //         whitelist: [],
+  //       }),
+  //     ]
+  //   : [],
   module: {
     rules: [
       {
