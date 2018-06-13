@@ -59,7 +59,7 @@ export const internalPlugins = [
   {
     id: 'animation',
     menu: {
-      menuName: 'Animation',
+      menuName: 'Animation [BETA]',
       menuIcon: 'fa-video',
     },
     panel: {
