@@ -32,7 +32,7 @@ class AnimationPanel extends Component {
 
   componentDidMount() {
     const { element } = this.props;
-    const currentStyle = element.getAttribute('style');
+    const currentStyle = element.getAttribute('style') || '';
     let id = element.dataset.instudioElementId;
     if (!id) {
       id = generate();
