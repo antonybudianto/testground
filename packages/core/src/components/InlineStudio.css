@@ -1,0 +1,16 @@
+@import '~basscss/css/basscss.css';
+
+.minimized-icon {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  background-color: purple;
+  color: white;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}

@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
-import MainBox from './MainBox';
-
-import { startPick, reset } from '../lib/element-inspector';
-import 'basscss/css/basscss.css';
 import fontawesome from '@fortawesome/fontawesome';
 import solid from '@fortawesome/fontawesome-free-solid';
+
+import MainBox from './MainBox';
+import { startPick, reset } from '../exlib/element-inspector';
 import { internalPlugins } from './internal-plugins';
 import { logWarning } from '../util/log';
+import './InlineStudio.css';
 
 fontawesome.library.add(solid);
 
-class InlineStudio extends Component {
+export class InlineStudio extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      minimized: false,
       selecting: false,
       element: null,
       warn: false,
@@ -23,6 +24,7 @@ class InlineStudio extends Component {
     this.onSelect = this.onSelect.bind(this);
     this.onClick = this.onClick.bind(this);
     this.onReset = this.onReset.bind(this);
+    this.toggleWindow = this.toggleWindow.bind(this);
   }
 
   componentDidMount() {
@@ -57,10 +59,16 @@ class InlineStudio extends Component {
       () => {
         startPick({
           onClick: this.onClick,
-          excludedTarget: '.main-box',
+          excludedTarget: '.inline-studio',
         });
       }
     );
+  }
+
+  toggleWindow() {
+    this.setState({
+      minimized: !this.state.minimized,
+    });
   }
 
   render() {
@@ -79,15 +87,26 @@ class InlineStudio extends Component {
     }
 
     return (
-      <MainBox
-        plugins={externalPlugins}
-        onSelect={this.onSelect}
-        onReset={this.onReset}
-        selecting={this.state.selecting}
-        element={this.state.element}
-      />
+      <div className="inline-studio">
+        {this.state.minimized && (
+          <div
+            title="Click to open React Instudio popup"
+            onClick={this.toggleWindow}
+            className="minimized-icon flex items-center justify-center"
+          >
+            <i className="fas fa-window-maximize" />
+          </div>
+        )}
+        <MainBox
+          minimized={this.state.minimized}
+          plugins={externalPlugins}
+          onSelect={this.onSelect}
+          onReset={this.onReset}
+          handleMinimize={this.toggleWindow}
+          selecting={this.state.selecting}
+          element={this.state.element}
+        />
+      </div>
     );
   }
 }
-
-export default InlineStudio;

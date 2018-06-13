@@ -73,8 +73,23 @@ class MainBox extends Component {
 
     return (
       <Draggable handle=".main-box__title" defaultPosition={{ x: 50, y: 25 }}>
-        <div className="main-box">
-          <div className="main-box__title">{elementTitle}</div>
+        <div
+          className={classNames('main-box', {
+            hidden: this.props.minimized,
+          })}
+        >
+          <div className="main-box__title flex justify-between">
+            <div className="flex-auto">{elementTitle}</div>
+            <Button
+              className="border-none m0 p0"
+              style={{
+                padding: '0 4px',
+              }}
+              onClick={this.props.handleMinimize}
+            >
+              <i className="fas fa-window-minimize" />
+            </Button>
+          </div>
           {this.renderView()}
           <div className="p1">
             <Button
