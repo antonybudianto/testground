@@ -111,7 +111,7 @@ class AnimationPanel extends Component {
       <BasicPanel title="ANIMATION">
         <div className="flex justify-center">
           <div className="flex flex-column">
-            <span>Time</span>
+            <span>Timeline</span>
             {currentAnim.times.map((time, i) => (
               <Button
                 icon
