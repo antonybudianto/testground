@@ -14,6 +14,10 @@ class AnimationPanel extends Component {
 
     this.state = {
       tmpStyle: props.element.getAttribute('style'),
+      animationProps: {
+        duration: '1s',
+        timingFunction: 'ease',
+      },
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -23,6 +27,7 @@ class AnimationPanel extends Component {
     this.handlePlay = this.handlePlay.bind(this);
     this.handleReset = this.handleReset.bind(this);
     this.generateKeyframes = this.generateKeyframes.bind(this);
+    this.setAnimation = this.setAnimation.bind(this);
   }
 
   componentDidMount() {
@@ -69,6 +74,13 @@ class AnimationPanel extends Component {
     this.props.dispatch(setTime(i));
   }
 
+  setAnimation(anim) {
+    const { element } = this.props;
+    element.style.animationName = anim.id;
+    element.style.animationDuration = this.state.animationProps.duration;
+    element.style.animationTimingFunction = this.state.animationProps.animationTimingFunction;
+  }
+
   handleSave() {
     const { element, animation } = this.props;
     const currentAnim = this.getCurrentAnim();
@@ -77,7 +89,7 @@ class AnimationPanel extends Component {
     newAnim.times[animation.currentTime][1] = currentStyle;
     const kf = this.generateKeyframes(currentAnim);
     this.props.dispatch(setAnimation(currentAnim.id, newAnim.times));
-    element.style.animation = currentAnim.id + ' ease 1s';
+    this.setAnimation(currentAnim);
     insertCss(kf);
   }
 
@@ -87,7 +99,7 @@ class AnimationPanel extends Component {
     element.style.animation = '';
     element.setAttribute('style', currentAnim.times[0][1]);
     setTimeout(() => {
-      element.style.animation = currentAnim.id + ' ease 1s';
+      this.setAnimation(currentAnim);
     }, 500);
   }
 
