@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 import fontawesome from '@fortawesome/fontawesome';
 import solid from '@fortawesome/fontawesome-free-solid';
 
@@ -7,7 +9,9 @@ import { startPick, reset } from '../exlib/element-inspector';
 import { internalPlugins } from './internal-plugins';
 import { logWarning } from '../util/log';
 import './InlineStudio.css';
+import { appReducer } from '../reducers';
 
+const store = createStore(appReducer);
 fontawesome.library.add(solid);
 
 export class InlineStudio extends Component {
@@ -87,26 +91,28 @@ export class InlineStudio extends Component {
     }
 
     return (
-      <div className="inline-studio">
-        {this.state.minimized && (
-          <div
-            title="Click to open React Instudio popup"
-            onClick={this.toggleWindow}
-            className="minimized-icon flex items-center justify-center"
-          >
-            <i className="fas fa-window-maximize" />
-          </div>
-        )}
-        <MainBox
-          minimized={this.state.minimized}
-          plugins={externalPlugins}
-          onSelect={this.onSelect}
-          onReset={this.onReset}
-          handleMinimize={this.toggleWindow}
-          selecting={this.state.selecting}
-          element={this.state.element}
-        />
-      </div>
+      <Provider store={store}>
+        <div className="inline-studio">
+          {this.state.minimized && (
+            <div
+              title="Click to open React Instudio popup"
+              onClick={this.toggleWindow}
+              className="minimized-icon flex items-center justify-center"
+            >
+              <i className="fas fa-window-maximize" />
+            </div>
+          )}
+          <MainBox
+            minimized={this.state.minimized}
+            plugins={externalPlugins}
+            onSelect={this.onSelect}
+            onReset={this.onReset}
+            handleMinimize={this.toggleWindow}
+            selecting={this.state.selecting}
+            element={this.state.element}
+          />
+        </div>
+      </Provider>
     );
   }
 }
