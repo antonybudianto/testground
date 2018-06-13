@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { generate } from 'shortid';
 import { connect } from 'react-redux';
 import insertCss from 'insert-styles';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import { setAnimation } from '../../../reducers/animation';
 import BasicPanel from '../BasicPanel';
@@ -22,6 +23,7 @@ class AnimationPanel extends Component {
     this.handleSave = this.handleSave.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
     this.handleReset = this.handleReset.bind(this);
+    this.generateKeyframes = this.generateKeyframes.bind(this);
   }
 
   componentDidMount() {
@@ -49,6 +51,15 @@ class AnimationPanel extends Component {
     return { id, times: animation[id] };
   }
 
+  generateKeyframes(anim) {
+    const str = anim.times.reduce(
+      (prev, curr) => `${prev} ${curr[0]}% {${curr[1]}}`,
+      ''
+    );
+    const kf = `@keyframes ${anim.id} { ${str} }`;
+    return kf;
+  }
+
   handleTimeChange(i) {
     const { element } = this.props;
     const currentAnim = this.getCurrentAnim();
@@ -67,11 +78,7 @@ class AnimationPanel extends Component {
     const newAnim = { ...currentAnim };
     const currentStyle = element.getAttribute('style');
     newAnim.times[this.state.time][1] = currentStyle;
-    const str = currentAnim.times.reduce(
-      (prev, curr) => `${prev} ${curr[0]}% {${curr[1]}}`,
-      ''
-    );
-    const kf = `@keyframes ${currentAnim.id} { ${str} }`;
+    const kf = this.generateKeyframes(currentAnim);
     this.props.dispatch(setAnimation(currentAnim.id, newAnim.times));
     element.style.animation = currentAnim.id + ' ease 1s';
     insertCss(kf);
@@ -101,6 +108,8 @@ class AnimationPanel extends Component {
       return null;
     }
 
+    const kf = this.generateKeyframes(currentAnim);
+
     return (
       <BasicPanel title="ANIMATION">
         <div className="flex justify-center">
@@ -127,6 +136,11 @@ class AnimationPanel extends Component {
               <Button onClick={this.handleReset}>Reset</Button>
               <Button onClick={this.handleSave}>Save</Button>
               <Button onClick={this.handlePlay}>Play</Button>
+              <CopyToClipboard text={kf}>
+                <Button>
+                  <i className="fas fa-clipboard" />
+                </Button>
+              </CopyToClipboard>
             </div>
           </div>
         </div>
