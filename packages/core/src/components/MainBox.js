@@ -72,14 +72,19 @@ class MainBox extends Component {
       : 'React Inline Studio';
 
     return (
-      <Draggable handle=".main-box__title" defaultPosition={{ x: 50, y: 25 }}>
+      <Draggable
+        handle=".main-box__heading-title"
+        defaultPosition={{ x: 50, y: 25 }}
+      >
         <div
           className={classNames('main-box', {
             hidden: this.props.minimized,
           })}
         >
-          <div className="main-box__title flex justify-between">
-            <div className="flex-auto">{elementTitle}</div>
+          <div className="main-box__heading flex justify-between">
+            <div className="flex-auto main-box__heading-title">
+              {elementTitle}
+            </div>
             <Button
               className="border-none m0 p0"
               style={{
