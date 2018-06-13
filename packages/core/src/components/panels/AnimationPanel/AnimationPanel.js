@@ -29,7 +29,7 @@ class AnimationPanel extends Component {
     if (!id) {
       id = generate();
       element.dataset.instudioElementId = id;
-      const defAnim = [[0, currentStyle], [100, currentStyle]];
+      const defAnim = [[0, currentStyle], [100, '']];
       this.props.dispatch(setAnimation(id, defAnim));
     }
   }
@@ -48,6 +48,12 @@ class AnimationPanel extends Component {
   }
 
   handleTimeChange(i) {
+    const { element } = this.props;
+    const currentAnim = this.getCurrentAnim();
+    const selectedStyle = currentAnim.times[i][1];
+    if (selectedStyle !== '') {
+      element.setAttribute('style', selectedStyle);
+    }
     this.setState({
       time: i,
     });
