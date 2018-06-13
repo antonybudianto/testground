@@ -12,6 +12,7 @@ class AnimationPanel extends Component {
     super(props);
 
     this.state = {
+      tmpStyle: props.element.getAttribute('style'),
       time: 0,
     };
 
@@ -20,6 +21,7 @@ class AnimationPanel extends Component {
     this.handleTimeChange = this.handleTimeChange.bind(this);
     this.handleSave = this.handleSave.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
+    this.handleReset = this.handleReset.bind(this);
   }
 
   componentDidMount() {
@@ -85,6 +87,11 @@ class AnimationPanel extends Component {
     }, 500);
   }
 
+  handleReset() {
+    const { element } = this.props;
+    element.setAttribute('style', this.state.tmpStyle);
+  }
+
   render() {
     const { element, animation } = this.props;
 
@@ -117,6 +124,7 @@ class AnimationPanel extends Component {
               - Repeat for the next timeline
             </div>
             <div className="mt1 flex justify-center">
+              <Button onClick={this.handleReset}>Reset</Button>
               <Button onClick={this.handleSave}>Save</Button>
               <Button onClick={this.handlePlay}>Play</Button>
             </div>
