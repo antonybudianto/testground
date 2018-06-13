@@ -8,16 +8,18 @@ import { internalPlugins } from '../../internal-plugins';
 
 const MenuButton = props => {
   return (
-    <Button
-      {...props}
-      className={classNames(
-        'flex flex-column items-center justify-center col-3',
-        props.className
-      )}
-    >
-      <i className={classNames('fas', props.menuIcon)} />
-      <span className="menu-panel__btn-text mt1">{props.menuName}</span>
-    </Button>
+    <div className="col-3 flex justify-center items-center">
+      <Button
+        {...props}
+        className={classNames(
+          'flex flex-column items-center justify-center flex-auto',
+          props.className
+        )}
+      >
+        <i className={classNames('fas', props.menuIcon)} />
+        <span className="menu-panel__btn-text mt1">{props.menuName}</span>
+      </Button>
+    </div>
   );
 };
 
@@ -25,9 +27,7 @@ const MenuGroup = props => {
   return (
     <div className={classNames('flex flex-column', props.className)}>
       <strong className="basic-panel__subtitle">{props.title}</strong>
-      <div className="menu-panel flex flex-wrap justify-between">
-        {props.children}
-      </div>
+      <div className="menu-panel flex flex-wrap">{props.children}</div>
     </div>
   );
 };
