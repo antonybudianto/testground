@@ -756,6 +756,10 @@ inquirer@^3.2.2:
     strip-ansi "^4.0.0"
     through "^2.3.6"
 
+insert-styles@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/insert-styles/-/insert-styles-1.2.1.tgz#9cd84c2096bd541ea3e1923612b7b604c9c1d532"
+
 invert-kv@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/invert-kv/-/invert-kv-1.0.0.tgz#104a8e4aaca6d3d8cd157a8ef8bfab2d7a3ffdb6"
