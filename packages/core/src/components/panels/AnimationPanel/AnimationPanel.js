@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import insertCss from 'insert-styles';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
-import { setAnimation } from '../../../reducers/animation';
+import { setAnimation, setTime } from '../../../reducers/animation';
 import BasicPanel from '../BasicPanel';
 import Button from '../../controls/Button';
 
@@ -14,7 +14,6 @@ class AnimationPanel extends Component {
 
     this.state = {
       tmpStyle: props.element.getAttribute('style'),
-      time: 0,
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -48,7 +47,7 @@ class AnimationPanel extends Component {
     if (!id) {
       return null;
     }
-    return { id, times: animation[id] };
+    return { id, times: animation.data[id] };
   }
 
   generateKeyframes(anim) {
@@ -57,7 +56,7 @@ class AnimationPanel extends Component {
       ''
     );
     const kf = `@keyframes ${anim.id} { ${str} }`;
-    return kf;
+    return kf.replace(/animation:.*;/g, '');
   }
 
   handleTimeChange(i) {
@@ -67,17 +66,15 @@ class AnimationPanel extends Component {
     if (selectedStyle !== '') {
       element.setAttribute('style', selectedStyle);
     }
-    this.setState({
-      time: i,
-    });
+    this.props.dispatch(setTime(i));
   }
 
   handleSave() {
-    const { element } = this.props;
+    const { element, animation } = this.props;
     const currentAnim = this.getCurrentAnim();
     const newAnim = { ...currentAnim };
     const currentStyle = element.getAttribute('style');
-    newAnim.times[this.state.time][1] = currentStyle;
+    newAnim.times[animation.currentTime][1] = currentStyle;
     const kf = this.generateKeyframes(currentAnim);
     this.props.dispatch(setAnimation(currentAnim.id, newAnim.times));
     element.style.animation = currentAnim.id + ' ease 1s';
@@ -114,12 +111,13 @@ class AnimationPanel extends Component {
       <BasicPanel title="ANIMATION">
         <div className="flex justify-center">
           <div className="flex flex-column">
+            <span>Time</span>
             {currentAnim.times.map((time, i) => (
               <Button
-                onClick={() => this.handleTimeChange(i)}
-                active={this.state.time === i}
                 icon
                 key={i}
+                active={animation.currentTime === i}
+                onClick={() => this.handleTimeChange(i)}
               >
                 {time[0]}%
               </Button>
@@ -133,8 +131,8 @@ class AnimationPanel extends Component {
               - Repeat for the next timeline
             </div>
             <div className="mt1 flex justify-center">
-              <Button onClick={this.handleReset}>Reset</Button>
               <Button onClick={this.handleSave}>Save</Button>
+              <Button onClick={this.handleReset}>Reset</Button>
               <Button onClick={this.handlePlay}>Play</Button>
               <CopyToClipboard text={kf}>
                 <Button>
