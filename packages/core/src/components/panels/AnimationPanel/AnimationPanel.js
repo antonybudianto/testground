@@ -60,12 +60,11 @@ class AnimationPanel extends Component {
 
   componentDidMount() {
     const { element } = this.props;
-    const currentStyle = element.getAttribute('style') || '';
     let id = element.dataset.instudioElementId;
     if (!id) {
       id = generate();
       element.dataset.instudioElementId = id;
-      const defAnim = [[0, currentStyle], [100, currentStyle]];
+      const defAnim = [[0, ''], [100, '']];
       this.props.dispatch(setAnimation(id, defAnim));
     }
   }
@@ -103,7 +102,9 @@ class AnimationPanel extends Component {
     const { element } = this.props;
     const currentAnim = this.getCurrentAnim();
     const selectedStyle = currentAnim.times[i][1];
-    element.setAttribute('style', selectedStyle);
+    if (selectedStyle !== '') {
+      element.setAttribute('style', selectedStyle);
+    }
     this.setAnimation(currentAnim);
     this.props.dispatch(setTime(i));
   }
@@ -159,6 +160,7 @@ class AnimationPanel extends Component {
     }
 
     const kf = this.generateKeyframes(currentAnim);
+    const currentStyle = currentAnim.times[animation.currentTime][1];
 
     return (
       <BasicPanel title="ANIMATION">
@@ -187,7 +189,12 @@ class AnimationPanel extends Component {
             </div>
           </div>
           <div className="p1">
-            <div>
+            {currentStyle === '' && (
+              <div className="border p1">
+                This timeline has no record yet, save one!
+              </div>
+            )}
+            {/* <div>
               <ul
                 className="pl1"
                 style={{
@@ -201,9 +208,14 @@ class AnimationPanel extends Component {
                 <li>Click 'Play' to play the animation</li>
                 <li>Click 'Current' to reset to current style</li>
               </ul>
-            </div>
+            </div> */}
             <div className="mt1 flex justify-center">
-              <Button onClick={this.handleSave}>Save</Button>
+              <Button
+                disabled={this.state.tmpStyle === currentStyle}
+                onClick={this.handleSave}
+              >
+                Save
+              </Button>
               <Button onClick={this.handlePlay}>Play</Button>
 
               <SimplePopup trigger={<Button>CSS</Button>} position="top center">
