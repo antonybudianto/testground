@@ -4,7 +4,7 @@ import Popup from 'reactjs-popup';
 export const SimplePopup = props => (
   <Popup
     trigger={props.trigger}
-    position="right top"
+    position={props.position || 'right top'}
     on="click"
     closeOnDocumentClick
     mouseLeaveDelay={300}

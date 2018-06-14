@@ -7,6 +7,24 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { setAnimation, setTime } from '../../../reducers/animation';
 import BasicPanel from '../BasicPanel';
 import Button from '../../controls/Button';
+import { SimplePopup } from '../../controls/SimplePopup/SimplePopup';
+
+const SourceViewer = props => (
+  <div className="p1 pr3">
+    <pre className="flex">{props.text}</pre>
+    <CopyToClipboard text={props.text}>
+      <Button
+        style={{
+          position: 'absolute',
+          top: '0',
+          right: '0',
+        }}
+      >
+        <i className="fas fa-clipboard" />
+      </Button>
+    </CopyToClipboard>
+  </div>
+);
 
 class AnimationPanel extends Component {
   constructor(props) {
@@ -171,11 +189,10 @@ class AnimationPanel extends Component {
             <div className="mt1 flex justify-center">
               <Button onClick={this.handleSave}>Save</Button>
               <Button onClick={this.handlePlay}>Play</Button>
-              <CopyToClipboard text={kf}>
-                <Button>
-                  <i className="fas fa-clipboard" /> CSS
-                </Button>
-              </CopyToClipboard>
+
+              <SimplePopup trigger={<Button>CSS</Button>} position="top center">
+                <SourceViewer text={kf} />
+              </SimplePopup>
             </div>
           </div>
         </div>
