@@ -118,9 +118,10 @@ class AnimationPanel extends Component {
 
   handleSave() {
     const { element, animation } = this.props;
-    const currentStyle = element.getAttribute('style');
     const currentAnim = this.getCurrentAnim();
     const newAnim = { ...currentAnim };
+    this.setAnimation(newAnim);
+    const currentStyle = element.getAttribute('style');
 
     // Set current style to current time
     newAnim.times[animation.currentTime][1] = currentStyle;
@@ -131,7 +132,6 @@ class AnimationPanel extends Component {
 
     // Save to store
     this.props.dispatch(setAnimation(newAnim.id, newAnim.times));
-    this.setAnimation(newAnim);
   }
 
   handlePlay() {
@@ -148,6 +148,7 @@ class AnimationPanel extends Component {
     const { element } = this.props;
     element.setAttribute('style', this.state.tmpStyle);
     this.setAnimation(this.getCurrentAnim());
+    this.forceUpdate();
   }
 
   render() {
@@ -160,7 +161,8 @@ class AnimationPanel extends Component {
     }
 
     const kf = this.generateKeyframes(currentAnim);
-    const currentStyle = currentAnim.times[animation.currentTime][1];
+    const currentAnimStyle = currentAnim.times[animation.currentTime][1];
+    const currentElStyle = element.getAttribute('style');
 
     return (
       <BasicPanel title="ANIMATION">
@@ -189,7 +191,7 @@ class AnimationPanel extends Component {
             </div>
           </div>
           <div className="p1">
-            {currentStyle === '' && (
+            {currentAnimStyle === '' && (
               <div className="border p1">
                 This timeline has no record yet, save one!
               </div>
@@ -211,10 +213,10 @@ class AnimationPanel extends Component {
             </div> */}
             <div className="mt1 flex justify-center">
               <Button
-                disabled={this.state.tmpStyle === currentStyle}
+                disabled={currentElStyle === currentAnimStyle}
                 onClick={this.handleSave}
               >
-                Save
+                {currentElStyle === currentAnimStyle ? 'Saved' : 'Save'}
               </Button>
               <Button onClick={this.handlePlay}>Play</Button>
 
