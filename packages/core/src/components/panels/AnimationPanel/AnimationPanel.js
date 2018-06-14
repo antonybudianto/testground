@@ -88,7 +88,6 @@ class AnimationPanel extends Component {
       ''
     );
     const kf = `@keyframes ${anim.id} {${str}}`;
-    console.log(kf);
     const filteredKf = kf
       .replace(/;+/g, ';')
       .replace(/(?:(animation(-[a-z]*)*))[ ]*:[ ]*[^;]+;/g, '')
