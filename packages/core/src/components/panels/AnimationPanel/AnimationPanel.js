@@ -86,21 +86,27 @@ class AnimationPanel extends Component {
 
   handleSave() {
     const { element, animation } = this.props;
+    const currentStyle = element.getAttribute('style');
     const currentAnim = this.getCurrentAnim();
     const newAnim = { ...currentAnim };
-    const currentStyle = element.getAttribute('style');
+
+    // Set current style to current time
     newAnim.times[animation.currentTime][1] = currentStyle;
-    const kf = this.generateKeyframes(currentAnim);
-    this.props.dispatch(setAnimation(currentAnim.id, newAnim.times));
-    this.setAnimation(currentAnim);
-    insertCss(kf);
+
+    // Insert keyframe to global css on head tag
+    const kf = this.generateKeyframes(newAnim);
+    insertCss(kf, { id: newAnim.id });
+
+    // Save to store
+    this.props.dispatch(setAnimation(newAnim.id, newAnim.times));
+    this.setAnimation(newAnim);
   }
 
   handlePlay() {
     const { element } = this.props;
     const currentAnim = this.getCurrentAnim();
-    element.style.animation = '';
     element.setAttribute('style', currentAnim.times[0][1]);
+    element.style.animation = '';
     setTimeout(() => {
       this.setAnimation(currentAnim);
     }, 100);

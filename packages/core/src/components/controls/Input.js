@@ -6,6 +6,12 @@ const KEY_CODE = {
 };
 
 export class Input extends Component {
+  static defaultProps = {
+    defaultUnit: 'px',
+    unitless: false,
+    stepSize: 1,
+  };
+
   constructor(props) {
     super(props);
 
@@ -23,9 +29,12 @@ export class Input extends Component {
       return;
     }
     const add = e.keyCode === KEY_CODE.UP ? 1 : -1;
-    const total = val + add;
-    const unit = this.props.value.replace(val, '') || 'px';
-
+    const addTmp = add * this.props.stepSize;
+    const total = +(val + addTmp).toFixed(12);
+    let unit = '';
+    if (!this.props.unitless) {
+      unit = this.props.value.replace(val, '') || this.props.defaultUnit;
+    }
     this.props.onChange(total + unit);
   }
 

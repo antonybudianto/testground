@@ -14,6 +14,7 @@ class BoxSubpanel extends Component {
 
     this.state = {
       style: {
+        opacity: style.opacity,
         marginLeft: style.marginLeft,
         marginRight: style.marginRight,
         marginTop: style.marginTop,
@@ -261,6 +262,25 @@ class BoxSubpanel extends Component {
                   </table>
                 </div>
               </SimplePopup>
+            </div>
+          </div>
+        </div>
+        <div className="flex">
+          <div className="basic-box p1 flex items-center">
+            <span>Opacity: &nbsp;</span>
+            <div className="flex items-stretch">
+              <Input
+                placeholder="All"
+                defaultUnit=""
+                unitless
+                stepSize={0.1}
+                value={this.state.style.opacity}
+                style={{ width: 35 }}
+                onChange={val =>
+                  this.setState(handleChangeStyle('opacity', val))
+                }
+                className="general-panel__input"
+              />
             </div>
           </div>
         </div>
