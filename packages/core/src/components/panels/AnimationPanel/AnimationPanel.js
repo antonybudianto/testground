@@ -73,6 +73,7 @@ class AnimationPanel extends Component {
     const currentAnim = this.getCurrentAnim();
     const selectedStyle = currentAnim.times[i][1];
     element.setAttribute('style', selectedStyle);
+    this.setAnimation(currentAnim);
     this.props.dispatch(setTime(i));
   }
 
@@ -80,7 +81,7 @@ class AnimationPanel extends Component {
     const { element } = this.props;
     element.style.animationName = anim.id;
     element.style.animationDuration = this.state.animationProps.duration;
-    element.style.animationTimingFunction = this.state.animationProps.animationTimingFunction;
+    element.style.animationTimingFunction = this.state.animationProps.timingFunction;
   }
 
   handleSave() {
@@ -141,7 +142,7 @@ class AnimationPanel extends Component {
               </Button>
             ))}
           </div>
-          <div className="ml2">
+          <div className="ml3">
             <div>
               <ul
                 className="p1"
