@@ -78,7 +78,7 @@ class MainBox extends Component {
       >
         <div
           className={classNames('main-box', {
-            hidden: this.props.minimized,
+            'display-none': this.props.minimized,
           })}
         >
           <div className="main-box__heading flex justify-between">
