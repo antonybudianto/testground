@@ -190,9 +190,9 @@ class AnimationPanel extends Component {
               ))}
             </div>
           </div>
-          <div className="p1">
+          <div className="p1 flex flex-column">
             {currentAnimStyle === '' && (
-              <div className="border p1">
+              <div className="border p1 col col-8 clearfix mx-auto center">
                 <i className="fas fa-info-circle" /> This timeline has no record
                 yet, design and save one!
               </div>
