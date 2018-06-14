@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import fontawesome from '@fortawesome/fontawesome';
+import classNames from 'classnames';
 import solid from '@fortawesome/fontawesome-free-solid';
 
 import MainBox from './MainBox';
 import { startPick, reset } from '../exlib/element-inspector';
 import { internalPlugins } from './internal-plugins';
 import { logWarning } from '../util/log';
-import './InlineStudio.css';
+import css from './InlineStudio.css';
 import { appReducer } from '../reducers';
 
 const store = createStore(appReducer);
@@ -97,7 +98,10 @@ export class InlineStudio extends Component {
             <div
               title="Click to open React Instudio popup"
               onClick={this.toggleWindow}
-              className="minimized-icon flex items-center justify-center"
+              className={classNames(
+                'flex items-center justify-center',
+                css['minimized-icon']
+              )}
             >
               <i className="fas fa-window-maximize" />
             </div>

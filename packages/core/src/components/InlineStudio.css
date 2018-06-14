@@ -1,6 +1,6 @@
 @import '~basscss/css/basscss.css';
 
-.minimized-icon {
+:local(.minimized-icon) {
   width: 40px;
   height: 40px;
   position: fixed;
