@@ -61,7 +61,11 @@ class AnimationPanel extends Component {
       ''
     );
     const kf = `@keyframes ${anim.id} { ${str} }`;
-    return kf.replace(/animation:.*;/g, '');
+    const filteredKf = kf.replace(
+      /(?:(animation(-[a-z]*)*))[ ]*:[ ]*[^;]+;/g,
+      ''
+    );
+    return filteredKf;
   }
 
   handleTimeChange(i) {
@@ -104,6 +108,7 @@ class AnimationPanel extends Component {
   handleReset() {
     const { element } = this.props;
     element.setAttribute('style', this.state.tmpStyle);
+    this.setAnimation(this.getCurrentAnim());
   }
 
   render() {
@@ -122,6 +127,9 @@ class AnimationPanel extends Component {
         <div className="flex justify-center">
           <div className="flex flex-column">
             <span>Timeline</span>
+            <Button icon onClick={this.handleReset}>
+              Current
+            </Button>
             {currentAnim.times.map((time, i) => (
               <Button
                 icon
@@ -135,18 +143,26 @@ class AnimationPanel extends Component {
           </div>
           <div className="ml2">
             <div>
-              - First, select the timeline (0% - 100%) <br />
-              - Now you can change the style to be animated <br />
-              - Click 'Save' to record the timeline <br />
-              - Repeat for the next timeline
+              <ul
+                className="p1"
+                style={{
+                  listStyleType: 'disc',
+                }}
+              >
+                <li>First, select the timeline (0% - 100%) </li>
+                <li>Now you can change the style to be animated </li>
+                <li>Click 'Save' to record the timeline </li>
+                <li>Repeat for the next timeline</li>
+                <li>Click 'Play' to play the animation</li>
+                <li>Click 'Current' to reset to current style</li>
+              </ul>
             </div>
             <div className="mt1 flex justify-center">
               <Button onClick={this.handleSave}>Save</Button>
-              <Button onClick={this.handleReset}>Reset</Button>
               <Button onClick={this.handlePlay}>Play</Button>
               <CopyToClipboard text={kf}>
                 <Button>
-                  <i className="fas fa-clipboard" />
+                  <i className="fas fa-clipboard" /> CSS
                 </Button>
               </CopyToClipboard>
             </div>
