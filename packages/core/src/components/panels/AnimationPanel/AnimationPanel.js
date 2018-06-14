@@ -120,11 +120,11 @@ class AnimationPanel extends Component {
     const { element, animation } = this.props;
     const currentAnim = this.getCurrentAnim();
     const newAnim = { ...currentAnim };
-    this.setAnimation(newAnim);
 
     // Set current style to current time
     newAnim.times[animation.currentTime][1] = this.state.tmpStyle;
     element.setAttribute('style', this.state.tmpStyle);
+    this.setAnimation(newAnim);
 
     // Insert keyframe to global css on head tag
     const kf = this.generateKeyframes(newAnim);
