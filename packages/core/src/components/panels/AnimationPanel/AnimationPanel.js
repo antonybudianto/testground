@@ -171,6 +171,7 @@ class AnimationPanel extends Component {
             <div className="flex">
               <Button
                 icon
+                active={currentAnimStyle === currentElStyle}
                 className={css['btn-time']}
                 onClick={this.handleReset}
               >
