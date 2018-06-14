@@ -11,7 +11,16 @@ import { SimplePopup } from '../../controls/SimplePopup/SimplePopup';
 
 const SourceViewer = props => (
   <div className="p1 pr3">
-    <pre className="flex">{props.text}</pre>
+    <pre
+      style={{
+        maxHeight: '200px',
+        maxWidth: '300px',
+        overflow: 'auto',
+      }}
+      className="flex"
+    >
+      {props.text}
+    </pre>
     <CopyToClipboard text={props.text}>
       <Button
         style={{
