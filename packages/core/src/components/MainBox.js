@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Draggable from 'react-draggable';
 import classNames from 'classnames';
-import './MainBox.css';
+import css from './MainBox.css';
 
 import Button from './controls/Button';
 
@@ -77,7 +77,7 @@ class MainBox extends Component {
         defaultPosition={{ x: 50, y: 25 }}
       >
         <div
-          className={classNames('main-box', {
+          className={classNames(css['main-box'], {
             'display-none': this.props.minimized,
           })}
         >

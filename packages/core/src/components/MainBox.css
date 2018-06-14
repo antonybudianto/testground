@@ -1,4 +1,4 @@
-.main-box {
+:local(.main-box) {
   display: inline-block;
   position: absolute;
   background-color: white;
