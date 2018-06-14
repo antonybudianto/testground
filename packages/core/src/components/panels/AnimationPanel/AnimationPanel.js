@@ -57,10 +57,10 @@ class AnimationPanel extends Component {
 
   generateKeyframes(anim) {
     const str = anim.times.reduce(
-      (prev, curr) => `${prev} ${curr[0]}% {${curr[1]};}`,
+      (prev, curr) => `${prev}${curr[0]}% {${curr[1]};}`,
       ''
     );
-    const kf = `@keyframes ${anim.id} { ${str} }`;
+    const kf = `@keyframes ${anim.id} {${str}}`;
     console.log(kf);
     const filteredKf = kf
       .replace(/;+/g, ';')
@@ -68,7 +68,7 @@ class AnimationPanel extends Component {
       .replace(/\s+/g, ' ')
       .replace(/{/g, '{\n')
       .replace(/}/g, '}\n')
-      .replace(/;\s*/g, '; \n');
+      .replace(/;\s*/g, ';\n');
     return filteredKf;
   }
 
