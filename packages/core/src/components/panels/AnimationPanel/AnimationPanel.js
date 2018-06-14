@@ -8,6 +8,7 @@ import { setAnimation, setTime } from '../../../reducers/animation';
 import BasicPanel from '../BasicPanel';
 import Button from '../../controls/Button';
 import { SimplePopup } from '../../controls/SimplePopup/SimplePopup';
+import css from './AnimationPanel.css';
 
 const SourceViewer = props => (
   <div className="p1 pr3">
@@ -161,27 +162,34 @@ class AnimationPanel extends Component {
 
     return (
       <BasicPanel title="ANIMATION">
-        <div className="flex justify-center">
+        <div className="flex flex-column justify-center">
           <div className="flex flex-column">
             <span>Timeline</span>
-            <Button icon onClick={this.handleReset}>
-              Current
-            </Button>
-            {currentAnim.times.map((time, i) => (
+            <div className="flex">
               <Button
                 icon
-                key={i}
-                active={animation.currentTime === i}
-                onClick={() => this.handleTimeChange(i)}
+                className={css['btn-time']}
+                onClick={this.handleReset}
               >
-                {time[0]}%
+                Current
               </Button>
-            ))}
+              {currentAnim.times.map((time, i) => (
+                <Button
+                  icon
+                  key={i}
+                  className={css['btn-time']}
+                  active={animation.currentTime === i}
+                  onClick={() => this.handleTimeChange(i)}
+                >
+                  {time[0]}%
+                </Button>
+              ))}
+            </div>
           </div>
-          <div className="ml3">
+          <div className="p1">
             <div>
               <ul
-                className="p1"
+                className="pl1"
                 style={{
                   listStyleType: 'disc',
                 }}
