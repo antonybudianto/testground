@@ -192,7 +192,8 @@ class AnimationPanel extends Component {
           <div className="p1">
             {currentAnimStyle === '' && (
               <div className="border p1">
-                This timeline has no record yet, save one!
+                <i className="fas fa-info-circle" /> This timeline has no record
+                yet, design and save one!
               </div>
             )}
             {/* <div>
