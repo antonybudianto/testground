@@ -103,7 +103,7 @@ class AnimationPanel extends Component {
     element.setAttribute('style', currentAnim.times[0][1]);
     setTimeout(() => {
       this.setAnimation(currentAnim);
-    }, 500);
+    }, 100);
   }
 
   handleReset() {
