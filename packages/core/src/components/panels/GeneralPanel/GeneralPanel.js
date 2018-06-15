@@ -36,7 +36,7 @@ class GeneralPanel extends Component {
     return (
       <BasicPanel title="GENERAL">
         <strong className="basic-panel__subtitle">Text</strong>
-        <div>
+        <div className="flex items-stretch">
           <Button
             icon
             onClick={() =>
@@ -109,6 +109,14 @@ class GeneralPanel extends Component {
           >
             <i className="fas fa-align-justify" />
           </Button>
+          <div className="basic-box">
+            <ColorPicker
+              onColorChange={val => {
+                this.setState(handleChangeStyle('color', val));
+              }}
+              color={this.state.style.color}
+            />
+          </div>
         </div>
         <div className="flex items-stretch">
           <div className="basic-box flex items-center">
@@ -121,14 +129,6 @@ class GeneralPanel extends Component {
               }
               style={{ width: 45 }}
               className="general-panel__input"
-            />
-          </div>
-          <div className="basic-box p1">
-            <ColorPicker
-              onColorChange={val => {
-                this.setState(handleChangeStyle('color', val, false));
-              }}
-              color={this.state.style.color}
             />
           </div>
         </div>

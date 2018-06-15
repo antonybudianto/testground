@@ -1,5 +1,5 @@
 .color-picker {
-  display: inline-block;
+  display: block;
   width: 20px;
   height: 20px;
   border: 1px solid black;
@@ -7,5 +7,5 @@
 }
 
 .color-picker__wrapper {
-  display: inline-block;
+  display: block;
 }
