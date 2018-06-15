@@ -169,14 +169,6 @@ class AnimationPanel extends Component {
           <div className="flex flex-column">
             <span>Timeline</span>
             <div className="flex">
-              <Button
-                icon
-                active={currentAnimStyle === currentElStyle}
-                className={css['btn-time']}
-                onClick={this.handleReset}
-              >
-                Current
-              </Button>
               {currentAnim.times.map((time, i) => (
                 <Button
                   icon
@@ -188,6 +180,14 @@ class AnimationPanel extends Component {
                   {time[0]}%
                 </Button>
               ))}
+              <Button
+                icon
+                active={currentAnimStyle === currentElStyle}
+                className={css['btn-time']}
+                onClick={this.handleReset}
+              >
+                Current
+              </Button>
             </div>
           </div>
           <div className="p1 flex flex-column">
