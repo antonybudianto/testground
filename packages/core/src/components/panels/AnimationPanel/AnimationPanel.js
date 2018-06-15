@@ -141,7 +141,10 @@ class AnimationPanel extends Component {
   handlePlay() {
     const { element } = this.props;
     const currentAnim = this.getCurrentAnim();
-    element.setAttribute('style', currentAnim.times[0][1]);
+    const firstTimelineStyle = currentAnim.times[0][1];
+    if (firstTimelineStyle) {
+      element.setAttribute('style', firstTimelineStyle);
+    }
     element.style.animation = '';
     setTimeout(() => {
       this.setAnimation(currentAnim);
