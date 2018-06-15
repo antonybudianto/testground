@@ -103,7 +103,7 @@ class AnimationPanel extends Component {
     const { element } = this.props;
     const currentAnim = this.getCurrentAnim();
     const selectedStyle = currentAnim.times[i][1];
-    if (selectedStyle !== '') {
+    if (selectedStyle) {
       element.setAttribute('style', selectedStyle);
     }
     this.setAnimation(currentAnim);
