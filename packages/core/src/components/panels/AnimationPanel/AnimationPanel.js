@@ -3,6 +3,7 @@ import { generate } from 'shortid';
 import { connect } from 'react-redux';
 import insertCss from 'insert-styles';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import classNames from 'classnames';
 
 import { setAnimation, setTime } from '../../../reducers/animation';
 import BasicPanel from '../BasicPanel';
@@ -193,25 +194,35 @@ class AnimationPanel extends Component {
           </div>
           <div className="p1 flex flex-column">
             {currentAnimStyle === '' && (
-              <div className="border p1 col col-8 clearfix mx-auto center">
+              <div
+                className={classNames(
+                  'border p1 col col-8 clearfix mx-auto center',
+                  css['info-heading']
+                )}
+              >
                 <i className="fas fa-info-circle" /> This timeline has no record
                 yet, design and save one!
               </div>
             )}
             {currentAnimStyle !== '' && (
               <div className="border p1 col col-8 clearfix mx-auto center">
-                <i className="fas fa-info-circle" /> Now click the next
-                timeline, change the style to animate, and save! <br /> <br />
-                Click 'Play' to preview animation. <br />
-                Click 'CSS' to show the generated keyframe. <br />
-                Go to{' '}
-                <button
-                  className={css['btn-link']}
-                  onClick={() => this.props.changeView('source')}
-                >
-                  Source
-                </button>{' '}
-                menu to get the animation setup.
+                <div className={css['info-heading']}>
+                  <i className="fas fa-info-circle" /> Now click the next
+                  timeline, change the style to animate, and save!
+                </div>
+                <br />
+                <div>
+                  Click 'Play' to preview animation. <br />
+                  Click 'CSS' to show the generated keyframe. <br />
+                  Go to{' '}
+                  <button
+                    className={css['btn-link']}
+                    onClick={() => this.props.changeView('source')}
+                  >
+                    Source
+                  </button>{' '}
+                  menu to get the animation setup.
+                </div>
               </div>
             )}
             {/* <div>

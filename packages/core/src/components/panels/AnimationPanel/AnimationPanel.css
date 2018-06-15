@@ -7,4 +7,9 @@
   padding: 0;
   border-bottom: 1px solid gray;
   cursor: pointer;
+  font-size: 10pt;
+}
+
+:local(.info-heading) {
+  font-size: 11pt;
 }
