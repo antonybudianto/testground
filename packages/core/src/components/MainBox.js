@@ -26,7 +26,7 @@ class MainBox extends Component {
       this.props.onReset();
       return;
     }
-    this.setState({ view: 'animation' });
+    this.setState({ view: 'general' });
     this.props.onSelect();
   }
 

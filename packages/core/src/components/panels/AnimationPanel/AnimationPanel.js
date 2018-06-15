@@ -41,8 +41,10 @@ class AnimationPanel extends Component {
   constructor(props) {
     super(props);
 
+    props.element.style.animation = '';
+
     this.state = {
-      tmpStyle: props.element.getAttribute('style') || '',
+      tmpStyle: props.element.style.cssText || '',
       animationProps: {
         duration: '1s',
         timingFunction: 'ease',
