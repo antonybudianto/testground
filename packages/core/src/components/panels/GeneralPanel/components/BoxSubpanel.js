@@ -5,35 +5,37 @@ import { handleChangeStyle } from '../../../../util/change-style';
 import { Input } from '../../../controls/Input';
 import Button from '../../../controls/Button';
 import { SimplePopup } from '../../../controls/SimplePopup/SimplePopup';
+import { initStyle } from '../../../../util/init-style';
 
 class BoxSubpanel extends Component {
   constructor(props) {
     super(props);
 
-    const style = this.props.element.style;
-
     this.state = {
       style: {
-        opacity: style.opacity,
-        marginLeft: style.marginLeft,
-        marginRight: style.marginRight,
-        marginTop: style.marginTop,
-        marginBottom: style.marginBottom,
-        paddingLeft: style.paddingLeft,
-        paddingRight: style.paddingRight,
-        paddingTop: style.paddingTop,
-        paddingBottom: style.paddingBottom,
-        margin: style.margin,
-        padding: style.padding,
-        width: style.width,
-        height: style.height,
-        backgroundColor: style.backgroundColor,
+        opacity: '',
+        marginLeft: '',
+        marginRight: '',
+        marginTop: '',
+        marginBottom: '',
+        paddingLeft: '',
+        paddingRight: '',
+        paddingTop: '',
+        paddingBottom: '',
+        margin: '',
+        padding: '',
+        width: '',
+        height: '',
+        backgroundColor: '',
       },
     };
   }
 
+  componentDidMount() {
+    this.setState(initStyle());
+  }
+
   render() {
-    // const { element } = this.props;
     return (
       <div className="mt1 flex flex-column">
         <strong className="basic-panel__subtitle">Element</strong>

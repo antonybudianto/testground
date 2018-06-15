@@ -6,6 +6,7 @@ import './GeneralPanel.css';
 import BoxSubpanel from './components/BoxSubpanel';
 import { handleChangeStyle } from '../../../util/change-style';
 import { Input } from '../../controls/Input';
+import { initStyle } from '../../../util/init-style';
 
 class GeneralPanel extends Component {
   constructor(props) {
@@ -13,13 +14,17 @@ class GeneralPanel extends Component {
 
     this.state = {
       style: {
-        fontSize: props.element.style.fontSize,
-        fontWeight: props.element.style.fontWeight,
-        fontStyle: props.element.style.fontStyle,
-        textAlign: props.element.style.textAlign,
-        textDecoration: props.element.style.textDecoration,
+        fontSize: '',
+        fontWeight: '',
+        fontStyle: '',
+        textAlign: '',
+        textDecoration: '',
       },
     };
+  }
+
+  componentDidMount() {
+    this.setState(initStyle());
   }
 
   render() {
