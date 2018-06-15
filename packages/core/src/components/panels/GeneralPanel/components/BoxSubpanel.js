@@ -66,6 +66,23 @@ class BoxSubpanel extends Component {
               />
             </div>
           </div>
+          <div className="basic-box p1 flex items-center">
+            <span>Opacity: &nbsp;</span>
+            <div className="flex items-stretch">
+              <Input
+                placeholder="All"
+                defaultUnit=""
+                unitless
+                stepSize={0.1}
+                value={this.state.style.opacity}
+                style={{ width: 35 }}
+                onChange={val =>
+                  this.setState(handleChangeStyle('opacity', val))
+                }
+                className="general-panel__input"
+              />
+            </div>
+          </div>
           <div className="basic-box p1">
             <ColorPicker
               onColorChange={val => {
@@ -76,7 +93,7 @@ class BoxSubpanel extends Component {
           </div>
         </div>
         <div className="flex">
-          <div className="basic-box p1 flex items-center">
+          <div className="basic-box p1 flex items-center flex-auto">
             <span>Margin: &nbsp;</span>
             <div className="flex items-stretch">
               <Input
@@ -171,7 +188,7 @@ class BoxSubpanel extends Component {
               </SimplePopup>
             </div>
           </div>
-          <div className="basic-box p1 flex items-center">
+          <div className="basic-box p1 flex items-center flex-auto">
             <span>Padding: &nbsp;</span>
             <div className="flex items-stretch">
               <Input
@@ -267,25 +284,7 @@ class BoxSubpanel extends Component {
             </div>
           </div>
         </div>
-        <div className="flex">
-          <div className="basic-box p1 flex items-center">
-            <span>Opacity: &nbsp;</span>
-            <div className="flex items-stretch">
-              <Input
-                placeholder="All"
-                defaultUnit=""
-                unitless
-                stepSize={0.1}
-                value={this.state.style.opacity}
-                style={{ width: 35 }}
-                onChange={val =>
-                  this.setState(handleChangeStyle('opacity', val))
-                }
-                className="general-panel__input"
-              />
-            </div>
-          </div>
-        </div>
+        <div className="flex" />
       </div>
     );
   }
