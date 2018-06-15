@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import BasicPanel from '../BasicPanel';
 import Button from '../../controls/Button';
+import ColorPicker from '../../controls/ColorPicker';
 import './GeneralPanel.css';
 import BoxSubpanel from './components/BoxSubpanel';
 import { handleChangeStyle } from '../../../util/change-style';
@@ -14,6 +15,7 @@ class GeneralPanel extends Component {
 
     this.state = {
       style: {
+        color: '',
         fontSize: '',
         fontWeight: '',
         fontStyle: '',
@@ -108,8 +110,8 @@ class GeneralPanel extends Component {
             <i className="fas fa-align-justify" />
           </Button>
         </div>
-        <div>
-          <div className="basic-box">
+        <div className="flex items-stretch">
+          <div className="basic-box flex items-center">
             Font size: &nbsp;
             <Input
               placeholder="1em"
@@ -119,6 +121,14 @@ class GeneralPanel extends Component {
               }
               style={{ width: 45 }}
               className="general-panel__input"
+            />
+          </div>
+          <div className="basic-box p1">
+            <ColorPicker
+              onColorChange={val => {
+                this.setState(handleChangeStyle('color', val, false));
+              }}
+              color={this.state.style.color}
             />
           </div>
         </div>
