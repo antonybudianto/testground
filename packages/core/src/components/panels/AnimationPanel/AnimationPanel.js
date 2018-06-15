@@ -203,7 +203,15 @@ class AnimationPanel extends Component {
                 <i className="fas fa-info-circle" /> Now click the next
                 timeline, change the style to animate, and save! <br /> <br />
                 Click 'Play' to preview animation. <br />
-                Click 'CSS' to show the generated keyframe.
+                Click 'CSS' to show the generated keyframe. <br />
+                Go to{' '}
+                <button
+                  className={css['btn-link']}
+                  onClick={() => this.props.changeView('source')}
+                >
+                  Source
+                </button>{' '}
+                menu to get the animation setup.
               </div>
             )}
             {/* <div>
