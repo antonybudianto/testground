@@ -198,6 +198,14 @@ class AnimationPanel extends Component {
                 yet, design and save one!
               </div>
             )}
+            {currentAnimStyle !== '' && (
+              <div className="border p1 col col-8 clearfix mx-auto center">
+                <i className="fas fa-info-circle" /> Now click the next
+                timeline, change the style to animate, and save! <br /> <br />
+                Click 'Play' to preview animation. <br />
+                Click 'CSS' to show the generated keyframe.
+              </div>
+            )}
             {/* <div>
               <ul
                 className="pl1"
@@ -218,7 +226,7 @@ class AnimationPanel extends Component {
                 disabled={currentElStyle === currentAnimStyle}
                 onClick={this.handleSave}
               >
-                {currentElStyle === currentAnimStyle ? 'Saved' : 'Save'}
+                Save
               </Button>
               <Button onClick={this.handlePlay}>Play</Button>
 
