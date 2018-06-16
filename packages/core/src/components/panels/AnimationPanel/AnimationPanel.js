@@ -189,6 +189,8 @@ class AnimationPanel extends Component {
     const kf = this.generateKeyframes(currentAnim);
     const currentAnimStyle = currentAnim.times[animation.currentTime][1];
     const currentElStyle = this.state.tmpStyle;
+    console.log(currentAnimStyle);
+    console.log(currentElStyle);
 
     return (
       <BasicPanel title="ANIMATION">
@@ -199,7 +201,11 @@ class AnimationPanel extends Component {
               <div className="flex">
                 <Button
                   icon
-                  className={css['btn-time']}
+                  className={classNames(css['btn-time'])}
+                  disabled={
+                    currentAnimStyle === currentElStyle ||
+                    currentAnimStyle === ''
+                  }
                   onClick={this.handleSetCurrent}
                 >
                   Set as Current
