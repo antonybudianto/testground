@@ -127,7 +127,6 @@ class AnimationPanel extends Component {
 
   setAnimation(anim) {
     const { element } = this.props;
-    element.style.animation = 'unset';
     element.style.animationName = anim.id;
     element.style.animationDuration = this.state.animationProps.duration;
     element.style.animationTimingFunction = this.state.animationProps.timingFunction;
