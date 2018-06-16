@@ -219,7 +219,9 @@ class AnimationPanel extends Component {
                 <Button
                   icon
                   key={i}
-                  className={css['btn-time']}
+                  className={classNames(css['btn-time'], {
+                    [css['btn-time--ok']]: time[1],
+                  })}
                   active={animation.currentTime === i}
                   onClick={() => this.handleTimeChange(i)}
                 >
