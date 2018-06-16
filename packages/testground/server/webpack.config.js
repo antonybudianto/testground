@@ -10,7 +10,7 @@ module.exports = {
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   entry: './src/index.js',
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
   },
   output: {
     path: __dirname + '/build',
@@ -18,11 +18,9 @@ module.exports = {
     chunkFilename: isProd('[id].[hash].chunk.js', '[id].chunk.js'),
   },
   target: 'node',
-  externals: [
-    nodeExternals()
-  ],
+  externals: [nodeExternals()],
   node: {
-    __dirname: false
+    __dirname: false,
   },
   module: {
     rules: [
@@ -32,18 +30,18 @@ module.exports = {
         loaders: 'babel-loader',
         options: {
           presets: ['env', 'react-app'],
-          plugins: [
-            require.resolve("babel-plugin-dynamic-import-node")
-          ]
-        }
+          plugins: [require.resolve('babel-plugin-dynamic-import-node')],
+        },
       },
       {
-        test: /\.(css|svg)?$/,
-        loaders: 'null-loader'
-      }
+        test: /\.(png|jpe?g|gif|bmp|svg)?$/,
+        loaders: 'url-loader',
+      },
+      {
+        test: /\.(css)?$/,
+        loaders: 'null-loader',
+      },
     ],
   },
-  plugins: isProd([], [
-      new NodemonPlugin()
-    ])
-}
+  plugins: isProd([], [new NodemonPlugin()]),
+};
