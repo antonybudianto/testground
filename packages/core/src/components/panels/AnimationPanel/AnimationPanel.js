@@ -44,6 +44,7 @@ class AnimationPanel extends Component {
     props.element.style.animation = '';
 
     this.state = {
+      showTips: false,
       tmpStyle: props.element.style.cssText || '',
       animationProps: {
         duration: '1s',
@@ -60,6 +61,7 @@ class AnimationPanel extends Component {
     this.handleSetCurrent = this.handleSetCurrent.bind(this);
     this.generateKeyframes = this.generateKeyframes.bind(this);
     this.setAnimation = this.setAnimation.bind(this);
+    this.toggleShowTips = this.toggleShowTips.bind(this);
   }
 
   componentDidMount() {
@@ -75,6 +77,12 @@ class AnimationPanel extends Component {
 
   handleClick() {
     this.props.element.setAttribute('style', 'color: blue;');
+  }
+
+  toggleShowTips() {
+    this.setState({
+      showTips: !this.state.showTips,
+    });
   }
 
   getCurrentAnim() {
@@ -238,8 +246,11 @@ class AnimationPanel extends Component {
                   <i className="fas fa-info-circle" /> Now click the next
                   timeline, change the style to animate, and save!
                 </div>
-                <br />
-                <div>
+                <div
+                  className={classNames('mt1', {
+                    hide: !this.state.showTips,
+                  })}
+                >
                   Click 'Play' to preview animation. <br />
                   Click 'CSS' to show the generated keyframe. <br />
                   Go to{' '}
@@ -250,6 +261,11 @@ class AnimationPanel extends Component {
                     Source
                   </button>{' '}
                   menu to get the animation setup.
+                </div>
+                <div className="flex justify-end mt1">
+                  <a href="#!" onClick={this.toggleShowTips}>
+                    {this.state.showTips ? 'Hide' : 'Show'} tips
+                  </a>
                 </div>
               </div>
             )}
