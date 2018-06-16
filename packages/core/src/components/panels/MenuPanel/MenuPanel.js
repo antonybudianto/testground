@@ -18,6 +18,9 @@ const MenuButton = props => {
       >
         <i className={classNames('fas', props.menuIcon)} />
         <span className="menu-panel__btn-text mt1">{props.menuName}</span>
+        {props.menuStatus && (
+          <div className="menu-panel__menu-status mt1">{props.menuStatus}</div>
+        )}
       </Button>
     </div>
   );
@@ -44,6 +47,7 @@ class MenuPanel extends Component {
               .map(p => (
                 <MenuButton
                   key={p.id}
+                  menuStatus={p.menu.menuStatus}
                   menuName={p.menu.menuName}
                   menuIcon={p.menu.menuIcon}
                   onClick={() => changeView(p.id)}
@@ -56,6 +60,7 @@ class MenuPanel extends Component {
               {plugins.map(p => (
                 <MenuButton
                   key={p.id}
+                  menuStatus={p.menu.menuStatus}
                   menuName={p.menu.menuName}
                   menuIcon={p.menu.menuIcon}
                   onClick={() => changeView(p.id)}

@@ -59,8 +59,9 @@ export const internalPlugins = [
   {
     id: 'animation',
     menu: {
-      menuName: 'Animation [BETA]',
+      menuName: 'Animation',
       menuIcon: 'fa-video',
+      menuStatus: 'Alpha',
     },
     panel: {
       component: AnimationPanel,
