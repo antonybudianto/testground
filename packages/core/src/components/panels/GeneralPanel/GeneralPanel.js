@@ -8,6 +8,7 @@ import BoxSubpanel from './components/BoxSubpanel';
 import { handleChangeStyle } from '../../../util/change-style';
 import { Input } from '../../controls/Input';
 import { initStyle } from '../../../util/init-style';
+import boxCss from '../../../style/box.css';
 
 class GeneralPanel extends Component {
   constructor(props) {
@@ -109,7 +110,7 @@ class GeneralPanel extends Component {
           >
             <i className="fas fa-align-justify" />
           </Button>
-          <div className="basic-box">
+          <div className={boxCss['basic-box']}>
             <ColorPicker
               onColorChange={val => {
                 this.setState(handleChangeStyle('color', val));
