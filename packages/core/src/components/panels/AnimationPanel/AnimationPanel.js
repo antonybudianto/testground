@@ -52,7 +52,6 @@ class AnimationPanel extends Component {
       },
     };
 
-    this.handleClick = this.handleClick.bind(this);
     this.getCurrentAnim = this.getCurrentAnim.bind(this);
     this.handleTimeChange = this.handleTimeChange.bind(this);
     this.handleSave = this.handleSave.bind(this);
@@ -73,10 +72,6 @@ class AnimationPanel extends Component {
       const defAnim = [[0, ''], [25, ''], [50, ''], [75, ''], [100, '']];
       this.props.dispatch(setAnimation(id, defAnim));
     }
-  }
-
-  handleClick() {
-    this.props.element.setAttribute('style', 'color: blue;');
   }
 
   toggleShowTips() {
