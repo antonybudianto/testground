@@ -246,23 +246,41 @@ class AnimationPanel extends Component {
               <div className="border p1 col clearfix mx-auto center">
                 <div className={css['info-heading']}>
                   <i className="fas fa-info-circle" /> Now click the next
-                  timeline, change the style to animate, and save!
+                  timeframe, change the style to animate, and save!
                 </div>
                 <div
+                  style={{ textAlign: 'left' }}
                   className={classNames('mt1', {
                     hide: !this.state.showTips,
                   })}
                 >
-                  Click 'Play' to preview animation. <br />
-                  Click 'CSS' to show the generated keyframe. <br />
-                  Go to{' '}
-                  <button
-                    className={css['btn-link']}
-                    onClick={() => this.props.changeView('source')}
-                  >
-                    Source
-                  </button>{' '}
-                  menu to get the animation setup.
+                  <ul className="list-reset">
+                    <li>
+                      - Click 'Play' to preview animation. <br />
+                    </li>
+                    <li>
+                      - Click 'CSS' to show the generated keyframe. <br />
+                    </li>
+                    <li>
+                      - Click 'Show Current' to show the current design, <br />{' '}
+                      not the selected frame's snapshot <br />
+                    </li>
+                    <li>
+                      - Click 'Set as Current' to set selected frame's snapshot{' '}
+                      <br />
+                      as current design (useful for copy-paste snapshot)
+                    </li>
+                    <li>
+                      - Go to{' '}
+                      <button
+                        className={css['btn-link']}
+                        onClick={() => this.props.changeView('source')}
+                      >
+                        Source
+                      </button>{' '}
+                      menu to get the animation setup.
+                    </li>
+                  </ul>
                 </div>
                 <div className="flex justify-end mt1">
                   <a href="#!" onClick={this.toggleShowTips}>
