@@ -1,6 +1,6 @@
 {
   "name": "testground",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "private": true,
   "dependencies": {
     "react": "^16.4.0",
@@ -15,7 +15,7 @@
     "prettier": "prettier --write \"{src,__{tests,mocks}__}/**/*.js\""
   },
   "devDependencies": {
-    "@react-instudio/core": "^0.0.16",
+    "@react-instudio/core": "^0.0.17",
     "prettier": "1.13.3"
   }
 }
