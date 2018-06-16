@@ -11,5 +11,6 @@
 }
 
 :local(.info-heading) {
+  width: 300px;
   font-size: 11pt;
 }

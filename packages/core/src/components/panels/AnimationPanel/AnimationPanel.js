@@ -57,6 +57,7 @@ class AnimationPanel extends Component {
     this.handleSave = this.handleSave.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
     this.handleReset = this.handleReset.bind(this);
+    this.handleSetCurrent = this.handleSetCurrent.bind(this);
     this.generateKeyframes = this.generateKeyframes.bind(this);
     this.setAnimation = this.setAnimation.bind(this);
   }
@@ -67,7 +68,7 @@ class AnimationPanel extends Component {
     if (!id) {
       id = generate();
       element.dataset.instudioElementId = id;
-      const defAnim = [[0, ''], [100, '']];
+      const defAnim = [[0, ''], [25, ''], [50, ''], [75, ''], [100, '']];
       this.props.dispatch(setAnimation(id, defAnim));
     }
   }
@@ -86,11 +87,13 @@ class AnimationPanel extends Component {
   }
 
   generateKeyframes(anim) {
-    const str = anim.times.reduce(
-      (prev, curr) =>
-        `${prev}${curr[0]}% {${curr[1] || ''}${curr[1] ? ';' : ''}}`,
-      ''
-    );
+    const str = anim.times.reduce((prev, curr) => {
+      const currStyle = curr[1] || '';
+      if (!currStyle) {
+        return prev;
+      }
+      return `${prev}${curr[0]}% {${currStyle};}`;
+    }, '');
     const kf = `@keyframes ${anim.id} {${str}}`;
     const filteredKf = kf
       .replace(/;+/g, ';')
@@ -105,10 +108,11 @@ class AnimationPanel extends Component {
   handleTimeChange(i) {
     const { element } = this.props;
     const currentAnim = this.getCurrentAnim();
-    const selectedStyle = currentAnim.times[i][1];
-    if (selectedStyle) {
-      element.setAttribute('style', selectedStyle);
+    let selectedStyle = currentAnim.times[i][1];
+    if (!selectedStyle) {
+      selectedStyle = this.state.tmpStyle;
     }
+    element.setAttribute('style', selectedStyle);
     this.setAnimation(currentAnim);
     this.props.dispatch(setTime(i));
   }
@@ -157,6 +161,14 @@ class AnimationPanel extends Component {
     this.setAnimation(this.getCurrentAnim());
   }
 
+  handleSetCurrent() {
+    const { animation } = this.props;
+    const currentAnim = this.getCurrentAnim();
+    this.setState({
+      tmpStyle: currentAnim.times[animation.currentTime][1],
+    });
+  }
+
   render() {
     const { element, animation } = this.props;
 
@@ -174,7 +186,26 @@ class AnimationPanel extends Component {
       <BasicPanel title="ANIMATION">
         <div className="flex flex-column justify-center">
           <div className="flex flex-column">
-            <span>Timeline</span>
+            <div className="flex justify-between items-center mb1">
+              <span>Timeline</span>
+              <div className="flex">
+                <Button
+                  icon
+                  className={css['btn-time']}
+                  onClick={this.handleSetCurrent}
+                >
+                  Set as Current
+                </Button>
+                <Button
+                  icon
+                  active={currentAnimStyle === currentElStyle}
+                  className={css['btn-time']}
+                  onClick={this.handleReset}
+                >
+                  Show Current
+                </Button>
+              </div>
+            </div>
             <div className="flex">
               {currentAnim.times.map((time, i) => (
                 <Button
@@ -187,21 +218,13 @@ class AnimationPanel extends Component {
                   {time[0]}%
                 </Button>
               ))}
-              <Button
-                icon
-                active={currentAnimStyle === currentElStyle}
-                className={css['btn-time']}
-                onClick={this.handleReset}
-              >
-                Current
-              </Button>
             </div>
           </div>
           <div className="p1 flex flex-column">
             {currentAnimStyle === '' && (
               <div
                 className={classNames(
-                  'border p1 col col-8 clearfix mx-auto center',
+                  'border p1 col clearfix mx-auto center',
                   css['info-heading']
                 )}
               >
@@ -210,7 +233,7 @@ class AnimationPanel extends Component {
               </div>
             )}
             {currentAnimStyle !== '' && (
-              <div className="border p1 col col-8 clearfix mx-auto center">
+              <div className="border p1 col clearfix mx-auto center">
                 <div className={css['info-heading']}>
                   <i className="fas fa-info-circle" /> Now click the next
                   timeline, change the style to animate, and save!
