@@ -210,6 +210,7 @@ class AnimationPanel extends Component {
                 </Button>
                 <Button
                   icon
+                  disabled={currentAnimStyle === ''}
                   active={currentAnimStyle === currentElStyle}
                   className={css['btn-time']}
                   onClick={this.handleReset}
