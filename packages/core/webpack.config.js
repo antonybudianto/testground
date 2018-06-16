@@ -5,8 +5,7 @@ const nodeExternals = require('webpack-node-externals');
 const devMode = process.env.NODE_ENV === 'development';
 
 const config = {
-  mode: 'production',
-  // mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
+  mode: process.env.NODE_ENV === 'development' ? 'none' : 'production',
   entry: './src/index.js',
   output: {
     filename: 'index.js',
