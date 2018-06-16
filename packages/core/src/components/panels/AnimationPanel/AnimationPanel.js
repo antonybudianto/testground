@@ -295,21 +295,6 @@ class AnimationPanel extends Component {
                 </div>
               </div>
             )}
-            {/* <div>
-              <ul
-                className="pl1"
-                style={{
-                  listStyleType: 'disc',
-                }}
-              >
-                <li>First, select the timeline (0% - 100%) </li>
-                <li>Now you can change the style to be animated </li>
-                <li>Click 'Save' to record the timeline </li>
-                <li>Repeat for the next timeline</li>
-                <li>Click 'Play' to play the animation</li>
-                <li>Click 'Current' to reset to current style</li>
-              </ul>
-            </div> */}
             <div className="mt1 flex justify-center">
               <Button
                 disabled={currentElStyle === currentAnimStyle}
