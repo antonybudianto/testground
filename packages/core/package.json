@@ -1,6 +1,6 @@
 {
   "name": "@react-instudio/core",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "React Instudio Core",
   "main": "lib/index.js",
   "files": [
