@@ -1,9 +1,9 @@
-.basic-panel {
+:local(.basic-panel) {
   padding-bottom: 5px;
   margin: 5px;
 }
 
-.basic-panel__title {
+:local(.basic-panel__title) {
   color: gray;
   margin-top: 5px;
   margin-bottom: 5px;
