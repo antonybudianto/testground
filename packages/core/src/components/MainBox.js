@@ -66,9 +66,11 @@ class MainBox extends Component {
   render() {
     const { element } = this.props;
     const elementTitle = element
-      ? `${element.localName}${element.className ? '.' : ''}${
-          element.className
-        }${element.id ? '#' : ''}${element.id}`
+      ? `${element.localName}${
+          element.className ? '.' : ''
+        }${element.className.replace(/\s/g, '.')}${element.id ? '#' : ''}${
+          element.id
+        }`
       : 'React Inline Studio';
 
     return (
