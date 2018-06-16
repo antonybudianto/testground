@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 
 import BasicPanel from '../BasicPanel';
-import Button from '../../controls/Button';
+import { Button } from '../../controls/Button';
 import './MenuPanel.css';
 import { internalPlugins } from '../../internal-plugins';
 

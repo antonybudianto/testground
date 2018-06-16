@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import Button from '../../../controls/Button';
+import { Button } from '../../../controls/Button';
 import Input from '../../../controls/Input';
 import ColorPicker from '../../../controls/ColorPicker';
 import { SimplePopup } from '../../../controls/SimplePopup/SimplePopup';

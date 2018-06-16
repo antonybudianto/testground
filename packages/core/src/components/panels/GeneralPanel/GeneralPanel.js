@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import BasicPanel from '../BasicPanel';
-import Button from '../../controls/Button';
+import { Button } from '../../controls/Button';
 import ColorPicker from '../../controls/ColorPicker';
 import './GeneralPanel.css';
 import BoxSubpanel from './components/BoxSubpanel';

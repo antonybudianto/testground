@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 import { setAnimation, setTime } from '../../../reducers/animation';
 import BasicPanel from '../BasicPanel';
-import Button from '../../controls/Button';
+import { Button } from '../../controls/Button';
 import { SimplePopup } from '../../controls/SimplePopup/SimplePopup';
 import css from './AnimationPanel.css';
 import { SourceViewer } from '../../controls/SourceViewer/SourceViewer';

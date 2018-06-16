@@ -1,7 +1,7 @@
 import React from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
-import Button from '../Button';
+import { Button } from '../Button';
 
 export const SourceViewer = props => (
   <div className="p1 pr3">

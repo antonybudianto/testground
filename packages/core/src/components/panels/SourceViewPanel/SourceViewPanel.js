@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
-import Button from '../../../components/controls/Button';
+import { Button } from '../../../components/controls/Button';
 import './SourceViewPanel.css';
 
 class SourceViewPanel extends Component {

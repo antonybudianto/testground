@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import ColorPicker from '../../../controls/ColorPicker';
 import { handleChangeStyle } from '../../../../util/change-style';
 import { Input } from '../../../controls/Input';
-import Button from '../../../controls/Button';
+import { Button } from '../../../controls/Button';
 import { SimplePopup } from '../../../controls/SimplePopup/SimplePopup';
 import { initStyle } from '../../../../util/init-style';
 import cssBox from '../../../../style/box.css';

@@ -3,7 +3,7 @@ import Draggable from 'react-draggable';
 import classNames from 'classnames';
 import css from './MainBox.css';
 
-import Button from './controls/Button';
+import { Button } from './controls/Button';
 
 import { internalPlugins } from './internal-plugins';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const Button = props => {
+export const Button = props => {
   const { title, onClick, style, disabled } = props;
   const sharedProps = { title, onClick, style, disabled };
   return (
