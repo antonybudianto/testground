@@ -189,8 +189,6 @@ class AnimationPanel extends Component {
     const kf = this.generateKeyframes(currentAnim);
     const currentAnimStyle = currentAnim.times[animation.currentTime][1];
     const currentElStyle = this.state.tmpStyle;
-    console.log(currentAnimStyle);
-    console.log(currentElStyle);
 
     return (
       <BasicPanel title="ANIMATION">
