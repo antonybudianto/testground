@@ -5,7 +5,7 @@ const nodeExternals = require('webpack-node-externals');
 const devMode = process.env.NODE_ENV === 'development';
 
 const config = {
-  devtool: devMode ? 'eval-source-map' : undefined,
+  devtool: devMode ? 'inline-source-map' : undefined,
   mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
   entry: './src/index.js',
   output: {
@@ -13,13 +13,14 @@ const config = {
     path: path.resolve(__dirname, './lib'),
     libraryTarget: 'commonjs2',
   },
-  externals: !devMode
-    ? [
-        nodeExternals({
-          whitelist: [],
-        }),
-      ]
-    : [],
+  externals: [nodeExternals()],
+  // externals: !devMode
+  //   ? [
+  //       nodeExternals({
+  //         whitelist: [],
+  //       }),
+  //     ]
+  //   : [],
   module: {
     rules: [
       {

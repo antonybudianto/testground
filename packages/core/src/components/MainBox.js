@@ -11,6 +11,8 @@ class MainBox extends Component {
   constructor(props) {
     super(props);
 
+    console.log(props);
+
     this.state = {
       view: 'shadow',
     };
