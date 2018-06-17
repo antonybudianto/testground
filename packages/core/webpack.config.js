@@ -6,7 +6,7 @@ const devMode = process.env.NODE_ENV === 'development';
 
 const config = {
   devtool: devMode ? 'inline-source-map' : undefined,
-  mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
+  mode: devMode ? 'development' : 'production',
   entry: './src/index.js',
   output: {
     filename: 'index.js',
