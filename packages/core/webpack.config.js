@@ -5,7 +5,7 @@ const nodeExternals = require('webpack-node-externals');
 const devMode = process.env.NODE_ENV === 'development';
 
 const config = {
-  devtool: devMode ? 'inline-source-map' : undefined,
+  devtool: devMode ? 'cheap-eval-source-map' : undefined,
   mode: devMode ? 'development' : 'production',
   entry: './src/index.js',
   output: {
