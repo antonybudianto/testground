@@ -11,8 +11,6 @@ class MainBox extends Component {
   constructor(props) {
     super(props);
 
-    console.log(props);
-
     this.state = {
       view: 'shadow',
     };
@@ -67,10 +65,12 @@ class MainBox extends Component {
 
   render() {
     const { element } = this.props;
+    let elementClass = '';
+    if (element && typeof element.className === 'string') {
+      elementClass = `.${element.className.replace(/\s/g, '.')}`;
+    }
     const elementTitle = element
-      ? `${element.localName}${
-          element.className ? '.' : ''
-        }${element.className.replace(/\s/g, '.')}${element.id ? '#' : ''}${
+      ? `${element.localName}${elementClass}${element.id ? '#' : ''}${
           element.id
         }`
       : 'React Inline Studio';
@@ -91,6 +91,7 @@ class MainBox extends Component {
             </div>
             <Button
               className="border-none m0 p0"
+              disabled={this.props.selecting}
               style={{
                 padding: '0 4px',
               }}
