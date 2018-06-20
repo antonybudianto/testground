@@ -71,7 +71,7 @@ class MainBox extends Component {
       typeof element.className === 'string' &&
       element.className !== ''
     ) {
-      elementClass = `.${element.className.replace(/\s/g, '.')}`;
+      elementClass = `.${element.className.trim().replace(/\s+/g, '.')}`;
     }
     const elementTitle = element
       ? `${element.localName}${elementClass}${element.id ? '#' : ''}${
