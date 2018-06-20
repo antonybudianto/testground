@@ -14,13 +14,6 @@ const config = {
     libraryTarget: 'commonjs2',
   },
   externals: [nodeExternals()],
-  // externals: !devMode
-  //   ? [
-  //       nodeExternals({
-  //         whitelist: [],
-  //       }),
-  //     ]
-  //   : [],
   module: {
     rules: [
       {
