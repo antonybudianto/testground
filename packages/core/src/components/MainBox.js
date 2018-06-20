@@ -66,7 +66,11 @@ class MainBox extends Component {
   render() {
     const { element } = this.props;
     let elementClass = '';
-    if (element && typeof element.className === 'string') {
+    if (
+      element &&
+      typeof element.className === 'string' &&
+      element.className !== ''
+    ) {
       elementClass = `.${element.className.replace(/\s/g, '.')}`;
     }
     const elementTitle = element
