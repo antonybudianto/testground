@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import { InlineStudio } from '@react-instudio/core';
+import logo from './logo.svg';
 
 class App extends Component {
   render() {
@@ -9,6 +10,12 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Welcome to React</h1>
+          <img
+            className="App-logo"
+            src={logo}
+            alt="React logo"
+            suppressHydrationWarning
+          />
         </header>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.

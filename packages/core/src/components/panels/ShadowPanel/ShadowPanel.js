@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import ColorPicker from '../../controls/ColorPicker';
 import BasicPanel from '../BasicPanel';
-import Button from '../../controls/Button';
+import { Button } from '../../controls/Button';
 import Input from '../../controls/Input';
 import './ShadowPanel.css';
 

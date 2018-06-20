@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 
 import BasicPanel from '../BasicPanel';
-import Button from '../../controls/Button';
+import { Button } from '../../controls/Button';
+import ColorPicker from '../../controls/ColorPicker';
 import './GeneralPanel.css';
 import BoxSubpanel from './components/BoxSubpanel';
 import { handleChangeStyle } from '../../../util/change-style';
 import { Input } from '../../controls/Input';
+import { initStyle } from '../../../util/init-style';
+import boxCss from '../../../style/box.css';
 
 class GeneralPanel extends Component {
   constructor(props) {
@@ -13,13 +16,18 @@ class GeneralPanel extends Component {
 
     this.state = {
       style: {
-        fontSize: props.element.style.fontSize,
-        fontWeight: props.element.style.fontWeight,
-        fontStyle: props.element.style.fontStyle,
-        textAlign: props.element.style.textAlign,
-        textDecoration: props.element.style.textDecoration,
+        color: '',
+        fontSize: '',
+        fontWeight: '',
+        fontStyle: '',
+        textAlign: '',
+        textDecoration: '',
       },
     };
+  }
+
+  componentDidMount() {
+    this.setState(initStyle());
   }
 
   render() {
@@ -29,7 +37,7 @@ class GeneralPanel extends Component {
     return (
       <BasicPanel title="GENERAL">
         <strong className="basic-panel__subtitle">Text</strong>
-        <div>
+        <div className="flex items-stretch">
           <Button
             icon
             onClick={() =>
@@ -102,9 +110,17 @@ class GeneralPanel extends Component {
           >
             <i className="fas fa-align-justify" />
           </Button>
+          <div className={boxCss['basic-box']}>
+            <ColorPicker
+              onColorChange={val => {
+                this.setState(handleChangeStyle('color', val));
+              }}
+              color={this.state.style.color}
+            />
+          </div>
         </div>
-        <div>
-          <div className="basic-box">
+        <div className="flex items-stretch">
+          <div className="basic-box flex items-center">
             Font size: &nbsp;
             <Input
               placeholder="1em"

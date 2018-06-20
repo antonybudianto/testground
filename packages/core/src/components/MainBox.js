@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Draggable from 'react-draggable';
 import classNames from 'classnames';
-import './MainBox.css';
+import css from './MainBox.css';
 
-import Button from './controls/Button';
+import { Button } from './controls/Button';
 
 import { internalPlugins } from './internal-plugins';
 
@@ -65,23 +65,33 @@ class MainBox extends Component {
 
   render() {
     const { element } = this.props;
+    let elementClass = '';
+    if (element && typeof element.className === 'string') {
+      elementClass = `.${element.className.replace(/\s/g, '.')}`;
+    }
     const elementTitle = element
-      ? `${element.localName}${element.className ? '.' : ''}${
-          element.className
-        }${element.id ? '#' : ''}${element.id}`
+      ? `${element.localName}${elementClass}${element.id ? '#' : ''}${
+          element.id
+        }`
       : 'React Inline Studio';
 
     return (
-      <Draggable handle=".main-box__title" defaultPosition={{ x: 50, y: 25 }}>
+      <Draggable
+        handle=".main-box__heading-title"
+        defaultPosition={{ x: 50, y: 25 }}
+      >
         <div
-          className={classNames('main-box', {
-            hidden: this.props.minimized,
+          className={classNames(css['main-box'], {
+            'display-none': this.props.minimized,
           })}
         >
-          <div className="main-box__title flex justify-between">
-            <div className="flex-auto">{elementTitle}</div>
+          <div className="main-box__heading flex justify-between">
+            <div className="flex-auto main-box__heading-title">
+              {elementTitle}
+            </div>
             <Button
               className="border-none m0 p0"
+              disabled={this.props.selecting}
               style={{
                 padding: '0 4px',
               }}

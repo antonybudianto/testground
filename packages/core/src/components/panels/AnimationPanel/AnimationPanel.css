@@ -1,0 +1,21 @@
+:local(.btn-time) {
+  font-size: 9pt;
+  padding: 5px;
+}
+
+:local(.btn-time--ok) {
+  border-bottom: 1px solid green;
+}
+
+:local(.btn-link) {
+  border: none;
+  padding: 0;
+  border-bottom: 1px solid gray;
+  cursor: pointer;
+  font-size: 10pt;
+}
+
+:local(.info-heading) {
+  width: 300px;
+  font-size: 11pt;
+}

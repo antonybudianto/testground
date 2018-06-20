@@ -1,11 +1,11 @@
 .color-picker {
-  display: inline-block;
-  width: 25px;
-  height: 25px;
+  display: block;
+  width: 20px;
+  height: 20px;
   border: 1px solid black;
   cursor: pointer;
 }
 
 .color-picker__wrapper {
-  display: inline-block;
+  display: block;
 }

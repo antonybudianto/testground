@@ -3,6 +3,7 @@ import SourceView from './panels/SourceViewPanel';
 import MenuPanel from './panels/MenuPanel';
 import BorderPanel from './panels/BorderPanel';
 import { ShadowPanel } from './panels/ShadowPanel';
+import AnimationPanel from './panels/AnimationPanel/AnimationPanel';
 
 export const internalPlugins = [
   {
@@ -53,6 +54,17 @@ export const internalPlugins = [
     },
     panel: {
       component: ShadowPanel,
+    },
+  },
+  {
+    id: 'animation',
+    menu: {
+      menuName: 'Animation',
+      menuIcon: 'fa-video',
+      menuStatus: 'Alpha',
+    },
+    panel: {
+      component: AnimationPanel,
     },
   },
 ];

@@ -1,3 +1,11 @@
 .menu-panel__btn-text {
   font-size: 10pt;
 }
+
+.menu-panel__menu-status {
+  display: inline-block;
+  font-size: 9pt;
+  color: white;
+  background-color: gray;
+  padding: 3px;
+}
