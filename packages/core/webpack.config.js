@@ -1,6 +1,8 @@
 const webpack = require('webpack');
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin;
 
 const devMode = process.env.NODE_ENV === 'development';
 
@@ -40,7 +42,14 @@ const config = {
       },
     ],
   },
-  plugins: [],
+  plugins: devMode
+    ? []
+    : [
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'static',
+          openAnalyzer: false,
+        }),
+      ],
 };
 
 module.exports = config;
