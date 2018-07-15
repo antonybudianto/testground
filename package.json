@@ -9,6 +9,7 @@
     "clean": "lerna clean",
     "clean:build": "lerna exec -- rimraf lib",
     "build": "lerna run build",
+    "prerelease": "npm run build",
     "release": "lerna publish",
     "build:core": "lerna run --scope=@react-instudio/core build",
     "test": "exit 0"
