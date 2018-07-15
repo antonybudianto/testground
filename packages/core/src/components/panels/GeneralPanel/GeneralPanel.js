@@ -34,7 +34,7 @@ class GeneralPanel extends Component {
     const { style } = this.state;
     const { element } = this.props;
 
-    console.dir(element);
+    console.dir('sarang');
 
     return (
       <BasicPanel title="GENERAL">
