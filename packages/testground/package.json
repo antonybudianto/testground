@@ -3,12 +3,18 @@
   "version": "0.0.20",
   "private": true,
   "dependencies": {
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
+    "@cra-express/core": "^2.3.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
     "react-scripts": "1.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "cra-universal start --both",
+    "serve": "NODE_ENV=production node ./server/bundle",
+    "crau:start": "cra-universal start",
+    "crau:build": "cra-universal build",
+    "crau:clean": "cra-universal clean",
+    "start:client": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
@@ -16,6 +22,7 @@
   },
   "devDependencies": {
     "@react-instudio/core": "^0.0.20",
+    "cra-universal": "^3.2.1",
     "prettier": "1.13.3"
   }
 }
