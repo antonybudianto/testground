@@ -1,6 +1,6 @@
 {
   "name": "testground",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "private": true,
   "dependencies": {
     "@cra-express/core": "^2.3.0",
@@ -21,7 +21,7 @@
     "prettier": "prettier --write \"{src,__{tests,mocks}__}/**/*.js\""
   },
   "devDependencies": {
-    "@react-instudio/core": "^0.0.20",
+    "@react-instudio/core": "^0.0.21",
     "cra-universal": "^3.2.1",
     "prettier": "1.13.3"
   }
